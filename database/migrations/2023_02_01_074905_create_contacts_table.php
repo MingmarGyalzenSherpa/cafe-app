@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('Contact');
             $table->unsignedBigInteger('employee_id');
-            $table->foreign('employee_id')->references('id')->on('Employee');
+            $table->foreign('employee_id')->references('id')->on('employees');
         });
     }
 

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->unsignedInteger('salary');
             $table->string('shift')->nullable();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
