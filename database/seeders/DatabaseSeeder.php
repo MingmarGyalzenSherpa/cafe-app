@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Categories;
 use App\Models\Employee;
 use App\Models\Items;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,5 +22,6 @@ class DatabaseSeeder extends Seeder
         Categories::factory()->count(5)->create();
         Items::factory()->count(15)->create();
         Employee::factory()->count(10)->create();
+        User::factory()->count(5)->create();
     }
 }
