@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('EmployeeContacts', function (Blueprint $table) {
+        Schema::create('Employee_Contacts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('Contact');
+            $table->string('contact')->unique();
             $table->unsignedBigInteger('employee_id');
+            $table->string('city');
+            $table->string('email');
             $table->foreign('employee_id')->references('id')->on('employees');
         });
     }
