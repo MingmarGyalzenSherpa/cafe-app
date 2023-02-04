@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Admin>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class AdminFactory extends Factory
+class UserFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,8 @@ class AdminFactory extends Factory
     {
         return [
             //
-            'user_name' => fake()->unique()->userName(),
+            'user_name' => fake()->userName(),
+            'type' => 'admin',
             'password' => Hash::make('1234'),
 
 

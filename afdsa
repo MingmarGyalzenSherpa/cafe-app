@@ -1,0 +1,41 @@
+[33mcommit 08a3a561d566397ae52a19ecaf9897a9f1a4b737[m[33m ([m[1;36mHEAD -> [m[1;32mmodels[m[33m, [m[1;31morigin/models[m[33m)[m
+Author: Mingmar Gyalzen Sherpa <mingmagsherpa6@gmail.com>
+Date:   Wed Feb 1 14:38:44 2023 +0545
+
+    created Admin model
+
+[33mcommit f6946ea56b61db82af06b4410d034f133cef0116[m
+Author: Mingmar Gyalzen Sherpa <mingmagsherpa6@gmail.com>
+Date:   Wed Feb 1 13:55:03 2023 +0545
+
+    fixed employee migration issue
+
+[33mcommit 2de1fdc8c17871c81a087ca2001cbebbd144451d[m
+Author: Mingmar Gyalzen Sherpa <mingmagsherpa6@gmail.com>
+Date:   Wed Feb 1 13:43:32 2023 +0545
+
+    Create Employee Model
+
+[33mcommit cbdb6b990334263f8029983d1d6c3597d04229ec[m
+Author: Mingmar Gyalzen Sherpa <mingmagsherpa6@gmail.com>
+Date:   Wed Feb 1 13:39:41 2023 +0545
+
+    Create EmployeeContacts model
+
+[33mcommit 0555db727d93f908a1632d2f4c68d791f55f5821[m
+Author: Mingmar Gyalzen Sherpa <mingmagsherpa6@gmail.com>
+Date:   Wed Feb 1 11:10:06 2023 +0545
+
+    Created Items model
+
+[33mcommit 84247f62a6601ff7ae0177a13c36bccc629ae718[m
+Author: Mingmar Gyalzen Sherpa <mingmagsherpa6@gmail.com>
+Date:   Tue Jan 31 17:12:46 2023 +0545
+
+    made categories model
+
+[33mcommit 964751ac6957b93dc7e946664f001e5f843f82f4[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: Mingmar Gyalzen Sherpa <mingmagsherpa6@gmail.com>
+Date:   Tue Dec 27 14:37:45 2022 +0545
+
+    basic backbone
