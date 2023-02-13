@@ -19,7 +19,7 @@ class UserFactory extends Factory
     {
         return [
             //
-            'user_name' => fake()->userName(),
+            'email' => fake()->email(),
             'type' => 'admin',
             'password' => Hash::make('1234'),
 
