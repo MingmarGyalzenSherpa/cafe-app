@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,11 +20,9 @@ class UserFactory extends Factory
     {
         return [
             //
-            'user_name' => fake()->userName(),
+            'email' => fake()->email(),
             'type' => 'admin',
             'password' => Hash::make('1234'),
-
-
         ];
     }
 }
