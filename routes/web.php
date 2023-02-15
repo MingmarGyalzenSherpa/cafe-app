@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\frontend\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('authentication/login');
 });
 
 //login user
 Route::post('/login-user', [UserController::class, 'loginUser'])->name('loginUser');
+=======
+Route::get('/',[HomeController::class,'index']);
+
