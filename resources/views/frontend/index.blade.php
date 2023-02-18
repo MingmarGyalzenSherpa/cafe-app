@@ -42,8 +42,7 @@
           <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+                MAS Cafe is a cafe which is mainly online serving to your doorstepps. Our cafe is filled with the best breakfasts … filling lunches … delicious dinners and more”
               </p>
               <ul>
                 <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
