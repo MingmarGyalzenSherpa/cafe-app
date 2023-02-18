@@ -307,23 +307,23 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
+                <h4>Blueberry Buttermilk Pancakes</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  Blueberry, Buttermilk, Fresh Blueberries.
                 </p>
                 <p class="price">
-                  $8.95
+                  Rs. 250
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
+                <h4>Cornbread Waffles</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  Honey, Softened Butter, Yellow Cornmeal.
                 </p>
                 <p class="price">
-                  $12.95
+                  Rs. 350
                 </p>
               </div><!-- Menu Item -->
 
