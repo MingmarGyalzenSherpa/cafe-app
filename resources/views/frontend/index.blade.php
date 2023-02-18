@@ -579,10 +579,10 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                        Delicious pancakes and the best morning , a welcome addition to the cafe.
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>Jena Karlis</h3>
+                      <h3>Jessi Pinkman</h3>
                       <h4>Store Owner</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -603,10 +603,10 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                       Great foods, kindly and friendly staff. Home atmosphere
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>John Larson</h3>
+                      <h3>Skyler White</h3>
                       <h4>Entrepreneur</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
