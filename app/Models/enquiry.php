@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class enquiry extends Model
+class Enquiry extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'email', 'subject', 'message'];
-    protected $UPDATED_AT  = null;
+    const UPDATED_AT  = null;
 }

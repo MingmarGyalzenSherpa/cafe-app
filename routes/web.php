@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
@@ -28,3 +29,6 @@ Route::get('/', [HomeController::class, 'index']);
 
 //book a table
 Route::post('/book-a-table', [ReservationsController::class, 'reserveTable'])->name('bookTable');
+
+//send an enquiry
+Route::post('/send-message', [EnquiryController::class, 'sendEnquiry'])->name('sendMessage');
