@@ -207,12 +207,12 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
+                <h4>Fish Ball Chowmein</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  Wheat noodles, fish balls, dark soy sauce.
                 </p>
                 <p class="price">
-                  $5.95
+                  Rs.200
                 </p>
               </div><!-- Menu Item -->
 
