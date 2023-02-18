@@ -3,6 +3,8 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\ReservationsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +23,8 @@ Route::get('/', function () {
 
 //login user
 Route::post('/login-user', [UserController::class, 'loginUser'])->name('loginUser');
-=======
-Route::get('/',[HomeController::class,'index']);
 
+Route::get('/', [HomeController::class, 'index']);
+
+//book a table
+Route::post('/book-a-table', [ReservationsController::class, 'reserveTable'])->name('bookTable');
