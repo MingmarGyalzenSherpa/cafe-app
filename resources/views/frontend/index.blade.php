@@ -327,7 +327,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-5.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-5.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Ham & Cheese Spinach Puffs</h4>
                 <p class="ingredients">
                 Box frozen puff pastry, Whole milk.
@@ -338,7 +338,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-6.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-6.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Scrambled Eggs</h4>
                 <p class="ingredients">
                  Kosher salt, sour cream or heavy cream.
@@ -361,7 +361,7 @@
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Garlic Bread Pizza</h4>
                 <p class="ingredients">
               loaf frozen garlic bread,pepperoni slices.
@@ -372,7 +372,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-2.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-2.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Pinwheel Sandwiches</h4>
                 <p class="ingredients">
                   butter lettuce leaves,deli-sliced baked ham.
@@ -383,7 +383,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-3.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-3.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Buffalo Chicken Wrap</h4>
                 <p class="ingredients">
                   boneless skinless chicken breasts,red wine vinegar.
@@ -394,7 +394,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-4.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-4.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Chicken Patty</h4>
                 <p class="ingredients">
                   smoked paprika,Sliced beefsteak tomatoes.
@@ -405,7 +405,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-5.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-5.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Grown-Up SpaghettiOs & Meatballs</h4>
                 <p class="ingredients">
                 unsalted butter,panko bread crumbs,ground beef chuck.
