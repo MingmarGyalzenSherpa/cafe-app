@@ -340,12 +340,12 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
+                <h4>Scrambled Eggs</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                 Kosher salt, sour cream or heavy cream.
                 </p>
                 <p class="price">
-                  $9.95
+                  Rs. 150
                 </p>
               </div><!-- Menu Item -->
 
