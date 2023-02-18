@@ -294,7 +294,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-2.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-2.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Lemon Ricotta Pancakes</h4>
                 <p class="ingredients">
                   Lemon, Ricotta, Maple syrup.
@@ -305,7 +305,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-3.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-3.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Blueberry Buttermilk Pancakes</h4>
                 <p class="ingredients">
                   Blueberry, Buttermilk, Fresh Blueberries.
@@ -316,7 +316,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-4.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-4.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Cornbread Waffles</h4>
                 <p class="ingredients">
                   Honey, Softened Butter, Yellow Cornmeal.
