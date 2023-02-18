@@ -218,12 +218,12 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="{{asset('import/assets/img/menu/menu-item-2.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-2.png')}}" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
+                <h4>Creamy White Bean & Sausage Soup</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                   Low-sodium chicken broth, Cans cannellini beans.
                 </p>
                 <p class="price">
-                  $14.95
+                  Rs.300
                 </p>
               </div><!-- Menu Item -->
 
