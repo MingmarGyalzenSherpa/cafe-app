@@ -418,12 +418,12 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
+                <h4>Chicken Salad Sandwich</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                boneless skinless chicken breasts,mayonnaise.
                 </p>
                 <p class="price">
-                  $9.95
+                  Rs.250
                 </p>
               </div><!-- Menu Item -->
 
