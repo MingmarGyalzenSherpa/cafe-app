@@ -45,9 +45,9 @@
                 MAS Cafe is a cafe which is mainly online serving to your doorstepps. Our cafe is filled with the best breakfasts … filling lunches … delicious dinners and more”
               </p>
               <ul>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                <li><i class="bi bi-check2-all"></i> Begin your day with our different starter packs.</li>
+                <li><i class="bi bi-check2-all"></i> Fill your stomach with delicious breakfast from our menu.</li>
+                <li><i class="bi bi-check2-all"></i>Have the best tastes and end your day with different our different dinner specials from our menu.</li>
               </ul>
               <p>
                 Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
