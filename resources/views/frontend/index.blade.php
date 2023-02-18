@@ -531,7 +531,7 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        Good place for organic coffee and lovely sunny breakfast at outdoor sitting area . Recommended 10/10.”
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
                       <h3>Saul Goodman</h3>
@@ -555,7 +555,7 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                        Great breakfast and fresh organic coffee . Recommend MAS Cafe. Recommended 10/10 for reasonable price and best food!
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
                       <h3>Sara Wilsson</h3>
