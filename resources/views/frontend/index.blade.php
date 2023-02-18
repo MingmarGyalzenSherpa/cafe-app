@@ -207,67 +207,67 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
+                <h4>Fish Ball Chowmein</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  Wheat noodles, fish balls, dark soy sauce.
                 </p>
                 <p class="price">
-                  $5.95
+                  Rs.200
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="{{asset('import/assets/img/menu/menu-item-2.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-2.png')}}" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
+                <h4>Creamy White Bean & Sausage Soup</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                   Low-sodium chicken broth, Cans cannellini beans.
                 </p>
                 <p class="price">
-                  $14.95
+                  Rs.300
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="{{asset('import/assets/img/menu/menu-item-3.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-3.png')}}" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
+                <h4>Spicy Tomato Cheddar Soup</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                 Tomato paste, Sodium chicken or vegetable broth.
                 </p>
                 <p class="price">
-                  $8.95
+                  Rs.300
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="{{asset('import/assets/img/menu/menu-item-4.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-4.png')}}" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
+                <h4>Korean Fried Chicken</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                 Chicken wings, ketchup,rice vinegar,cocktail peanuts.
                 </p>
                 <p class="price">
-                  $12.95
+                  Rs.400
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
+                <h4>Thai Fried Chicken Sandwich</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                Skinless, boneless chicken thighs,mayonnaise,fish sauce.
                 </p>
                 <p class="price">
-                  $12.95
+                  Rs.350
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
+                <h4>Air Fryer Potatoes</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                 Baby potatoes,Freshly ground black pepper,Lemon wedge.
                 </p>
                 <p class="price">
-                  $9.95
+                  Rs.150
                 </p>
               </div><!-- Menu Item -->
 
@@ -329,23 +329,23 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
+                <h4>Ham & Cheese Spinach Puffs</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                Box frozen puff pastry, Whole milk.
                 </p>
                 <p class="price">
-                  $12.95
+                  Rs.300
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
+                <h4>Scrambled Eggs</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                 Kosher salt, sour cream or heavy cream.
                 </p>
                 <p class="price">
-                  $9.95
+                  Rs. 150
                 </p>
               </div><!-- Menu Item -->
 
