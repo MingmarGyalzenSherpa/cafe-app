@@ -8,7 +8,7 @@
       <div class="row justify-content-between gy-5">
         <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
           <h2 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h2>
-          <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+          <p data-aos="fade-up" data-aos-delay="100">The latest flavors and hacks you'll want to try ASAP. Tastes which will be stuck inside your head.</p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
             <a href="#book-a-table" class="btn-book-a-table">Book a Table</a>
             <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -42,17 +42,16 @@
           <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+                MAS Cafe is a cafe which is mainly online serving to your doorstepps. Our cafe is filled with the best breakfasts … filling lunches … delicious dinners and more”
               </p>
               <ul>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                <li><i class="bi bi-check2-all"></i> Begin your day with our different starter packs.</li>
+                <li><i class="bi bi-check2-all"></i> Fill your stomach with delicious breakfast from our menu.</li>
+                <li><i class="bi bi-check2-all"></i>Have the best tastes and end your day with different our different dinner specials from our menu.</li>
               </ul>
               <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+              All the food served at MAS Cafe is grown locally. We support local producers & in turn you get the freshest ingredients.
+              We have daily kitchen inspections & all our food is prepared with utmost of attention.
               </p>
 
               <div class="position-relative mt-4">
@@ -363,67 +362,67 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
+                <h4>Garlic Bread Pizza</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+              loaf frozen garlic bread,pepperoni slices.
                 </p>
                 <p class="price">
-                  $5.95
+                  Rs.200
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
+                <h4>Pinwheel Sandwiches</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  butter lettuce leaves,deli-sliced baked ham.
                 </p>
                 <p class="price">
-                  $14.95
+                  Rs.300
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
+                <h4>Buffalo Chicken Wrap</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  boneless skinless chicken breasts,red wine vinegar.
                 </p>
                 <p class="price">
-                  $8.95
+                  Rs.300
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
+                <h4>Chicken Patty</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  smoked paprika,Sliced beefsteak tomatoes.
                 </p>
                 <p class="price">
-                  $12.95
+                  Rs.250
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
+                <h4>Grown-Up SpaghettiOs & Meatballs</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                unsalted butter,panko bread crumbs,ground beef chuck.
                 </p>
                 <p class="price">
-                  $12.95
+                  Rs.400
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
+                <h4>Chicken Salad Sandwich</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                boneless skinless chicken breasts,mayonnaise.
                 </p>
                 <p class="price">
-                  $9.95
+                  Rs.250
                 </p>
               </div><!-- Menu Item -->
 
@@ -441,67 +440,67 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
+                <h4>Creamy Steak Fettuccine</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  Boneless skinless chicken breasts, heavy cream.
                 </p>
                 <p class="price">
-                  $5.95
+                  Rs.500
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
+                <h4>BBQ Chicken Twice-Baked Potatoes</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                 Shredded rotisserie chicken,Shredded smoked Gouda.
                 </p>
                 <p class="price">
-                  $14.95
+                  Rs.500
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
+                <h4>Chicken Fried Rice</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+            Cooked white rice, chicken breasts.
                 </p>
                 <p class="price">
-                  $8.95
+                  Rs.400
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
+                <h4>Thai Fried Rice</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  Cooked white rice,chicken breasts, thinly sliced,Kosher salt.
                 </p>
                 <p class="price">
-                  $12.95
+                  Rs.450
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
+                <h4>Tofu Katsu Curry</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  Block firm tofu,baby bella mushrooms.
                 </p>
                 <p class="price">
-                  $12.95
+                  Rs.400
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
+                <h4>Tex-Mex Meatballs</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                   Shredded Mexican cheese blend,can crushed tomatoes.
                 </p>
                 <p class="price">
-                  $9.95
+                  Rs.400
                 </p>
               </div><!-- Menu Item -->
 
@@ -532,7 +531,7 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        Good place for organic coffee and lovely sunny breakfast at outdoor sitting area . Recommended 10/10.”
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
                       <h3>Saul Goodman</h3>
@@ -556,10 +555,10 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                        Great breakfast and fresh organic coffee . Recommend MAS Cafe. Recommended 10/10 for reasonable price and best food!
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>Sara Wilsson</h3>
+                      <h3>Walter White Yo</h3>
                       <h4>Designer</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -580,10 +579,10 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                        Delicious pancakes and the best morning , a welcome addition to the cafe.
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>Jena Karlis</h3>
+                      <h3>Jessi Pinkman</h3>
                       <h4>Store Owner</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -604,10 +603,10 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                       Great foods, kindly and friendly staff. Home atmosphere
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>John Larson</h3>
+                      <h3>Skyler White</h3>
                       <h4>Entrepreneur</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
