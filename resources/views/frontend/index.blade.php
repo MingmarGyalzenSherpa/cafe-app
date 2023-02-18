@@ -262,12 +262,12 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Laboriosam Direva</h4>
+                <h4>Air Fryer Potatoes</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                 Baby potatoes,Freshly ground black pepper,Lemon wedge.
                 </p>
                 <p class="price">
-                  $9.95
+                  Rs.150
                 </p>
               </div><!-- Menu Item -->
 
