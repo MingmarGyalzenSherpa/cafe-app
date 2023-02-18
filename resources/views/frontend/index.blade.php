@@ -558,7 +558,7 @@
                         Great breakfast and fresh organic coffee . Recommend MAS Cafe. Recommended 10/10 for reasonable price and best food!
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>Sara Wilsson</h3>
+                      <h3>Walter White Yo</h3>
                       <h4>Designer</h4>
                       <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
