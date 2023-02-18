@@ -416,7 +416,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-6.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-6.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Chicken Salad Sandwich</h4>
                 <p class="ingredients">
                 boneless skinless chicken breasts,mayonnaise.
@@ -439,7 +439,7 @@
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Creamy Steak Fettuccine</h4>
                 <p class="ingredients">
                   Boneless skinless chicken breasts, heavy cream.
@@ -450,7 +450,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-2.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-2.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>BBQ Chicken Twice-Baked Potatoes</h4>
                 <p class="ingredients">
                  Shredded rotisserie chicken,Shredded smoked Gouda.
@@ -461,7 +461,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-3.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-3.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Chicken Fried Rice</h4>
                 <p class="ingredients">
             Cooked white rice, chicken breasts.
@@ -472,7 +472,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-4.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-4.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Thai Fried Rice</h4>
                 <p class="ingredients">
                   Cooked white rice,chicken breasts, thinly sliced,Kosher salt.
@@ -483,7 +483,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-5.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-5.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Tofu Katsu Curry</h4>
                 <p class="ingredients">
                   Block firm tofu,baby bella mushrooms.
@@ -494,7 +494,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-6.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-6.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Tex-Mex Meatballs</h4>
                 <p class="ingredients">
                    Shredded Mexican cheese blend,can crushed tomatoes.
