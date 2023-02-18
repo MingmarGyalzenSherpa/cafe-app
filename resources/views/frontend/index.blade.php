@@ -36,7 +36,7 @@
           <div class="col-lg-7 position-relative about-img" style="background-image: {{asset('import/assets/img/about.jpg')}} ;" data-aos="fade-up" data-aos-delay="150">
             <div class="call-us position-absolute">
               <h4>Book a Table</h4>
-              <p>+1 5589 55488 55</p>
+              <p>984206925</p>
             </div>
           </div>
           <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
@@ -76,8 +76,7 @@
             <div class="why-box">
               <h3>Why Choose MAS Cafe?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                Too tired of not having the taste that you desire? We provide you the best dishes possible to please your heart.
               </p>
               <div class="text-center">
                 <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
