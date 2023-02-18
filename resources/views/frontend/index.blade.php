@@ -229,12 +229,12 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="{{asset('import/assets/img/menu/menu-item-3.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-3.png')}}" class="menu-img img-fluid" alt=""></a>
-                <h4>Est Eligendi</h4>
+                <h4>Spicy Tomato Cheddar Soup</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                 Tomato paste, Sodium chicken or vegetable broth.
                 </p>
                 <p class="price">
-                  $8.95
+                  Rs.300
                 </p>
               </div><!-- Menu Item -->
 
