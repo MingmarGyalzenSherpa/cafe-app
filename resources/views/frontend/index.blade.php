@@ -363,20 +363,20 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Magnam Tiste</h4>
+                <h4>Garlic Bread Pizza</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+              loaf frozen garlic bread,pepperoni slices.
                 </p>
                 <p class="price">
-                  $5.95
+                  Rs.200
                 </p>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Aut Luia</h4>
+                <h4>Pinwheel Sandwiches</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  butter lettuce leaves,deli-sliced baked ham.
                 </p>
                 <p class="price">
                   $14.95
