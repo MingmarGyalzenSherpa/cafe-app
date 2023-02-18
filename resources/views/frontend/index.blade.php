@@ -50,8 +50,8 @@
                 <li><i class="bi bi-check2-all"></i>Have the best tastes and end your day with different our different dinner specials from our menu.</li>
               </ul>
               <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+              All the food served at MAS Cafe is grown locally. We support local producers & in turn you get the freshest ingredients.
+              We have daily kitchen inspections & all our food is prepared with utmost of attention.
               </p>
 
               <div class="position-relative mt-4">
