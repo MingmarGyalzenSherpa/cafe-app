@@ -329,12 +329,12 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
+                <h4>Ham & Cheese Spinach Puffs</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                Box frozen puff pastry, Whole milk.
                 </p>
                 <p class="price">
-                  $12.95
+                  Rs.300
                 </p>
               </div><!-- Menu Item -->
 
