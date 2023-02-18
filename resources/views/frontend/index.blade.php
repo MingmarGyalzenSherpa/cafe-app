@@ -485,12 +485,12 @@
 
               <div class="col-lg-4 menu-item">
                 <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                <h4>Eos Luibusdam</h4>
+                <h4>Tofu Katsu Curry</h4>
                 <p class="ingredients">
-                  Lorem, deren, trataro, filede, nerada
+                  Block firm tofu,baby bella mushrooms.
                 </p>
                 <p class="price">
-                  $12.95
+                  Rs.400
                 </p>
               </div><!-- Menu Item -->
 
