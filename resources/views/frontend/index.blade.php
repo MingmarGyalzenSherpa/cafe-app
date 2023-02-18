@@ -379,7 +379,7 @@
                   butter lettuce leaves,deli-sliced baked ham.
                 </p>
                 <p class="price">
-                  $14.95
+                  Rs.300
                 </p>
               </div><!-- Menu Item -->
 
