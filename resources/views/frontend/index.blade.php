@@ -249,7 +249,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-5.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-5.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Thai Fried Chicken Sandwich</h4>
                 <p class="ingredients">
                 Skinless, boneless chicken thighs,mayonnaise,fish sauce.
@@ -260,7 +260,7 @@
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-6.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-6.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Air Fryer Potatoes</h4>
                 <p class="ingredients">
                  Baby potatoes,Freshly ground black pepper,Lemon wedge.
@@ -283,7 +283,7 @@
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="menu-img img-fluid" alt=""></a>
                 <h4>Sweet Potato Pancake</h4>
                 <p class="ingredients">
                  Sweet Potato, Buttermilk, Maple syrup.
