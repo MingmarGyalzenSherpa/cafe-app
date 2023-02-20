@@ -45,12 +45,18 @@
   
         <!-- Email input -->
         <div class="form-outline mb-4">
+          @error('email')
+          <div class="alert alert-danger">{{$message}}</div>
+          @enderror
           <input type="email" id="loginName" class="form-control" />
           <label class="form-label" name="email" for="loginName">Email</label>
         </div>
   
         <!-- Password input -->
         <div class="form-outline mb-4">
+          @error('password')
+          <div class="alert alert-danger">{{$message}}</div>
+          @enderror
           <input type="password" id="loginPassword" class="form-control" />
           <label class="form-label" name="password" for="loginPassword">Password</label>
         </div>

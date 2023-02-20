@@ -15,5 +15,9 @@ class AdminController extends Controller
 
     public function loginSubmit(Request $req)
     {
+        $req->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
     }
 }
