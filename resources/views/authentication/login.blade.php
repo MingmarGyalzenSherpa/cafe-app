@@ -5,22 +5,22 @@
     
 <div class="container w-25 border p-4">
 
-  <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+  {{-- <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
         aria-controls="pills-login" aria-selected="true">Login</a>
     </li>
-    <li class="nav-item" role="presentation">
+    {{-- <li class="nav-item" role="presentation">
       <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
         aria-controls="pills-register" aria-selected="false">Register</a>
-    </li>
-  </ul>
+    </li> 
+  </ul> --}}
   
+  <h2>LOGIN</h2>
   
-  
-  <div class="tab-content">
+  <div class="tab-content pt-2">
     <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-      <form action="{{route('loginUser')}}" method="POST">
+      <form action="{{route('submitLogin')}}" method="POST">
         @csrf
         {{-- <div class="text-center mb-3">
           <p>Sign in with:</p>
@@ -40,23 +40,23 @@
             <i class="fab fa-github"></i>
           </button>
         </div> --}}
-  
-        <p class="text-center">or:</p>
+{{--   
+        <p class="text-center">or:</p> --}}
   
         <!-- Email input -->
         <div class="form-outline mb-4">
           <input type="email" id="loginName" class="form-control" />
-          <label class="form-label" for="loginName">Email</label>
+          <label class="form-label" name="email" for="loginName">Email</label>
         </div>
   
         <!-- Password input -->
         <div class="form-outline mb-4">
           <input type="password" id="loginPassword" class="form-control" />
-          <label class="form-label" for="loginPassword">Password</label>
+          <label class="form-label" name="password" for="loginPassword">Password</label>
         </div>
   
         <!-- 2 column grid layout -->
-        <div class="row mb-4">
+        {{-- <div class="row mb-4">
           <div class="col-md-6 d-flex justify-content-center">
             <!-- Checkbox -->
             <div class="form-check mb-3 mb-md-0">
@@ -69,13 +69,13 @@
             <!-- Simple link -->
             <a href="#!">Forgot password?</a>
           </div>
-        </div>
+        </div> --}}
   
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
   
         <!-- Register buttons -->
-        <div class="text-center">
+        {{-- <div class="text-center">
           <p>Not a member? <a href="#!">Register</a></p>
         </div>
       </form>
@@ -141,9 +141,9 @@
             I have read and agree to the terms
           </label>
         </div>
-  
+   --}}
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+        {{-- <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button> --}}
       </form>
     </div>
   </div>

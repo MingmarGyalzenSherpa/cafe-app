@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     //
-    public function loginUser(Request $req)
-    {
 
-        return view('home');
+    public function login()
+    {
+        return view('authentication.login');
+    }
+
+    public function loginSubmit(Request $req)
+    {
     }
 }

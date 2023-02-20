@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EnquiryController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\ReservationsController;
@@ -18,12 +18,12 @@ use App\Http\Controllers\ReservationsController;
 */
 
 
-Route::get('/', function () {
-    return view('authentication/login');
-});
 
-//login user
-Route::post('/login-user', [UserController::class, 'loginUser'])->name('loginUser');
+//get login form
+Route::get('/login', [AdminController::class, 'login']);
+
+//login Submit
+Route::post('/login-submit', [UserController::class, 'loginSubmit'])->name('submitLogin');
 
 Route::get('/', [HomeController::class, 'index']);
 

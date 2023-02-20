@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Admin extends Model
 {
     use HasFactory;
-    use HasFactory;
     const UPDATED_AT = null;
+    protected $fillable = ['email', 'password'];
 }
