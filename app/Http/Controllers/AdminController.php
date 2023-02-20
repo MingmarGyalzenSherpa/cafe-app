@@ -7,4 +7,9 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     //
+    public function loginUser(Request $req)
+    {
+
+        return view('home');
+    }
 }

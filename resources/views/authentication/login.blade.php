@@ -22,7 +22,7 @@
     <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
       <form action="{{route('loginUser')}}" method="POST">
         @csrf
-        <div class="text-center mb-3">
+        {{-- <div class="text-center mb-3">
           <p>Sign in with:</p>
           <button type="button" class="btn btn-link btn-floating mx-1">
             <i class="fab fa-facebook-f"></i>
@@ -39,14 +39,14 @@
           <button type="button" class="btn btn-link btn-floating mx-1">
             <i class="fab fa-github"></i>
           </button>
-        </div>
+        </div> --}}
   
         <p class="text-center">or:</p>
   
         <!-- Email input -->
         <div class="form-outline mb-4">
           <input type="email" id="loginName" class="form-control" />
-          <label class="form-label" for="loginName">Email or username</label>
+          <label class="form-label" for="loginName">Email</label>
         </div>
   
         <!-- Password input -->
