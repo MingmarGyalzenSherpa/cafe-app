@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\EnquiryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
@@ -20,12 +20,12 @@ use App\Http\Controllers\ReservationsController;
 
 
 //get login form
-Route::get('/login', [AdminController::class, 'login']);
+Route::get('/login', [UserController::class, 'login']);
 
 //login Submit
-Route::post('/login-submit', [AdminController::class, 'loginSubmit'])->name('submitLogin');
+Route::post('/login-submit', [UserController::class, 'submitLogin'])->name('submitLogin');
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 //book a table
 Route::post('/book-a-table', [ReservationsController::class, 'reserveTable'])->name('bookTable');
