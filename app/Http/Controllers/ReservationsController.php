@@ -35,5 +35,7 @@ class ReservationsController extends Controller
             'name' => $name, 'email' => $email, 'phone_no' => $phone, 'date' => $date, 'time' => $time,
             'guests' => $people, 'message' => $message
         ]);
+
+        return "OK";
     }
 }
