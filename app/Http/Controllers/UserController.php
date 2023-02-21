@@ -23,7 +23,7 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt($req->only('email', 'password'))) {
-            return redirect()->route('index');
+            return redirect()->route('orderDashboard');
         } else {
             return back()->with('failed', 'Email or Password is Incorrect');
         }
