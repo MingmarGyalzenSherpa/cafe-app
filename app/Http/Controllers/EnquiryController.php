@@ -29,5 +29,7 @@ class EnquiryController extends Controller
             'subject' => $subject,
             'message' => $message
         ]);
+
+        return "OK";
     }
 }
