@@ -10,36 +10,25 @@
               @foreach ($categories as $category)
                 <a class="nav-item border p-3" style="min-width:100px;text-align:center;"  href="#">{{$category->cat_name}}</a>
               @endforeach
+
               -->
               <section class="menu" id="menu">
-              <ul class="nav nav-tabs d-flex justify-content-center" >
-<!-- 
-          <ul class = "nav nav-tabs"> -->
-                <li class="nav-item">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-              <h4>ALL</h4>
-            </a><!-- End tab nav item -->
-
-               </li>
-               @foreach ($categories as $category)
-               <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-starters"  href="#">
-              <h4>{{$category->cat_name}}</h4>
-            </a>
-             </li><!-- End tab nav item -->
-             @endforeach
-
-
-         
-
-          <!-- <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-              <h4>Breakfast</h4>
-            </a>End tab nav item -->
-        </ul>
-        </section>
-            <!-- </nav> -->
-      
+                <ul class="nav nav-tabs d-flex justify-content-center" >
+                  <li class="nav-item">
+                    <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
+                      <h4>ALL</h4>
+                    </a>
+                  </li>
+                  @foreach ($categories as $category)
+                    <li class="nav-item">
+                      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-starters"  href="#">
+                        <h4>{{$category->cat_name}}</h4>
+                      </a>
+                    </li>
+                  @endforeach   
+                </ul>
+              </section>
+             
       <div class="mt-3 mb-3 p-2 d-flex flex-wrap container border border-primary">
         <div class="card m-2" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">

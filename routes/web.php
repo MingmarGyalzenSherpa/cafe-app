@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CashierController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EnquiryController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,9 @@ Route::post('/login-submit', [UserController::class, 'submitLogin'])->name('subm
 
 // Order Dashboard
 Route::get('/order-dashboard', [OrderController::class, 'create'])->middleware('auth')->name('orderDashboard');
+
+//Cashier Dashboard
+Route::get('/cashier-dashboard', [CashierController::class, 'create'])->middleware('auth')->name('cashierDashboard');
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
