@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Employee_Contacts', function (Blueprint $table) {
+        Schema::create('imgs', function (Blueprint $table) {
             $table->id();
-            $table->string('contact')->unique();
-            $table->unsignedBigInteger('employee_id');
-            $table->string('city');
-            $table->string('email');
-            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->string('img_path');
+            $table->unsignedBigInteger('item_id');
+            $table->foreign('item_id')->references('id')->on('items');
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('imgs');
     }
 };

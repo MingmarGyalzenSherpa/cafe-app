@@ -1,4 +1,4 @@
-@extends('frontend.adminPanel.order.layouts.main')
+@extends('frontend.adminPanel.layouts.main')
 @section('container')
 <div class="container " style="margin-top:90px;border:1px solid red;">
     
