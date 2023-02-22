@@ -11,4 +11,6 @@ class User extends Model
     use HasFactory;
     const UPDATED_AT = null;
     protected $fillable = ['email', 'password'];
+
+   
 }

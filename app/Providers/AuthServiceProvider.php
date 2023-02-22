@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Gate;
 
 use App\Models\User;
-use App\Policies\Dashboard;
-use Illuminate\Auth\Access\Gate;
+use App\Policies\UserPolicy;
+// use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -16,21 +17,18 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @var array<class-string, class-string>
      */
-    protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
-    ];
+    protected $policies = [];
 
     /**
      * Register any authentication / authorization services.
      *
      * @return void
      */
-    public function boot(Gate $gate) //create an instance of a gate as argument
+    public function boot()
     {
-        $this->registerPolicies();
 
+        $this->registerPolicies();
+        Gate::define('authorizeDashboard', [UserController::class, 'authorizeDashboard']); //defining gate for letting user authorize dashboard
         //
-        //associating dashboardPolicy with the user
-        $gate->policy(User::class, Dashboard::class);
     }
 }
