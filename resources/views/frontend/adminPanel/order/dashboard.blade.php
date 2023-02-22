@@ -2,7 +2,7 @@
 @section('container')
 <div class="container " style="margin-top:90px;border:1px solid red;">
     
-            <nav class="nav border">
+            <!-- <nav class="nav border">
               <a class="nav-item border active p-3" style="width:100px;text-align:center;" aria-current="page" href="#">ALL</a>
               <a class="nav-item p-3 border" style="width:100px;text-align:center;"  href="#">Features</a>
               <a class="nav-item border p-3" style="width:100px; text-align:center;"  href="#">Pricing</a>
@@ -10,8 +10,34 @@
               @foreach ($categories as $category)
                 <a class="nav-item border p-3" style="min-width:100px;text-align:center;"  href="#">{{$category->cat_name}}</a>
               @endforeach
-             
+              -->
               
+              <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+
+          <li class="nav-item">
+            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
+              <h4>All</h4>
+            </a>
+          </li><!-- End tab nav item -->
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
+              <h4>Breakfast</h4>
+            </a><!-- End tab nav item -->
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
+              <h4>Lunch</h4>
+            </a>
+          </li><!-- End tab nav item -->
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
+              <h4>Dinner</h4>
+            </a>
+          </li><!-- End tab nav item -->
+
+        </ul>
             </nav>
       
       <div class="mt-3 mb-3 p-2 d-flex flex-wrap container border border-primary">
