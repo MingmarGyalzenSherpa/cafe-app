@@ -22,7 +22,7 @@ use App\Http\Controllers\ReservationsController;
 
 
 //get login form
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login');
 
 //login Submit
 Route::post('/login-submit', [UserController::class, 'submitLogin'])->name('submitLogin');

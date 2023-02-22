@@ -1,9 +1,8 @@
 
-@extends('layout.app')
+@extends('frontend.adminPanel.order.layouts.main')
 
-@section('content')
-    
-<div class="container w-25 border p-4">
+@section('container')
+<div class="container w-25 border p-4" style="margin-top:90px;">
 
   {{-- <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
     <li class="nav-item" role="presentation">
