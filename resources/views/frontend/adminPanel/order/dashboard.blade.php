@@ -11,34 +11,34 @@
                 <a class="nav-item border p-3" style="min-width:100px;text-align:center;"  href="#">{{$category->cat_name}}</a>
               @endforeach
               -->
-              
-              <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
-
-          <li class="nav-item">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
-              <h4>All</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-              <h4>Breakfast</h4>
+              <section class="menu" id="menu">
+              <ul class="nav nav-tabs d-flex justify-content-center" >
+<!-- 
+          <ul class = "nav nav-tabs"> -->
+                <li class="nav-item">
+            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
+              <h4>ALL</h4>
             </a><!-- End tab nav item -->
 
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
-              <h4>Lunch</h4>
+               </li>
+               @foreach ($categories as $category)
+               <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-starters"  href="#">
+              <h4>{{$category->cat_name}}</h4>
             </a>
-          </li><!-- End tab nav item -->
+             </li><!-- End tab nav item -->
+             @endforeach
 
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-              <h4>Dinner</h4>
-            </a>
-          </li><!-- End tab nav item -->
 
+         
+
+          <!-- <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
+              <h4>Breakfast</h4>
+            </a>End tab nav item -->
         </ul>
-            </nav>
+        </section>
+            <!-- </nav> -->
       
       <div class="mt-3 mb-3 p-2 d-flex flex-wrap container border border-primary">
         <div class="card m-2" style="width: 18rem;">
