@@ -19,4 +19,9 @@ class CashierController extends Controller
             return back();
         }
     }
+
+    public function billDashboard($id)
+    {
+        dd($id);
+    }
 }
