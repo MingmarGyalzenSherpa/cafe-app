@@ -18,6 +18,8 @@ class OrderFactory extends Factory
     {
         return [
             //
+            "item_id" => fake()->numberBetween(1, 15),
+            "table_id" => fake()->numberBetween(1, 5),
         ];
     }
 }

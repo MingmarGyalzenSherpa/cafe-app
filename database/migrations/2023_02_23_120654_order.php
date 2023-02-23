@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('table_id');
             $table->timestamp('created_at')->useCurrent();
             $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('table_id')->references('id')->on('tables');
         });
     }
 
