@@ -31,6 +31,10 @@ Route::post('/login-submit', [UserController::class, 'submitLogin'])->name('subm
 // Order Dashboard
 Route::get('/order-dashboard', [OrderController::class, 'create'])->middleware('auth')->name('orderDashboard');
 
+//order billing
+Route::get('/bill/{id}', [CashierController::class, 'billDashboard'])->middleware('auth')->name('billDashboard');
+
+
 //Cashier Dashboard
 Route::get('/cashier-dashboard', [CashierController::class, 'create'])->middleware('auth')->name('cashierDashboard');
 
