@@ -9,14 +9,14 @@
 
                   @if($category->id == $categoryPK)
                     <li class="nav-item">
-                      <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#menu-starters"  href="#">
+                      <a class="nav-link active"  href="{{route('orderDashboard',$category->id)}}">
                         <h4>{{$category->cat_name}}</h4>
                       </a>
                     </li>
 
                   @else
                   <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-starters"  href="#">
+                    <a class="nav-link"  href="{{route('orderDashboard',$category->id)}}">
                       <h4>{{$category->cat_name}}</h4>
                     </a>
                   </li>
@@ -28,7 +28,8 @@
               
 
                 <div class="tab-pane fade active show d-flex flex-wrap justify-content-between" id="menu-starters">
-                  @for ($i = 0; $i < $count; $i++)
+                  {{-- using for loop to access the item and images as they share same index --}}
+                  @for ($i = 0; $i < $count; $i++) 
                       
                   <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
                     <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="menu-img img-fluid" alt=""></a>
