@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Img;
+use App\Models\Items;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -23,8 +25,13 @@ class OrderController extends Controller
             }
 
             $items = Categories::find($categoryPK)->items;
-            dd($items);
-            return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items'));
+            $images = array();
+            foreach ($items as $item) {
+                array_push($images, Items::find($item->id)->img);
+            }
+
+            // dd(Items::find(1)->img);
+            return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images'));
         } else {
             return back();
         }

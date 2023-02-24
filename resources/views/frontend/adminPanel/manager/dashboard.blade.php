@@ -10,9 +10,9 @@
                 <br>
             <label for="category">Category</label>
             <select name="categories_id" id="">
-                <option value="hi">food</option>
-                <option value="hi">foods</option>
-                <option value="hi">fooed</option>
+                <option value="1">food</option>
+                <option value="2">foods</option>
+                <option value="3">fooed</option>
             </select>
             <br>
             <br>
