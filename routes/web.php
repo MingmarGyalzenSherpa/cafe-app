@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EnquiryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReservationsController;
@@ -42,6 +43,10 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 
 //Manager Dashboard
 Route::get('/manager-dashboard', [ManagerController::class, 'create'])->middleware('auth')->name('managerDashboard');
+
+//add-item
+Route::post('/add-item', [ItemsController::class, 'addItem'])->middleware('auth')->name('addItem');
+
 
 
 //book a table
