@@ -1,24 +1,10 @@
 @extends('frontend.adminPanel.layouts.main')
 @section('container')
 <div class="container " style="margin-top:90px;border:1px solid red;">
-    
-            <!-- <nav class="nav border">
-              <a class="nav-item border active p-3" style="width:100px;text-align:center;" aria-current="page" href="#">ALL</a>
-              <a class="nav-item p-3 border" style="width:100px;text-align:center;"  href="#">Features</a>
-              <a class="nav-item border p-3" style="width:100px; text-align:center;"  href="#">Pricing</a>
-              <a class="nav-item border p-3" style="width:100px;text-align:center;"  href="#">Disabled</a>
-              @foreach ($categories as $category)
-                <a class="nav-item border p-3" style="min-width:100px;text-align:center;"  href="#">{{$category->cat_name}}</a>
-              @endforeach
-
-              -->
               <section class="menu" id="menu">
+                 <h2 style="text-align: center;">CATEGORIES</h2>
+                 <hr>
                 <ul class="nav nav-tabs d-flex justify-content-center" >
-                  <li class="nav-item">
-                    <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-                      <h4>ALL</h4>
-                    </a>
-                  </li>
                   @foreach ($categories as $category)
                     <li class="nav-item">
                       <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-starters"  href="#">
@@ -28,7 +14,41 @@
                   @endforeach   
                 </ul>
               </section>
-             
+              <div class="tab-content">
+
+                {{dd($itemsPerCategory)}}
+                @foreach($itemsPerCategory as $category => $items)
+              
+                <div class="tab-pane fade active show d-flex flex-wrap justify-content-between" id="menu-{{$category}}">
+                
+                  @foreach($items as $item)
+
+                    <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
+                      <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="menu-img img-fluid" alt=""></a>
+                        <h4>{{$item->name}}</h4>
+                      <p class="price"> {{$item->price}} </p>
+                    </div>
+                  @endforeach
+
+
+                </div>
+
+                @endforeach
+
+                <div class="tab-pane fade active show d-flex flex-wrap justify-content-between" id="menu-starters">
+                  {{-- @foreach($items as $item)
+                  <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
+                    <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="menu-img img-fluid" alt=""></a>
+                    <h4>{{$item->name}}</h4>
+                    
+                    <p class="price">
+                     {{$item->price}}
+                    </p>
+                  </div>
+                  @endforeach --}}
+                </div>
+              </div>
+{{--              
       <div class="mt-3 mb-3 p-2 d-flex flex-wrap container border border-primary">
         <div class="card m-2" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">
@@ -47,6 +67,6 @@
           </div>
 
         @endforeach
-      </div>
+      </div> --}}
 </div>
 @endsection

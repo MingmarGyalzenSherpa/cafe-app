@@ -48,8 +48,10 @@ class UserController extends Controller
             $type = $user->type;
             if ($type == "waiter") {
                 return redirect()->route('orderDashboard');
-            } else {
+            } else if ($type == "cashier") {
                 return redirect()->route('cashierDashboard');
+            } else {
+                return redirect()->route('managerDashboard');
             }
         } else {
             return back()->with('failed', 'Email or Password is Incorrect');

@@ -19,7 +19,7 @@ class ItemsFactory extends Factory
         return [
             //
             "name" => fake()->name(),
-            "cat_id" => fake()->numberBetween(1, 5),
+            "categories_id" => fake()->numberBetween(1, 5),
             "price" => fake()->numberBetween(70, 500),
         ];
     }

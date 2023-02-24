@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('Items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('cat_id');
+            $table->unsignedBigInteger('categories_id');
             $table->unsignedInteger('price');
 
             //foreign key
-            $table->foreign('cat_id')->references('id')->on('categories');
+            $table->foreign('categories_id')->references('id')->on('categories');
         });
     }
 
