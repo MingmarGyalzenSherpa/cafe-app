@@ -30,7 +30,7 @@ class ItemsController extends Controller
             $response = $img->store('images', 'public');
             Img::Create([
                 'img_path' => $response,
-                'item_id' => $item_id,
+                'items_id' => $item_id,
             ]);
         }
     }

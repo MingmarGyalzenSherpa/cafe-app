@@ -25,13 +25,15 @@ class OrderController extends Controller
             }
 
             $items = Categories::find($categoryPK)->items;
+            $count = Categories::find($categoryPK)->items->count();
             $images = array();
             foreach ($items as $item) {
                 array_push($images, Items::find($item->id)->img);
             }
 
+
             // dd(Items::find(1)->img);
-            return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images'));
+            return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count'));
         } else {
             return back();
         }

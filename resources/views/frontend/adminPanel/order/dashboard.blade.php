@@ -30,13 +30,12 @@
                 <div class="tab-pane fade active show d-flex flex-wrap justify-content-between" id="menu-starters">
                   @for ($i = 0; $i < $count; $i++)
                       
-                 
                   <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
-                    <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="menu-img img-fluid" alt=""></a>
-                    <h4>{{$item->name}}</h4>
+                    <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="menu-img img-fluid" alt=""></a>
+                    <h4>{{$items[$i]->name}}</h4>
                     
                     <p class="price">
-                     {{$item->price}}
+                     {{$items[$i]->price}}
                     </p>
                   </div>
                   @endfor
