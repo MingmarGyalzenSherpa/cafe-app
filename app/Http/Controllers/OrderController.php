@@ -20,6 +20,8 @@ class OrderController extends Controller
 
         if (Gate::allows('authorizeDashboard', 'waiter')) {
             $categories = Categories::all();
+            //initially loading the view wont have categoryID so 
+            //assigning it with the first category id if its null
             if (!$categoryPK) {
                 $categoryPK = $categories[0]->id;
             }
