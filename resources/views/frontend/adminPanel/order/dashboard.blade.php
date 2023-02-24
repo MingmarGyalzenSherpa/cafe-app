@@ -15,8 +15,28 @@
                 </ul>
               </section>
               <div class="tab-content">
-                <div class="tab-pane fade active show d-flex flex-wrap justify-content-between" id="menu-starters">
+
+                {{dd($itemsPerCategory)}}
+                @foreach($itemsPerCategory as $category => $items)
+              
+                <div class="tab-pane fade active show d-flex flex-wrap justify-content-between" id="menu-{{$category}}">
+                
                   @foreach($items as $item)
+
+                    <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
+                      <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="menu-img img-fluid" alt=""></a>
+                        <h4>{{$item->name}}</h4>
+                      <p class="price"> {{$item->price}} </p>
+                    </div>
+                  @endforeach
+
+
+                </div>
+
+                @endforeach
+
+                <div class="tab-pane fade active show d-flex flex-wrap justify-content-between" id="menu-starters">
+                  {{-- @foreach($items as $item)
                   <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
                     <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="menu-img img-fluid" alt=""></a>
                     <h4>{{$item->name}}</h4>
@@ -25,7 +45,7 @@
                      {{$item->price}}
                     </p>
                   </div>
-                  @endforeach
+                  @endforeach --}}
                 </div>
               </div>
 {{--              

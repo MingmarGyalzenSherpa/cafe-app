@@ -29,7 +29,7 @@ Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login-submit', [UserController::class, 'submitLogin'])->name('submitLogin');
 
 // Order Dashboard
-Route::get('/order-dashboard', [OrderController::class, 'create'])->middleware('auth')->name('orderDashboard');
+Route::get('/order-dashboard/{pk?}', [OrderController::class, 'create'])->middleware('auth')->name('orderDashboard');
 
 //order billing
 Route::get('/bill/{id}', [CashierController::class, 'billDashboard'])->middleware('auth')->name('billDashboard');
