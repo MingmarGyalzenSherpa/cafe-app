@@ -10,6 +10,7 @@ class ManagerController extends Controller
     //
     public function create()
     {
+
         if (Gate::allows('authorizeDashboard', 'admin')) {
             return view('frontend.adminPanel.manager.dashboard');
         } else {

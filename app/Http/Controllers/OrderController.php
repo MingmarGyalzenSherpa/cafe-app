@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Img;
+use App\Models\Items;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -21,27 +23,17 @@ class OrderController extends Controller
             if (!$categoryPK) {
                 $categoryPK = $categories[0]->id;
             }
-            dd($categoryPK);
-            // $item = array();
-            // $item['hi'] = [1, 2, 3];
-            // dd($item);
-            $itemsPerCategory = array();
-            // foreach ($categories as $category) {
 
-            //     // $itemsArr = array();
-            //     $items = Categories::find($category->id)->items;
-            //     $itemsPerCategory[$category->cat_name] = array();
-            //     foreach ($items as $item) {
-            //         $itemsArr = array();
-            //         $itemsArr['id'] = $item->id;
-            //         $itemsArr['name']  = $item->name;
-            //         $itemsArr['categories_id'] = $item->categories_id;
-            //         $itemsArr['price'] = $item->price;
-            //         array_push($itemsPerCategory[$category->cat_name], $itemsArr);
-            //     }
-            // }
+            $items = Categories::find($categoryPK)->items;
+            $count = Categories::find($categoryPK)->items->count();
+            $images = array();
+            foreach ($items as $item) {
+                array_push($images, Items::find($item->id)->img);
+            }
 
-            return view('frontend.adminPanel.order.dashboard', compact('categories', 'itemsPerCategory'));
+
+            // dd(Items::find(1)->img);
+            return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count'));
         } else {
             return back();
         }

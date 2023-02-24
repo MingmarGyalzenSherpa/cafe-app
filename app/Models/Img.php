@@ -9,4 +9,5 @@ class Img extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $fillable = ['img_path', 'items_id'];
 }
