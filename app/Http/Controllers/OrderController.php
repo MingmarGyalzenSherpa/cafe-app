@@ -21,27 +21,10 @@ class OrderController extends Controller
             if (!$categoryPK) {
                 $categoryPK = $categories[0]->id;
             }
-            dd($categoryPK);
-            // $item = array();
-            // $item['hi'] = [1, 2, 3];
-            // dd($item);
-            $itemsPerCategory = array();
-            // foreach ($categories as $category) {
 
-            //     // $itemsArr = array();
-            //     $items = Categories::find($category->id)->items;
-            //     $itemsPerCategory[$category->cat_name] = array();
-            //     foreach ($items as $item) {
-            //         $itemsArr = array();
-            //         $itemsArr['id'] = $item->id;
-            //         $itemsArr['name']  = $item->name;
-            //         $itemsArr['categories_id'] = $item->categories_id;
-            //         $itemsArr['price'] = $item->price;
-            //         array_push($itemsPerCategory[$category->cat_name], $itemsArr);
-            //     }
-            // }
-
-            return view('frontend.adminPanel.order.dashboard', compact('categories', 'itemsPerCategory'));
+            $items = Categories::find($categoryPK)->items;
+            dd($items);
+            return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items'));
         } else {
             return back();
         }
