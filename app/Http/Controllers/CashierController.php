@@ -14,16 +14,19 @@ class CashierController extends Controller
     //
     public function create()
     {
-        if (Gate::allows('authorizeDashboard', 'cashier')) {
-            $tables = Table::all();
-            return view('frontend.adminPanel.cashier.dashboard', compact('tables'));
-        } else {
+        if (!Gate::allows('authorizeDashboard', 'waiter')) {
             return back();
         }
+
+        $tables = Table::all();
+        return view('frontend.adminPanel.cashier.dashboard', compact('tables'));
     }
 
     public function billDashboard($id)
     {
+        if (!Gate::allows('authorizeDashboard', 'cashier')) {
+            return back();
+        }
         $orders = Table::find($id)->orders;
         $count = $orders->count();
         $subTotal = 0;
@@ -33,11 +36,6 @@ class CashierController extends Controller
             array_push($items, DB::table('items')->find($order->item_id)->name);
             $subTotal += $order->total;
         }
-
-        if (Gate::allows('authorizeDashboard', 'cashier')) {
-            return view('frontend.adminPanel.cashier.bill', compact('orders', 'items', 'count', 'subTotal'));
-        } else {
-            return back();
-        }
+        return view('frontend.adminPanel.cashier.bill', compact('orders', 'items', 'count', 'subTotal'));
     }
 }
