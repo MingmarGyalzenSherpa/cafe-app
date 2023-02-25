@@ -5,9 +5,12 @@
   --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
 }
 
-body {
-  
-}
+.container {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 
 .card {
   background: #222;
@@ -36,7 +39,7 @@ body {
   text-decoration: underline;
 }
   </style>
-<div class="container " style="margin-top:90px;border:1px solid red;">
+<div class="containers " style="margin-top:90px;border:1px solid red;">
               <section class="menu" id="menu">
                  <h2 style="text-align: center;">CATEGORIES</h2>
                  <hr>
@@ -63,8 +66,9 @@ body {
               </section>
               
 
-              <div class="tab-pane fade active show d-flex flex-wrap justify-content-between" id="menu-starters">               
+                        
                   {{-- using for loop to access the item and images as they share same index --}}
+                  <div class="container">
                   @for ($i = 0; $i < $count; $i++) 
                       
 <div class="container mx-auto mt-4 d-flex flex-wrap">
@@ -95,7 +99,7 @@ body {
                   @endfor
                 
                       
-      
+</div>
 </div>
 </div>
 @endsection
