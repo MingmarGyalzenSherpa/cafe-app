@@ -28,8 +28,8 @@
                             <button class="button">up</button>
                             <button class="button">down</button>
                         </td>
-                        <td>{{$orders[$i]->total}}</td>
                         <td>{{$orders[$i]->price}}</td>
+                        <td>{{$orders[$i]->total}}</td>
                       </tr>
                       @endfor
                       {{-- @foreach ($orders as $order)
@@ -56,7 +56,7 @@
                 <div class="bill-details p-0">
                   <div class="d-flex justify-content-between p-2 border-bottom">
                     <span>Sub Total:</span>
-                    <span>90$</span>
+                    <span>Rs.{{$subTotal}}</span>
                   </div>
                   <div class="d-flex justify-content-between p-2  border-bottom">
                     <span>Tax:</span>

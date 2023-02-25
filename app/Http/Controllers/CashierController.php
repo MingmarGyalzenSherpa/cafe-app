@@ -26,13 +26,16 @@ class CashierController extends Controller
     {
         $orders = Table::find($id)->orders;
         $count = $orders->count();
+        $subTotal = 0;
         $items = array();
-        foreach ($orders as $order) {
+        foreach ($orders as $order) { //getting item name by accessing item_id from order
 
             array_push($items, DB::table('items')->find($order->item_id)->name);
+            $subTotal += $order->total;
         }
+
         if (Gate::allows('authorizeDashboard', 'cashier')) {
-            return view('frontend.adminPanel.cashier.bill', compact('orders', 'items', 'count'));
+            return view('frontend.adminPanel.cashier.bill', compact('orders', 'items', 'count', 'subTotal'));
         } else {
             return back();
         }
