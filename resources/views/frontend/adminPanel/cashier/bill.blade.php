@@ -18,19 +18,23 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php $i = 1 ?>
+                      @foreach ($orders as $order)
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Chowmein</td>
-                        <td>2
+                        <th scope="row">{{$i}}</th>
+                        <td>{{$order->name}}</td>
+                        <td>{{$order->quantity}}
                           
                             <button class="button">up</button>
                             <button class="button">down</button>
                         
                         
                         </td>
-                        <td>120</td>
-                        <td>240</td>
+                        <td>{{$order->price}}</td>
+                        <td>{{$order->total}}</td>
                       </tr>
+                      @endforeach
+                      
                     </tbody>
                   </table>
 
