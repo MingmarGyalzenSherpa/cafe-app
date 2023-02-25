@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Img;
 use App\Models\Items;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Gate;
 
 class ItemsController extends Controller
 {
     //
     public function addItem(Request $req)
     {
-
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
         $req->validate([
             'name' => 'required',
             'categories_id' => 'required',

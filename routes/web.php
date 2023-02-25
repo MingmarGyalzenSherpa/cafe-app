@@ -32,12 +32,17 @@ Route::post('/login-submit', [UserController::class, 'submitLogin'])->name('subm
 // Order Dashboard
 Route::get('/order-dashboard/{pk?}', [OrderController::class, 'create'])->middleware('auth')->name('orderDashboard');
 
+//Cashier Dashboard
+Route::get('/cashier-dashboard', [CashierController::class, 'create'])->middleware("auth")->name('cashierDashboard');
+
 //order billing
 Route::get('/bill/{id}', [CashierController::class, 'billDashboard'])->middleware('auth')->name('billDashboard');
 
+Route::get('/bill/increase-qty/{id}', [OrderController::class, 'increaseQty'])->middleware('auth')->name('increaseQty');
+Route::get('/bill/decrease-qty/{id}', [OrderController::class, 'decreaseQty'])->middleware('auth')->name('decreaseQty');
 
-//Cashier Dashboard
-Route::get('/cashier-dashboard', [CashierController::class, 'create'])->middleware('auth')->name('cashierDashboard');
+
+
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 

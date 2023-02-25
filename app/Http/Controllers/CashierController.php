@@ -14,27 +14,28 @@ class CashierController extends Controller
     //
     public function create()
     {
-        if (Gate::allows('authorizeDashboard', 'cashier')) {
-            $tables = Table::all();
-            return view('frontend.adminPanel.cashier.dashboard', compact('tables'));
-        } else {
+        if (!Gate::allows('authorizeDashboard', 'cashier')) {
             return back();
         }
+
+        $tables = Table::all();
+        return view('frontend.adminPanel.cashier.dashboard', compact('tables'));
     }
 
     public function billDashboard($id)
     {
-        $orders = Table::find($id)->orders;
-        $count = $orders->count();
-        $items = array();
-        foreach ($orders as $order) {
-
-            array_push($items, DB::table('items')->find($order->item_id)->name);
-        }
-        if (Gate::allows('authorizeDashboard', 'cashier')) {
-            return view('frontend.adminPanel.cashier.bill', compact('orders', 'items', 'count'));
-        } else {
+        if (!Gate::allows('authorizeDashboard', 'cashier')) {
             return back();
         }
+        $orders = Table::find($id)->orders;
+        $count = $orders->count();
+        $subTotal = 0;
+        $items = array();
+        foreach ($orders as $order) { //getting item name by accessing item_id from order
+
+            array_push($items, DB::table('items')->find($order->item_id)->name);
+            $subTotal += $order->total;
+        }
+        return view('frontend.adminPanel.cashier.bill', compact('orders', 'items', 'count', 'subTotal'));
     }
 }
