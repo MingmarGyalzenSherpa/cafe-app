@@ -20,6 +20,9 @@ class OrderFactory extends Factory
             //
             "item_id" => fake()->numberBetween(1, 15),
             "table_id" => fake()->numberBetween(1, 5),
+            "quantity" => 2,
+            "price" => 200,
+            'total' => 400,
         ];
     }
 }

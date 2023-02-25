@@ -19,6 +19,7 @@ class TableFactory extends Factory
         return [
             //
             "table_name" => fake()->name(),
+            "total" => fake()->numberBetween(300, 500),
         ];
     }
 }

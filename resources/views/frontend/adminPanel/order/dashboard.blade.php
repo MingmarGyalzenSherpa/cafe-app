@@ -66,7 +66,13 @@
               </section>
               
 
+              <h2 style="text-align: center;">ITEMS</h2>
+                <div class="tab-pane fade active show d-flex flex-wrap justify-content-between">
+                  
+
+
                         
+
                   {{-- using for loop to access the item and images as they share same index --}}
                   <div class="container">
                   @for ($i = 0; $i < $count; $i++) 

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('categories_id');
-            $table->unsignedInteger('price');
+            $table->unsignedSmallInteger('price');
 
             //foreign key
             $table->foreign('categories_id')->references('id')->on('categories');
