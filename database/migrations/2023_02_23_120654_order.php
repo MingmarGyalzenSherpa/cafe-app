@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('item_id');
             $table->unsignedBigInteger('table_id');
-            $table->integer('quantity');
-            $table->integer('total');
+            $table->tinyInteger('quantity');
+            $table->unsignedSmallInteger('total');
             $table->timestamp('created_at')->useCurrent();
             $table->foreign('item_id')->references('id')->on('items');
             $table->foreign('table_id')->references('id')->on('tables');
