@@ -1,11 +1,13 @@
 @extends('frontend.adminPanel.layouts.main');
 @section('container')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <div class="container d-flex" style="margin-top:90px;">
-        <div class="container border border-success" style="width:70%;">
-            <div class="container border rounded mt-3 border-danger">
+        <div class="container border border-success" style="width:70%;height:60vh;overflow:auto;">
+            
 
-                <h5>Order Details</h5></div>
+                <h5 class="mt-3">Order Details</h5><hr>
+              
 
                 <table class="table">
                     <thead>
@@ -25,13 +27,14 @@
                         <td>{{$items[$i]}}</td>
                         <td>{{$orders[$i]->quantity}}
                           
-                            <button class="button">up</button>
-                            <button class="button">down</button>
+                          <a href="#" class="ps-2 pe-2 p-1" style="background-color:lightgreen;"><i class="fa-solid fa-angle-up" style="color:white;"></i></a>
+                            <a href="#" class=" p-1 ps-2 pe-2" style="background-color:red;"><i class="fa-solid fa-angle-down"style="color:white;"></i></a>
                         </td>
                         <td>{{$orders[$i]->price}}</td>
                         <td>{{$orders[$i]->total}}</td>
                       </tr>
                       @endfor
+                      
                       {{-- @foreach ($orders as $order)
                       <tr>
                         <th scope="row">{{$i}}</th>
@@ -47,10 +50,10 @@
                       @endforeach --}}
                       
                     </tbody>
-                  </table>
-
-            </div>
-        <div class="container border border-success" style="width:30%;">
+                </table>
+        </div>
+    
+      <div class="container border border-success" style="width:30%;">
             <div class="container border rounded border-danger  mt-3 p-0">
                 <h5 class="border-bottom" style="padding:20px;text-align:center;">Bill Details</h5>
                 <div class="bill-details p-0">
@@ -82,5 +85,6 @@
 
 
             </div>
+      </div>
     </div>
 @endsection
