@@ -22,6 +22,9 @@ class CashierController extends Controller
 
     public function billDashboard($id)
     {
+        $orders = Table::find($id)->orders;
+
+        dd($orders);
         if (Gate::allows('authorizeDashboard', 'cashier')) {
             return view('frontend.adminPanel.cashier.bill', compact('id'));
         } else {
