@@ -18,22 +18,33 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <?php $i = 1 ?>
-                      @foreach ($orders as $order)
+                      
+                      @for($i=0;$i<$count;$i++)
+                      <tr>
+                        <th scope="row">{{$i+1}}</th>
+                        <td>{{$items[$i]}}</td>
+                        <td>{{$orders[$i]->quantity}}
+                          
+                            <button class="button">up</button>
+                            <button class="button">down</button>
+                        </td>
+                        <td>{{$orders[$i]->total}}</td>
+                        <td>{{$orders[$i]->price}}</td>
+                      </tr>
+                      @endfor
+                      {{-- @foreach ($orders as $order)
                       <tr>
                         <th scope="row">{{$i}}</th>
-                        <td>{{$order->name}}</td>
+                        <td>{{$order->items->name}}</td>
                         <td>{{$order->quantity}}
                           
                             <button class="button">up</button>
                             <button class="button">down</button>
-                        
-                        
                         </td>
                         <td>{{$order->price}}</td>
                         <td>{{$order->total}}</td>
                       </tr>
-                      @endforeach
+                      @endforeach --}}
                       
                     </tbody>
                   </table>
