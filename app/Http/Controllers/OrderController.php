@@ -44,11 +44,22 @@ class OrderController extends Controller
 
     public function increaseQty($id)
     {
-        if (!Gate::allows('authorizeDashboard', 'waiter')) {
+        if (!Gate::allows('authorizeDashboard', 'cashier')) {
             return back();
         }
         $order = Order::find($id);
         $order->quantity++;
+        $order->save();
+        return redirect()->route('billDashboard', $order->table->id);
+    }
+
+    public function decreaseQty($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'cashier')) {
+            return back();
+        }
+        $order = Order::find($id);
+        $order->quantity--;
         $order->save();
         return redirect()->route('billDashboard', $order->table->id);
     }

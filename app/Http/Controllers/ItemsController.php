@@ -12,7 +12,7 @@ class ItemsController extends Controller
     //
     public function addItem(Request $req)
     {
-        if (!Gate::allows('authorizeDashboard', 'cashier')) {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
             return back();
         }
         $req->validate([

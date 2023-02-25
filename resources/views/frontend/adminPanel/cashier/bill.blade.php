@@ -28,7 +28,7 @@
                         <td>{{$orders[$i]->quantity}}
                           
                           <a href="{{route('increaseQty',$orders[$i]->id)}}" class="ps-2 pe-2 p-1" style="background-color:lightgreen;"><i class="fa-solid fa-angle-up" style="color:white;"></i></a>
-                            <a href="#" class=" p-1 ps-2 pe-2" style="background-color:red;"><i class="fa-solid fa-angle-down"style="color:white;"></i></a>
+                            <a href="{{route('decreaseQty',$orders[$i]->id)}}" class=" p-1 ps-2 pe-2" style="background-color:red;"><i class="fa-solid fa-angle-down"style="color:white;"></i></a>
                         </td>
                         <td>{{$orders[$i]->price}}</td>
                         <td>{{$orders[$i]->total}}</td>

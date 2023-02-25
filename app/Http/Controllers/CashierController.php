@@ -14,7 +14,7 @@ class CashierController extends Controller
     //
     public function create()
     {
-        if (!Gate::allows('authorizeDashboard', 'waiter')) {
+        if (!Gate::allows('authorizeDashboard', 'cashier')) {
             return back();
         }
 

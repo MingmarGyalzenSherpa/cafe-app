@@ -39,6 +39,7 @@ Route::get('/cashier-dashboard', [CashierController::class, 'create'])->middlewa
 Route::get('/bill/{id}', [CashierController::class, 'billDashboard'])->middleware('auth')->name('billDashboard');
 
 Route::get('/bill/increase-qty/{id}', [OrderController::class, 'increaseQty'])->middleware('auth')->name('increaseQty');
+Route::get('/bill/decrease-qty/{id}', [OrderController::class, 'decreaseQty'])->middleware('auth')->name('decreaseQty');
 
 
 
