@@ -1,5 +1,6 @@
 @extends('frontend.adminPanel.layouts.main')
 @section('container')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
   :root {
   --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
@@ -38,24 +39,41 @@
   box-shadow: #222 1px 0 10px;
   text-decoration: underline;
 }
+
+.btn-orders{
+  display: none;
+  padding:10px 20px;
+  background-color:lightseagreen;
+  border:none;
+  border-radius: 5px;
+  font-size: 20px;
+  position:fixed;
+  bottom:20px;
+  right:30px;
+}
+
+.btn-orders:hover{
+  background-color:lightgreen;
+}
+
   </style>
 <div class="containers " style="margin-top:90px;border:1px solid red;">
-              <section class="menu" id="menu">
-                 <h2 style="text-align: center;">CATEGORIES</h2>
+              <section class="menu pt-2 pb-3" id="menu">
+                 <h2 style="text-align: center;">CATEGORIES {{$tableID}}</h2>
                  <hr>
                 <ul class="nav nav-tabs d-flex justify-content-center" >
                   @foreach ($categories as $category)
 
                   @if($category->id == $categoryPK)
                     <li class="nav-item">
-                      <a class="nav-link active"  href="{{route('orderDashboard',$category->id)}}">
+                      <a class="nav-link active"  href="{{route('orderDashboard',[$tableID,$category->id])}}">
                         <h4>{{$category->cat_name}}</h4>
                       </a>
                     </li>
 
                   @else
                   <li class="nav-item">
-                    <a class="nav-link"  href="{{route('orderDashboard',$category->id)}}">
+                    <a class="nav-link"  href="{{route('orderDashboard',[$tableID,$category->id])}}">
                       <h4>{{$category->cat_name}}</h4>
                     </a>
                   </li>
@@ -67,34 +85,31 @@
               
 
               <h2 style="text-align: center;">ITEMS</h2>
-                <div class="tab-pane fade active show d-flex flex-wrap justify-content-between">
+                <div class="tab-pane fade active p-4 pe-1 show d-flex flex-wrap justify-content-space-between">
                   
 
 
                         
 
                   {{-- using for loop to access the item and images as they share same index --}}
-                  <div class="container">
+                  
                   @for ($i = 0; $i < $count; $i++) 
-                      
-<div class="container mx-auto mt-4 d-flex flex-wrap">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-  <img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{$items[$i]->name}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{$items[$i]->price}}</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-       <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Pick</a>
-    
-  </div>
-  </div>
-    </div>    
-      
-</div>
-  </div>
-                  <!-- <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
+                     <div class="card ms-1 me-1" style="width: 18rem;">
+                        <img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title text-center text-uppercase mb-4">{{$items[$i]->name}}</h5>
+                          
+                          <form action="{{route('addOrder')}}" method="POST"> 
+                            @csrf
+                            <input type="hidden" name="tableID" value="{{$tableID}}">
+                            <input type="hidden" name="itemID" value="{{$items[$i]->id}}">
+                            <h6 class="card-subtitle  mb-2 d-flex justify-content-between align-items-center"><span>Quantity:</span><input type="number" name="quantity" class="form-control pt-1 pb-1" style="width:80px;" value="1"></h6>
+                            <button type="submit" class="pick btn mr-2 w-100 mt-3 p-3 text-decoration-none"><i class="fas fa-link"></i> Pick</button>
+                          </form>
+                        </div>
+                      </div>
+                   
+                      <!-- <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
                     <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="menu-img img-fluid" alt=""></a>
                     <h4>{{$items[$i]->name}}</h4>
                     
@@ -103,9 +118,12 @@
                     </p>
                   </div>-->
                   @endfor
-                
-                      
-</div>
-</div>
-</div>
+                </div>
+              </div>
+          </div>
+                 
+          <button type="button" style="background;" class=" btn-orders"><i class="fas fa-burger"></i></button>
+
+
+
 @endsection

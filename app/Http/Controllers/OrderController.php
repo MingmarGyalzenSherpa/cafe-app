@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\Img;
 use App\Models\Items;
 use App\Models\Order;
+use App\Models\Table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,9 +17,15 @@ use PhpParser\Node\Expr\Cast\Array_;
 class OrderController extends Controller
 {
     //
-    public function create($categoryPK = null)
-    {
 
+    public function createOrderTable()
+    {
+        $tables = Table::all();
+        return view('frontend.adminPanel.order.orderTableDashboard', compact('tables'));
+    }
+
+    public function createOrder($tableID, $categoryPK = null)
+    {
         if (!Gate::allows('authorizeDashboard', 'waiter')) {
             return back();
         }
@@ -39,28 +46,53 @@ class OrderController extends Controller
 
 
         // dd(Items::find(1)->img);
-        return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count'));
+        return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count', 'tableID'));
     }
 
-    public function increaseQty($id)
+    public function addOrder(Request $req)
     {
-        if (!Gate::allows('authorizeDashboard', 'cashier')) {
+        if (!Gate::allows('authorizeDashboard', 'waiter')) {
             return back();
         }
-        $order = Order::find($id);
-        $order->quantity++;
-        $order->save();
-        return redirect()->route('billDashboard', $order->table->id);
+        $table_id = $req->tableID;
+        $item_id = $req->itemID;
+        $item_quantity = $req->quantity;
+        $price = Items::find($item_id)->price;
+        $total = $price * $item_quantity;
+
+
+        //if the item is already ordered on the same table add it and calculate total
+        if ($order = Order::where(['table_id' => $table_id, 'item_id' => $item_id])->first()) {
+
+            $order->quantity += $item_quantity;
+            $order->total = $order->quantity * $order->price;
+            $order->save();
+        } else { // else create a new order
+            Order::create(['item_id' => $item_id, 'table_id' => $table_id, 'quantity' => $item_quantity, 'price' => $price, 'total' => $total]);
+        }
+
+        return back();
     }
 
-    public function decreaseQty($id)
-    {
-        if (!Gate::allows('authorizeDashboard', 'cashier')) {
-            return back();
-        }
-        $order = Order::find($id);
-        $order->quantity--;
-        $order->save();
-        return redirect()->route('billDashboard', $order->table->id);
-    }
+    // public function increaseQty($id)
+    // {
+    //     if (!Gate::allows('authorizeDashboard', 'cashier')) {
+    //         return back();
+    //     }
+    //     $order = Order::find($id);
+    //     $order->quantity++;
+    //     $order->save();
+    //     return redirect()->route('billDashboard', $order->table->id);
+    // }
+
+    // public function decreaseQty($id)
+    // {
+    //     if (!Gate::allows('authorizeDashboard', 'cashier')) {
+    //         return back();
+    //     }
+    //     $order = Order::find($id);
+    //     $order->quantity--;
+    //     $order->save();
+    //     return redirect()->route('billDashboard', $order->table->id);
+    // }
 }

@@ -20,20 +20,21 @@ class UserController extends Controller
 
     public function authorizeDashboard($user, $dashboard) //function to authorize user for accessing dashboards
     {
-        switch ($dashboard) {
-            case 'admin':
-                return $user->type == 'admin';
-                break;
-            case 'waiter':
-                return $user->type == 'waiter';
-                break;
-            case 'cashier':
-                return $user->type == 'cashier';
-                break;
-            default:
-                return false;
-                break;
-        }
+        // switch ($dashboard) {
+        //     case 'admin':
+        //         return $user->type == 'admin';
+        //         break;
+        //     case 'waiter':
+        //         return $user->type == 'waiter';
+        //         break;
+        //     case 'cashier':
+        //         return $user->type == 'cashier';
+        //         break;
+        //     default:
+        //         return false;
+        //         break;
+        // }
+        return true;
     }
 
     public function submitLogin(Request $req)
@@ -47,7 +48,7 @@ class UserController extends Controller
             $user = User::where('email', $req->email)->first();
             $type = $user->type;
             if ($type == "waiter") {
-                return redirect()->route('orderDashboard');
+                return redirect()->route('orderTableDashboard');
             } else if ($type == "cashier") {
                 return redirect()->route('cashierDashboard');
             } else {

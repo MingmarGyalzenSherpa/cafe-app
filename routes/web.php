@@ -29,17 +29,25 @@ Route::get('/login', [UserController::class, 'login'])->name('login');
 //login Submit
 Route::post('/login-submit', [UserController::class, 'submitLogin'])->name('submitLogin');
 
+//Order Table Dashboard
+Route::get('/order-table', [OrderController::class, 'createOrderTable'])->middleware('auth')->name('orderTableDashboard');
+
 // Order Dashboard
-Route::get('/order-dashboard/{pk?}', [OrderController::class, 'create'])->middleware('auth')->name('orderDashboard');
+Route::get('/order-dashboard/table/{tableID}/cat/{catID?}', [OrderController::class, 'createOrder'])->middleware('auth')->name('orderDashboard');
+
+//Add Order
+Route::post('/add-order', [OrderController::class, 'addOrder'])->middleware('auth')->name('addOrder');
+
+
 
 //Cashier Dashboard
 Route::get('/cashier-dashboard', [CashierController::class, 'create'])->middleware("auth")->name('cashierDashboard');
 
-//order billing
+//Cashier billing
 Route::get('/bill/{id}', [CashierController::class, 'billDashboard'])->middleware('auth')->name('billDashboard');
 
-Route::get('/bill/increase-qty/{id}', [OrderController::class, 'increaseQty'])->middleware('auth')->name('increaseQty');
-Route::get('/bill/decrease-qty/{id}', [OrderController::class, 'decreaseQty'])->middleware('auth')->name('decreaseQty');
+Route::get('/bill/increase-qty/{id}', [CashierController::class, 'increaseQty'])->middleware('auth')->name('increaseQty');
+Route::get('/bill/decrease-qty/{id}', [CashierController::class, 'decreaseQty'])->middleware('auth')->name('decreaseQty');
 
 
 
