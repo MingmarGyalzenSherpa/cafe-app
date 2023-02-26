@@ -46,7 +46,7 @@ class OrderController extends Controller
 
 
         // dd(Items::find(1)->img);
-        return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count'));
+        return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count', 'tableID'));
     }
 
     public function addOrder(Request $req)

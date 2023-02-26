@@ -59,21 +59,21 @@
   </style>
 <div class="containers " style="margin-top:90px;border:1px solid red;">
               <section class="menu pt-2 pb-3" id="menu">
-                 <h2 style="text-align: center;">CATEGORIES</h2>
+                 <h2 style="text-align: center;">CATEGORIES {{$tableID}}</h2>
                  <hr>
                 <ul class="nav nav-tabs d-flex justify-content-center" >
                   @foreach ($categories as $category)
 
                   @if($category->id == $categoryPK)
                     <li class="nav-item">
-                      <a class="nav-link active"  href="{{route('orderDashboard',$category->id)}}">
+                      <a class="nav-link active"  href="{{route('orderDashboard',[$tableID,$category->id])}}">
                         <h4>{{$category->cat_name}}</h4>
                       </a>
                     </li>
 
                   @else
                   <li class="nav-item">
-                    <a class="nav-link"  href="{{route('orderDashboard',$category->id)}}">
+                    <a class="nav-link"  href="{{route('orderDashboard',[$tableID,$category->id])}}">
                       <h4>{{$category->cat_name}}</h4>
                     </a>
                   </li>
