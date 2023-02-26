@@ -101,7 +101,8 @@
                           
                           <form action="{{route('addOrder')}}" method="POST"> 
                             @csrf
-                            <input type="hidden" name="id" value="{{$items[$i]->id}}">
+                            <input type="hidden" name="tableID" value="{{$tableID}}">
+                            <input type="hidden" name="itemID" value="{{$items[$i]->id}}">
                             <h6 class="card-subtitle  mb-2 d-flex justify-content-between align-items-center"><span>Quantity:</span><input type="number" name="quantity" class="form-control pt-1 pb-1" style="width:80px;" value="1"></h6>
                             <button type="submit" class="pick btn mr-2 w-100 mt-3 p-3 text-decoration-none"><i class="fas fa-link"></i> Pick</button>
                           </form>

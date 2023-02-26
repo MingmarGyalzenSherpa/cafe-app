@@ -54,9 +54,15 @@ class OrderController extends Controller
         if (!Gate::allows('authorizeDashboard', 'waiter')) {
             return back();
         }
-        $item_id = $req->id;
+        $table_id = $req->tableID;
+        $item_id = $req->itemID;
         $item_quantity = $req->quantity;
-        $order = Order::create(['items_id' => $item_id, 'quantity' => $item_quantity]);
+        $price = Items::find($item_id)->price;
+        $total = $price * $item_quantity;
+        //if the item is already ordered on the same table add it and calculate total
+
+        Order::create(['item_id' => $item_id, 'table_id' => $table_id, 'quantity' => $item_quantity, 'price' => $price, 'total' => $total]);
+        return back();
     }
 
     // public function increaseQty($id)
