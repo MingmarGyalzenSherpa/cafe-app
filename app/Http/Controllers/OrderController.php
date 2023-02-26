@@ -42,25 +42,35 @@ class OrderController extends Controller
         return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count'));
     }
 
-    public function increaseQty($id)
+    public function addOrder(Request $req)
     {
-        if (!Gate::allows('authorizeDashboard', 'cashier')) {
+        if (!Gate::allows('authorizeDashboard', 'waiter')) {
             return back();
         }
-        $order = Order::find($id);
-        $order->quantity++;
-        $order->save();
-        return redirect()->route('billDashboard', $order->table->id);
+        $item_id = $req->id;
+        $item_quantity = $req->quantity;
+        $order = Order::create(['items_id'=>$item_id,''])
     }
 
-    public function decreaseQty($id)
-    {
-        if (!Gate::allows('authorizeDashboard', 'cashier')) {
-            return back();
-        }
-        $order = Order::find($id);
-        $order->quantity--;
-        $order->save();
-        return redirect()->route('billDashboard', $order->table->id);
-    }
+    // public function increaseQty($id)
+    // {
+    //     if (!Gate::allows('authorizeDashboard', 'cashier')) {
+    //         return back();
+    //     }
+    //     $order = Order::find($id);
+    //     $order->quantity++;
+    //     $order->save();
+    //     return redirect()->route('billDashboard', $order->table->id);
+    // }
+
+    // public function decreaseQty($id)
+    // {
+    //     if (!Gate::allows('authorizeDashboard', 'cashier')) {
+    //         return back();
+    //     }
+    //     $order = Order::find($id);
+    //     $order->quantity--;
+    //     $order->save();
+    //     return redirect()->route('billDashboard', $order->table->id);
+    // }
 }

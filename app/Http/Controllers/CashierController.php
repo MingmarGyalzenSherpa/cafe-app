@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Items;
+use App\Models\Order;
 use App\Models\Table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
-
 
 class CashierController extends Controller
 {
@@ -37,5 +37,28 @@ class CashierController extends Controller
             $subTotal += $order->total;
         }
         return view('frontend.adminPanel.cashier.bill', compact('orders', 'items', 'count', 'subTotal'));
+    }
+
+
+    public function increaseQty($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'cashier')) {
+            return back();
+        }
+        $order = Order::find($id);
+        $order->quantity++;
+        $order->save();
+        return redirect()->route('billDashboard', $order->table->id);
+    }
+
+    public function decreaseQty($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'cashier')) {
+            return back();
+        }
+        $order = Order::find($id);
+        $order->quantity--;
+        $order->save();
+        return redirect()->route('billDashboard', $order->table->id);
     }
 }
