@@ -29,8 +29,11 @@ Route::get('/login', [UserController::class, 'login'])->name('login');
 //login Submit
 Route::post('/login-submit', [UserController::class, 'submitLogin'])->name('submitLogin');
 
+//Order Table Dashboard
+Route::get('/order-table', [OrderController::class, 'createOrderTable'])->middleware('auth')->name('orderTableDashboard');
+
 // Order Dashboard
-Route::get('/order-dashboard/{pk?}', [OrderController::class, 'create'])->middleware('auth')->name('orderDashboard');
+Route::get('/order-dashboard/{tableID}/{catID?}', [OrderController::class, 'createOrder'])->middleware('auth')->name('orderDashboard');
 
 //Add Order
 Route::post('/add-order', [OrderController::class, 'addOrder'])->middleware('auth')->name('addOrder');

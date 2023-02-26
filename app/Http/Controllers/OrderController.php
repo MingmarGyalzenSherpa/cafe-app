@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\Img;
 use App\Models\Items;
 use App\Models\Order;
+use App\Models\Table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,9 +17,15 @@ use PhpParser\Node\Expr\Cast\Array_;
 class OrderController extends Controller
 {
     //
-    public function create($categoryPK = null)
-    {
 
+    public function createOrderTable()
+    {
+        $tables = Table::all();
+        return view('frontend.adminPanel.order.orderTableDashboard', compact('tables'));
+    }
+
+    public function createOrder($tableID, $categoryPK = null)
+    {
         if (!Gate::allows('authorizeDashboard', 'waiter')) {
             return back();
         }
@@ -49,7 +56,7 @@ class OrderController extends Controller
         }
         $item_id = $req->id;
         $item_quantity = $req->quantity;
-        $order = Order::create(['items_id'=>$item_id,''])
+        $order = Order::create(['items_id' => $item_id, 'quantity' => $item_quantity]);
     }
 
     // public function increaseQty($id)

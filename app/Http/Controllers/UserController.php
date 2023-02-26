@@ -47,7 +47,7 @@ class UserController extends Controller
             $user = User::where('email', $req->email)->first();
             $type = $user->type;
             if ($type == "waiter") {
-                return redirect()->route('orderDashboard');
+                return redirect()->route('orderTableDashboard');
             } else if ($type == "cashier") {
                 return redirect()->route('cashierDashboard');
             } else {
