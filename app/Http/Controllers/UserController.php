@@ -20,20 +20,21 @@ class UserController extends Controller
 
     public function authorizeDashboard($user, $dashboard) //function to authorize user for accessing dashboards
     {
-        switch ($dashboard) {
-            case 'admin':
-                return $user->type == 'admin';
-                break;
-            case 'waiter':
-                return $user->type == 'waiter';
-                break;
-            case 'cashier':
-                return $user->type == 'cashier';
-                break;
-            default:
-                return false;
-                break;
-        }
+        // switch ($dashboard) {
+        //     case 'admin':
+        //         return $user->type == 'admin';
+        //         break;
+        //     case 'waiter':
+        //         return $user->type == 'waiter';
+        //         break;
+        //     case 'cashier':
+        //         return $user->type == 'cashier';
+        //         break;
+        //     default:
+        //         return false;
+        //         break;
+        // }
+        return true;
     }
 
     public function submitLogin(Request $req)

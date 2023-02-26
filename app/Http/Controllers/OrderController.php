@@ -59,9 +59,18 @@ class OrderController extends Controller
         $item_quantity = $req->quantity;
         $price = Items::find($item_id)->price;
         $total = $price * $item_quantity;
-        //if the item is already ordered on the same table add it and calculate total
 
-        Order::create(['item_id' => $item_id, 'table_id' => $table_id, 'quantity' => $item_quantity, 'price' => $price, 'total' => $total]);
+
+        //if the item is already ordered on the same table add it and calculate total
+        if ($order = Order::where(['table_id' => $table_id, 'item_id' => $item_id])->first()) {
+
+            $order->quantity += $item_quantity;
+            $order->total = $order->quantity * $order->price;
+            $order->save();
+        } else { // else create a new order
+            Order::create(['item_id' => $item_id, 'table_id' => $table_id, 'quantity' => $item_quantity, 'price' => $price, 'total' => $total]);
+        }
+
         return back();
     }
 
