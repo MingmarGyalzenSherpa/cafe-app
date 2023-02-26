@@ -67,34 +67,25 @@
               
 
               <h2 style="text-align: center;">ITEMS</h2>
-                <div class="tab-pane fade active show d-flex flex-wrap justify-content-between">
+                <div class="tab-pane fade active p-4 pe-1 show d-flex flex-wrap justify-content-space-between">
                   
 
 
                         
 
                   {{-- using for loop to access the item and images as they share same index --}}
-                  <div class="container">
+                  
                   @for ($i = 0; $i < $count; $i++) 
-                      
-<div class="container mx-auto mt-4 d-flex flex-wrap">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-  <img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{$items[$i]->name}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{$items[$i]->price}}</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-       <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Pick</a>
-    
-  </div>
-  </div>
-    </div>    
-      
-</div>
-  </div>
-                  <!-- <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
+                     <div class="card ms-1 me-1" style="width: 18rem;">
+                        <img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title text-center text-uppercase mb-4">{{$items[$i]->name}}</h5>
+                          <h6 class="card-subtitle  mb-2 d-flex justify-content-between align-items-center"><span>Quantity:</span><input type="number" class="form-control pt-1 pb-1" style="width:80px;" value="{{$items[$i]->price}}"></h6>
+                          <a href="#" class="btn mr-2 w-100 mt-3"><i class="fas fa-link"></i> Pick</a>
+                        </div>
+                      </div>
+                   
+                      <!-- <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
                     <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="menu-img img-fluid" alt=""></a>
                     <h4>{{$items[$i]->name}}</h4>
                     
@@ -103,9 +94,8 @@
                     </p>
                   </div>-->
                   @endfor
-                
-                      
-</div>
-</div>
-</div>
+                </div>
+              </div>
+          </div>
+                               
 @endsection
