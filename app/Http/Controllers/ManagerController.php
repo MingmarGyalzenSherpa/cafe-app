@@ -40,4 +40,14 @@ class ManagerController extends Controller
         $employees = DB::table('employees')->join('employee_contacts', 'employees.id', '=', 'employee_contacts.employee_id')->get();
         return view('frontend.adminPanel.manager.employees', compact('employees'));
     }
+
+    public function showCategories()
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $categories = DB::table('categories')->get();
+
+        return view('frontend.adminPanel.manager.categories');
+    }
 }
