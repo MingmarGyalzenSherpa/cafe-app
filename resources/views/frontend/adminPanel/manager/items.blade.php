@@ -56,18 +56,47 @@ a:hover{
 
         <div class="sidebar " style="width:20%;">
            <ul class="nav flex-column ">
-                <li class="nav-item"><a href="#" class="nav-link active"> <i class="fas  fa-gauge"></i> <span class="title"> Dashboard</span> </a></li>
+                <li class="nav-item"><a href="#" class="nav-link"> <i class="fas  fa-gauge"></i> <span class="title"> Dashboard</span> </a></li>
                 <li class="nav-item"><a href="#" class="nav-link"> <i class="fa-solid fa-sitemap"></i><span class="title"> Categories</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-burger"></i><span class="title"> Dish</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link active"><i class="fas fa-burger"></i><span class="title"> Dish</span></a></li>
                 <li class="nav-item"><a href="#" class="nav-link"> <i class="fa-sharp fa-solid fa-gauge"></i><span class="title"> Employees</span></a></li>
               
            </ul>
         </div>
         <div class="content">
-            
+            <table class="table">
+                <thead  class="bg-dark" style="color:white;">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+            </table>
         </div>
        
-    </div>
+    
 
     {{-- <div class="container" style="margin-top:90px;">
         <h1>Items</h1>
