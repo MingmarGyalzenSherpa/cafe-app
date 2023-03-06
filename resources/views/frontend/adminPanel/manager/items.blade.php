@@ -63,7 +63,7 @@ a:hover{
                 <li class="nav-item"><a href="#" class="nav-link"> <i class="fas  fa-gauge"></i> <span class="title"> Dashboard</span> </a></li>
                 <li class="nav-item"><a href="#" class="nav-link"> <i class="fa-solid fa-sitemap"></i><span class="title"> Categories</span></a></li>
                 <li class="nav-item"><a href="#" class="nav-link active"><i class="fas fa-burger"></i><span class="title"> Dish</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link"> <i class="fa-sharp fa-solid fa-gauge"></i><span class="title"> Employees</span></a></li>
+                <li class="nav-item"><a href="{{route('showEmployees')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-gauge"></i><span class="title"> Employees</span></a></li>
               
            </ul>
         </div>
@@ -72,7 +72,11 @@ a:hover{
                 <form action="">
                     <label for="">Search by Category:</label>
                     <select name="" id="" class="ms-2 p-1 ps-2 pe-2">
-                        <option value="">Food</option>
+                        <option value="all">ALL</option>
+                        @foreach($categories as $category)
+                        <option value="{{$category->cat_name}}">{{$category->cat_name}}</option>
+
+                        @endforeach
                     </select>
                     <button type="submit" class="btn btn-primary  ms-1 p-3 ps-4 pe-4 pb-1 pt-1 "><i class="fas fa-search"></i></button>
                 </form>
