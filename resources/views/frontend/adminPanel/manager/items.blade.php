@@ -3,6 +3,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
 
+*{
+    box-sizing: border-box;
+}
 .sidebar{
     position: fixed;
     top:90px;
@@ -16,6 +19,7 @@
     margin:90px 0 0 20%;
     background-color:#e5e5e5;
     padding:40px 40px;
+    min-height: 88vh;
 
 }
 .nav{
@@ -64,38 +68,76 @@ a:hover{
            </ul>
         </div>
         <div class="content">
+            <div class="actions d-flex justify-content-between mb-3">
+                <form action="">
+                    <label for="">Search by Category:</label>
+                    <select name="" id="" class="ms-2 p-1 ps-2 pe-2">
+                        <option value="">Food</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary  ms-1 p-3 ps-4 pe-4 pb-1 pt-1 "><i class="fas fa-search"></i></button>
+                </form>
+                <form>
+                    <input type="text" placeholder="Search By Name" class="p-1 ps-2 border rounded">
+                    <button type="submit" class="btn btn-primary pb-1">Search</button>
+                </form>
+                <div class="sort">
+                    <label for="sort">Sort by:</label>
+                    <select name="sort" id="sort">
+                        <option value="default">default</option>
+                        <option value="incre">Price (low to high)</option>
+                        <option value="decre">Price (high to low)</option>
+                    </select>
+                </div>
+                
+            </div>
+            
             <table class="table">
                 <thead  class="bg-dark" style="color:white;">
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                  <th scope="col">S.N</th>
+                  <th scope="col">Dish</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Price</th>
                 </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                    <?php $count = 1 ; ?>
+                    @foreach ($items as $item)
+                        <tr class="items">
+                            <th scope="row"> {{$count++}}</th>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->cat_name}}</td>
+                            <td class="price">Rs.{{$item->price}}</td>
+                        </tr>
+
+                    @endforeach
                 </tbody>
             </table>
         </div>
        
+        <script>
+
+            let items = document.querySelectorAll('.items');
+            console.log(items);
+            let sort = document.getElementById('sort');
+            sort.addEventListener('change',function(e){
+                console.log(sort.options[sort.selectedIndex].value);
+                sortByLowToHigh(items);
+
+            })
+
+            function sortByLowToHigh(items)
+            {
+                
+            items.forEach(element => {
+                    let price = element.querySelector('.price');
+                    console.log(price);
+                });
+
+            }
+
+
+        </script>
     
 
     {{-- <div class="container" style="margin-top:90px;">

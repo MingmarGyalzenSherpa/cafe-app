@@ -16,6 +16,7 @@
     margin:90px 0 0 20%;
     background-color:#e5e5e5;
     padding:40px 40px;
+    min-height: 88vh;
 
 }
 .nav{
