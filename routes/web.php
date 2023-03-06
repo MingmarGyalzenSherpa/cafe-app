@@ -57,6 +57,9 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 //Manager Dashboard
 Route::get('/manager-dashboard', [ManagerController::class, 'create'])->middleware('auth')->name('managerDashboard');
 
+//items dashboard
+Route::get('/items', [ManagerController::class, 'showItems'])->middleware('auth')->name('showItems');
+
 //add-item
 Route::post('/add-item', [ItemsController::class, 'addItem'])->middleware('auth')->name('addItem');
 
