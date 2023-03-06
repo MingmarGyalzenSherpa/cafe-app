@@ -15,6 +15,6 @@ class ManagerController extends Controller
             return back();
         }
 
-        return view('frontend.adminPanel.manager.dashboard');
+        return view('frontend.adminPanel.manager.index');
     }
 }
