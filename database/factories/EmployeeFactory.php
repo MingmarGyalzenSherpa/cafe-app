@@ -20,6 +20,7 @@ class EmployeeFactory extends Factory
             //
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
+            'role' => 'chef',
             'salary' => fake()->randomNumber(),
         ];
     }

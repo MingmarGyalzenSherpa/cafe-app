@@ -35,5 +35,6 @@ class ItemsController extends Controller
                 'items_id' => $item_id,
             ]);
         }
+        return redirect()->route('showItems');
     }
 }
