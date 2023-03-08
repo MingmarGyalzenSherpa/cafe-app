@@ -66,6 +66,24 @@ a:hover{
         </div>
         <div class="content">
             
+            <table class="table">
+                <thead  class="bg-dark" style="color:white;">
+                <tr>
+                  <th scope="col">S.N</th>
+                  <th scope="col">Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php $count = 1 ; ?>
+                    @foreach ($categories as $category)
+                        <tr class="items">
+                            <th scope="row"> {{$count++}}</th>
+                            <td>{{$category->cat_name }}</td>
+                        </tr>
+
+                    @endforeach
+                </tbody>
+            </table>
         </div>
        
     </div>

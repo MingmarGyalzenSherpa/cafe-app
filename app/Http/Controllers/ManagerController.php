@@ -48,6 +48,6 @@ class ManagerController extends Controller
         }
         $categories = DB::table('categories')->get();
 
-        return view('frontend.adminPanel.manager.categories');
+        return view('frontend.adminPanel.manager.categories', compact('categories'));
     }
 }

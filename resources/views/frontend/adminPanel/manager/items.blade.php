@@ -56,6 +56,11 @@ a:hover{
     color:blue;
     font-size: 1.2rem;
 }
+
+.addDishForm{
+    display: none;
+}
+
 </style>
 
         <div class="sidebar " style="width:20%;">
@@ -68,7 +73,47 @@ a:hover{
            </ul>
         </div>
         <div class="content">
+            <button class="btn btn-primary mb-4 addDishBtn"><i class="fa fa-plus"> </i> Add Dish</button>
+            
+                <form class="addDishForm p-3 mb-4 " action="{{route('addItem')}}" method="POST" enctype="multipart/form-data" style="width:50%;">
+            @csrf
+            <div class="form-group row p-1">
+                <label for="name" class="col-sm-2"> Name </label>
+                <div class="col-sm-10">
+                    <input type="text" name="name" class="form-control" >
+                </div>
+            </div>
+           <div class="form-group row p-1">
+                <label for="category" class="col-sm-2">Category</label>
+                <div class="col-sm-10">
+                    <select name="categories_id" class="p-1" >
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->cat_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+           </div>
+            <div class="form-group row p-1">
+                <label for="image" class="col-sm-2">Image</label>
+                <div class="col-sm-10">
+                    <input type="file" name="img">
+                </div>
+            </div>
+            <div class="form-group row p-1">
+                <label for="price" class="col-sm-2">Price</label>
+                <div class="col-sm-10">
+                    <input type="text" name="price">
+
+                </div>
+            </div>
+            <form-group class="row p-1">
+                <button type="submit" class="btn btn-primary">Add </button>
+
+            </form-group>
+            
+        </form>    
             <div class="actions d-flex justify-content-between mb-3">
+                
                 <form action="">
                     <label for="">Search by Category:</label>
                     <select name="" id="" class="ms-2 p-1 ps-2 pe-2">
@@ -121,24 +166,14 @@ a:hover{
        
         <script>
 
-            let items = document.querySelectorAll('.items');
-            console.log(items);
-            let sort = document.getElementById('sort');
-            sort.addEventListener('change',function(e){
-                console.log(sort.options[sort.selectedIndex].value);
-                sortByLowToHigh(items);
-
-            })
-
-            function sortByLowToHigh(items)
-            {
+            let addDishBtn = document.querySelector('.addDishBtn');
+            console.log(addDishBtn);
+            let addDishForm = document.querySelector('.addDishForm');
+            addDishBtn.addEventListener('click',(e)=>{
+                e.preventdefault;
+                addDishForm.style.display = "block";
                 
-            items.forEach(element => {
-                    let price = element.querySelector('.price');
-                    console.log(price);
-                });
-
-            }
+            });
 
 
         </script>
