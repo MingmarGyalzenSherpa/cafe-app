@@ -114,12 +114,12 @@ a:hover{
         </form>    
             <div class="actions d-flex justify-content-between mb-3">
                 
-                <form action="">
+                <form action="{{route('showItems')}}" method="GET">
                     <label for="">Search by Category:</label>
-                    <select name="" id="" class="ms-2 p-1 ps-2 pe-2">
+                    <select name="catID" id="" class="ms-2 p-1 ps-2 pe-2">
                         <option value="all">ALL</option>
                         @foreach($categories as $category)
-                        <option value="{{$category->cat_name}}">{{$category->cat_name}}</option>
+                        <option value="{{$category->id}}">{{$category->cat_name}}</option>
 
                         @endforeach
                     </select>

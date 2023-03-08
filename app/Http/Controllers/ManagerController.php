@@ -20,16 +20,20 @@ class ManagerController extends Controller
         return view('frontend.adminPanel.manager.index');
     }
 
-    public function showItems()
+    public function showItems(Request $req)
     {
         if (!Gate::allows('authorizeDashboard', 'admin')) {
             return back();
         }
         $categories = DB::table('categories')->get();
-
         $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->get();
-
-        return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
+        if ($req->catID) {
+            // $items = DB::table('items')->where('categories_id', '=', $req->catID)->get();
+            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.categories_id', '=', $req->catID)->get();
+            return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
+        } else {
+            return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
+        }
     }
 
     public function showEmployees()

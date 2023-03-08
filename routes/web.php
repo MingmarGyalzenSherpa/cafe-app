@@ -64,7 +64,7 @@ Route::get('/categories', [ManagerController::class, 'showCategories'])->middlew
 Route::get('/employees', [ManagerController::class, 'showEmployees'])->middleware('auth')->name('showEmployees');
 
 //items dashboard
-Route::get('/items', [ManagerController::class, 'showItems'])->middleware('auth')->name('showItems');
+Route::get('/items/', [ManagerController::class, 'showItems'])->middleware('auth')->name('showItems');
 
 //add-item
 Route::post('/add-item', [ItemsController::class, 'addItem'])->middleware('auth')->name('addItem');
