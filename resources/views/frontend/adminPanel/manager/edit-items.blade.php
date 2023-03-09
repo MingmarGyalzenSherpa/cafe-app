@@ -65,7 +65,7 @@ a:hover{
            </ul>
         </div>
         <div class="content">
-            <form class="addDishForm p-3 mb-4 " action="{{route('addItem')}}" method="POST" enctype="multipart/form-data" style="width:50%;">
+            <form class="addDishForm p-3 mb-4 " action="{{route('saveEditItem')}}" method="POST" enctype="multipart/form-data" style="width:50%;">
                 @csrf
                 <div class="form-group row p-1">
                     <label for="name" class="col-sm-2"> Name </label>
