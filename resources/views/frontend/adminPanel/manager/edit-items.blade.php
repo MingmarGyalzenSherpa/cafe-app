@@ -67,10 +67,11 @@ a:hover{
         <div class="content">
             <form class="addDishForm p-3 mb-4 " action="{{route('saveEditItem')}}" method="POST" enctype="multipart/form-data" style="width:50%;">
                 @csrf
+                <input type="hidden" name="id" value="{{$id}}">
                 <div class="form-group row p-1">
                     <label for="name" class="col-sm-2"> Name </label>
                     <div class="col-sm-10">
-                        <input type="text" name="name" class="form-control" >
+                        <input type="text" name="name" class="form-control" value="{{$item->name}}" >
                     </div>
                 </div>
                <div class="form-group row p-1">
@@ -78,7 +79,11 @@ a:hover{
                     <div class="col-sm-10">
                         <select name="categories_id" class="p-1" >
                             @foreach($categories as $category)
+                                @if($category->id == $item->categories_id)
+                                <option value="{{$category->id}}" selected>{{$category->cat_name}}</option>
+                                @else
                                 <option value="{{$category->id}}">{{$category->cat_name}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
@@ -87,7 +92,7 @@ a:hover{
                     <label for="image" class="col-sm-2">Image</label>
                    
                     <div class="col-sm-10">
-                        <input type="file" name="img" id="choose-img">
+                        <input type="file" name="img" id="choose-img" >
                     </div>
                 </div>
                 <div class="form-group row p-1">
@@ -96,7 +101,7 @@ a:hover{
                 <div class="form-group row p-1">
                     <label for="price" class="col-sm-2">Price</label>
                     <div class="col-sm-10">
-                        <input type="text" name="price">
+                        <input type="text" name="price" value="{{$item->price}}">
     
                     </div>
                 </div>

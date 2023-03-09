@@ -46,11 +46,18 @@ class ManagerController extends Controller
         if (!Gate::allows('authorizeDashboard', 'admin')) {
             return back();
         }
+
+        $item = Items::find($id);
         $categories = DB::table('categories')->get();
         $img = DB::table('imgs')->where('items_id', '=', $id)->first();
-        return view('frontend.adminPanel.manager.edit-items', compact('id', 'categories', 'img'));
+        return view('frontend.adminPanel.manager.edit-items', compact('id', 'categories', 'img', 'item'));
     }
 
+    public function saveEditItem(Request $req)
+    {
+        $item = Items::find($req->id);
+        dd($item);
+    }
 
 
     public function showEmployees()
