@@ -160,7 +160,7 @@ a:hover{
                             <td>{{$item->name}}</td>
                             <td>{{$item->cat_name}}</td>
                             <td class="price">Rs.{{$item->price}}</td>
-                            <td><a href="{{route('editItem',$item->id)}}" class="btn btn-primary">Edit</a>
+                            <td><a href="{{route('editItem',$item->itemID)}}" class="btn btn-primary">Edit</a>
                                 <a href="#" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>

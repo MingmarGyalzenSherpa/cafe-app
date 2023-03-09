@@ -85,9 +85,13 @@ a:hover{
                </div>
                 <div class="form-group row p-1">
                     <label for="image" class="col-sm-2">Image</label>
+                   
                     <div class="col-sm-10">
-                        <input type="file" name="img">
+                        <input type="file" name="img" id="choose-img">
                     </div>
+                </div>
+                <div class="form-group row p-1">
+                     <img class="col-sm-5" id="img-preview" src="{{asset('/storage/'.$img->img_path)}}" alt="">
                 </div>
                 <div class="form-group row p-1">
                     <label for="price" class="col-sm-2">Price</label>
@@ -106,32 +110,26 @@ a:hover{
        
     </div>
 
-    {{-- <div class="container" style="margin-top:90px;">
-        <h1>Items</h1>
-        <form action="{{route('addItem')}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <label for="name">Item Name:</label>
-                <input type="text" name="name" >
-                <br>
-                <br>
-            <label for="category">Category</label>
-            <select name="categories_id" id="">
-                <option value="1">food</option>
-                <option value="2">foods</option>
-                <option value="3">fooed</option>
-            </select>
-            <br>
-            <br>
-            <label for="image">Image:</label>
-            <input type="file" name="img">
-            <br>
-            <br>
-            <label for="price">price:</label>
-            <input type="text" name="price">
-            <br>
-            <button type="submit">Add Item</button>
-        </form>    
-        
-        
-    </div> --}}
+
+    <script>
+        const chooseImg = document.querySelector('#choose-img');
+        const imgPreview = document.getElementById('img-preview');
+
+        chooseImg.addEventListener('change',function(){
+            showImgPreview();
+        })
+
+        function showImgPreview(){
+            const files = chooseImg.files[0];
+            if(files)
+            {
+                const fileReader = new FileReader();
+                fileReader.readAsDataURL(files);
+                fileReader.addEventListener('load',function(){
+                    imgPreview.src = this.result;
+                })
+            }
+        }
+
+    </script>
 @endsection

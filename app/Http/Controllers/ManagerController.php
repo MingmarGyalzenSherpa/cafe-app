@@ -26,13 +26,16 @@ class ManagerController extends Controller
             return back();
         }
         $categories = DB::table('categories')->get();
-        $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->get();
+        $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')
+            ->select('items.id as itemID', 'items.*', 'categories.*')->get();
         if ($req->catID && $req->catID != "all") {
             // $items = DB::table('items')->where('categories_id', '=', $req->catID)->get();
-            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.categories_id', '=', $req->catID)->get();
+            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.categories_id', '=', $req->catID)
+                ->select('items.id as itemID', 'items.*', 'categories.*')->get();
             return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
         } else if ($req->dishName) {
-            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.name', 'like', '%' . $req->dishName . '%')->get();
+            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.name', 'like', '%' . $req->dishName . '%')
+                ->select('items.id as itemID', 'items.*', 'categories.*')->get();
         } {
             return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
         }
@@ -44,9 +47,8 @@ class ManagerController extends Controller
             return back();
         }
         $categories = DB::table('categories')->get();
-        $img = DB::table('imgs')->where('items_id', '=', $id)->get();
-
-        return view('frontend.adminPanel.manager.edit-items', compact('id', 'categories'));
+        $img = DB::table('imgs')->where('items_id', '=', $id)->first();
+        return view('frontend.adminPanel.manager.edit-items', compact('id', 'categories', 'img'));
     }
 
 
