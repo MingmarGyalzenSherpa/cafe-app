@@ -40,7 +40,7 @@
   text-decoration: underline;
 }
 
-.btn-orders{
+/* .btn-orders{
   display: none;
   padding:10px 20px;
   background-color:lightseagreen;
@@ -54,9 +54,72 @@
 
 .btn-orders:hover{
   background-color:lightgreen;
+} */
+
+.modal-order {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+  width: 500px;
+  max-width: 80%;
 }
 
+/* .modal-header {
+   transform: translate(-50%, -50%) scale(1);
+} */
+
+/* .modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+} */
+
+/* .modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+
+} */
+.modal-header .close-buttom {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 10px 15px;
+}
+
+/* #overlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all; */
+
   </style>
+
+
+
 <div class="containers " style="margin-top:90px;border:1px solid red;">
               <section class="menu pt-2 pb-3" id="menu">
                  <h2 style="text-align: center;">CATEGORIES {{$tableID}}</h2>
@@ -120,10 +183,64 @@
                   @endfor
                 </div>
               </div>
+              
+<button data-modal-target="#modal">Button</button>
+<div class="modal-order" id="modal-order">
+    <div class="">
+    <div class="title">Example Modal</div>
+    <button data-close-button class="close-button">&times;</button>
+  </div>
+  <div class="">
+    This is testing of the items checkout!!
+  </div>
+</div>
+<!-- <div class="active" id="overlay"></div> -->
+
           </div>
                  
-          <button type="button" style="background;" class=" btn-orders"><i class="fas fa-burger"></i></button>
+          <!-- <button type="button" style="background;" class=" btn-orders"><i class="fas fa-burger"></i></button> -->
+
+          
+
+<script>
+  const openModalButtons = documnet.querySelectorAll('[data-modal-target]')
+  const closeModalButtons = documnet.querySelectorAll('[data-close-button]')
+
+  openModalButtons.forEach(button => {
+    button.addEventListener('click',() => {
+      const modal = documnet.querySelector(button.dataset.modalTarget)
+      closeModal(modal)
+    })
+  })
+
+  // overlay.addEventListener('click', () => {
+  //   const modals = documnet.querySelectorAll('.modal.active')
+  //   modals.forEach(modal => {
+  //     closeModal(modal)
+
+  //   })
+  // })
+
+    closeModalButtons.forEach(button => {
+    button.addEventListener('click',() => {
+      const modal = button.closest('.modal-order')
+      openModal(modal)
+    })
+  })
 
 
+ function openModal(modal) {
+  if (modal == null) return
+  modal.classList.add('active')
+ }
+
+function closeModal(modal) {
+  if (modal == null) return
+  modal.classList.remove('active')
+ 
+
+  
+ }
+</script>
 
 @endsection
