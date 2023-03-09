@@ -69,6 +69,9 @@ Route::get('/items/', [ManagerController::class, 'showItems'])->middleware('auth
 //add-item
 Route::post('/add-item', [ItemsController::class, 'addItem'])->middleware('auth')->name('addItem');
 
+//edit-item
+Route::get('/edit-item/{id}', [ManagerController::class, 'editItem'])->middleware('auth')->name('editItem');
+
 
 
 //book a table

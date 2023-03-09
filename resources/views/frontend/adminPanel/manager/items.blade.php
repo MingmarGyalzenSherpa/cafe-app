@@ -125,17 +125,19 @@ a:hover{
                     </select>
                     <button type="submit" class="btn btn-primary  ms-1 p-3 ps-4 pe-4 pb-1 pt-1 "><i class="fas fa-search"></i></button>
                 </form>
-                <form>
-                    <input type="text" placeholder="Search By Name" class="p-1 ps-2 border rounded">
+                <form action="{{route('showItems')}}" method="GET">
+                    <input type="text" placeholder="Search By Name" name="dishName" class="p-1 ps-2 border rounded">
                     <button type="submit" class="btn btn-primary pb-1">Search</button>
                 </form>
                 <div class="sort">
                     <label for="sort">Sort by:</label>
-                    <select name="sort" id="sort">
+                    <select name="sort" id="sort" class="p-2">
                         <option value="default">default</option>
                         <option value="incre">Price (low to high)</option>
                         <option value="decre">Price (high to low)</option>
                     </select>
+                    <button type="submit" class="btn btn-primary pb-1">Sort</button>
+
                 </div>
                 
             </div>
@@ -147,6 +149,7 @@ a:hover{
                   <th scope="col">Dish</th>
                   <th scope="col">Category</th>
                   <th scope="col">Price</th>
+                  <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -157,6 +160,9 @@ a:hover{
                             <td>{{$item->name}}</td>
                             <td>{{$item->cat_name}}</td>
                             <td class="price">Rs.{{$item->price}}</td>
+                            <td><a href="{{route('editItem',$item->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
+                            </td>
                         </tr>
 
                     @endforeach
