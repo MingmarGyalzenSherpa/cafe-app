@@ -26,15 +26,39 @@ class ManagerController extends Controller
             return back();
         }
         $categories = DB::table('categories')->get();
-        $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->get();
-        if ($req->catID) {
+        $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')
+            ->select('items.id as itemID', 'items.*', 'categories.*')->get();
+        if ($req->catID && $req->catID != "all") {
             // $items = DB::table('items')->where('categories_id', '=', $req->catID)->get();
-            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.categories_id', '=', $req->catID)->get();
+            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.categories_id', '=', $req->catID)
+                ->select('items.id as itemID', 'items.*', 'categories.*')->get();
             return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
-        } else {
+        } else if ($req->dishName) {
+            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.name', 'like', '%' . $req->dishName . '%')
+                ->select('items.id as itemID', 'items.*', 'categories.*')->get();
+        } {
             return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
         }
     }
+
+    public function editItem($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+
+        $item = Items::find($id);
+        $categories = DB::table('categories')->get();
+        $img = DB::table('imgs')->where('items_id', '=', $id)->first();
+        return view('frontend.adminPanel.manager.edit-items', compact('id', 'categories', 'img', 'item'));
+    }
+
+    public function saveEditItem(Request $req)
+    {
+        $item = Items::find($req->id);
+        dd($item);
+    }
+
 
     public function showEmployees()
     {
