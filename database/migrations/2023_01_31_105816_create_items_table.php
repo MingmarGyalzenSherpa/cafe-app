@@ -21,6 +21,7 @@ return new class extends Migration
 
             //foreign key
             $table->foreign('categories_id')->references('id')->on('categories');
+            $table->softDeletes();
         });
     }
 

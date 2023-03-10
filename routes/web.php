@@ -75,6 +75,8 @@ Route::get('/edit-item/{id}', [ManagerController::class, 'editItem'])->middlewar
 //save-edit-item
 Route::post('/save-edit-item', [ManagerController::class, 'saveEditItem'])->middleware('auth')->name('saveEditItem');
 
+//delete-item
+Route::get('/delete-item/', [ManagerController::class, 'deleteItem'])->middleware('auth')->name('deleteItem');
 
 //book a table
 Route::post('/book-a-table', [ReservationsController::class, 'reserveTable'])->name('bookTable');

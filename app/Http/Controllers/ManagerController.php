@@ -74,6 +74,11 @@ class ManagerController extends Controller
         return redirect()->route('showItems');
     }
 
+    public function deleteItem(Request $req)
+    {
+        $item = Items::find($req->id);
+        $item->delete();
+    }
 
     public function showEmployees()
     {
