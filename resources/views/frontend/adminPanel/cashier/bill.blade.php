@@ -77,12 +77,12 @@
                     <span>Total:</span>
                     <span>90$</span>
                   </div>
-
                 </div>
               
               
               </div>
 
+                <button class="mt-5 p-3 w-100 btn btn-success">Proceed To Pay</button>
 
             </div>
       </div>

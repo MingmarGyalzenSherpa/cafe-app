@@ -47,6 +47,8 @@ class CashierController extends Controller
         }
         $order = Order::find($id);
         $order->quantity++;
+        $unitPrice = Items::find($order->item_id)->first()->item_id;
+        dd($unitPrice);
         $order->save();
         return redirect()->route('billDashboard', $order->table->id);
     }
@@ -58,7 +60,12 @@ class CashierController extends Controller
         }
         $order = Order::find($id);
         $order->quantity--;
-        $order->save();
+        // dd($order->quantity);
+        if ($order->quantity == 0) {
+            $order->delete();
+        } else {
+            $order->save();
+        }
         return redirect()->route('billDashboard', $order->table->id);
     }
 }
