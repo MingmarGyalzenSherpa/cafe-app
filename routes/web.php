@@ -60,6 +60,14 @@ Route::get('/manager-dashboard', [ManagerController::class, 'create'])->middlewa
 //categories list
 Route::get('/categories', [ManagerController::class, 'showCategories'])->middleware('auth')->name('showCategories');
 
+//add-category
+Route::post('/add-category', [ManagerController::class, 'addCategory'])->middleware('auth')->name('addCategory');
+
+//edit-category
+Route::get('/edit-category/{id}', [ManagerController::class, 'editCategory'])->middleware('auth')->name('editCategory');
+
+Route::post('/save-edit-category', [ManagerController::class, 'saveEditCategory'])->middleware('auth')->name('saveEditCategory');
+
 //employee list
 Route::get('/employees', [ManagerController::class, 'showEmployees'])->middleware('auth')->name('showEmployees');
 
@@ -75,6 +83,8 @@ Route::get('/edit-item/{id}', [ManagerController::class, 'editItem'])->middlewar
 //save-edit-item
 Route::post('/save-edit-item', [ManagerController::class, 'saveEditItem'])->middleware('auth')->name('saveEditItem');
 
+//delete-item
+Route::get('/delete-item/', [ManagerController::class, 'deleteItem'])->middleware('auth')->name('deleteItem');
 
 //book a table
 Route::post('/book-a-table', [ReservationsController::class, 'reserveTable'])->name('bookTable');

@@ -53,6 +53,10 @@ a:hover{
     color:blue;
     font-size: 1.2rem;
 }
+
+.addCatForm{
+    display: none;
+}
 </style>
 
         <div class="sidebar " style="width:20%;">
@@ -65,12 +69,30 @@ a:hover{
            </ul>
         </div>
         <div class="content">
+            <button class="btn btn-primary mb-4 addCatBtn"><i class="fa fa-plus"> </i> Add Category</button>
             
+            <form class="addCatForm p-3 mb-4 " action="{{route('addCategory')}}" method="POST"  style="width:50%;">
+        @csrf
+        <div class="form-group row p-1">
+            <label for="name" class="col-sm-2 pt-1"> Name </label>
+            <div class="col-sm-10">
+                <input type="text" name="name" class="form-control" >
+            </div>
+        </div>
+       
+        <form-group class="row p-1">
+            <button type="submit" class="btn btn-primary">Add </button>
+
+        </form-group>
+        
+    </form>    
             <table class="table">
                 <thead  class="bg-dark" style="color:white;">
                 <tr>
                   <th scope="col">S.N</th>
                   <th scope="col">Name</th>
+                  <th scope="col">Dishes</th>
+                  <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -79,6 +101,10 @@ a:hover{
                         <tr class="items">
                             <th scope="row"> {{$count++}}</th>
                             <td>{{$category->cat_name }}</td>
+                            <td>{{$counts[$count-2]}}</td>
+                            <td><a href="{{route('editCategory',$category->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="#" data-id = "{{$category->id}}" class="btn btn-danger btn-delete">Delete</a>
+                            </td>
                         </tr>
 
                     @endforeach
@@ -88,4 +114,14 @@ a:hover{
        
     </div>
 
+    <script>
+            let addCategoryBtn = document.querySelector('.addCatBtn');
+            let addCatForm = document.querySelector('.addCatForm');
+            addCategoryBtn.addEventListener('click',(e)=>{
+                e.preventdefault;
+                addCatForm.style.display = "block";
+                
+            });
+
+    </script>
 @endsection

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
+use App\Models\Img;
 use App\Models\Items;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class ManagerController extends Controller
 {
@@ -27,14 +30,14 @@ class ManagerController extends Controller
         }
         $categories = DB::table('categories')->get();
         $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')
-            ->select('items.id as itemID', 'items.*', 'categories.*')->get();
+            ->select('items.id as itemID', 'items.*', 'categories.*')->whereNull('items.deleted_at')->get();
         if ($req->catID && $req->catID != "all") {
             // $items = DB::table('items')->where('categories_id', '=', $req->catID)->get();
-            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.categories_id', '=', $req->catID)
+            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.categories_id', '=', $req->catID)->whereNull('items.deleted_at')
                 ->select('items.id as itemID', 'items.*', 'categories.*')->get();
             return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
         } else if ($req->dishName) {
-            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.name', 'like', '%' . $req->dishName . '%')
+            $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.name', 'like', '%' . $req->dishName . '%')->whereNull('items.deleted_at')
                 ->select('items.id as itemID', 'items.*', 'categories.*')->get();
         } {
             return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
@@ -55,10 +58,35 @@ class ManagerController extends Controller
 
     public function saveEditItem(Request $req)
     {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
         $item = Items::find($req->id);
-        dd($item);
+        $item->name = $req->name;
+        $item->categories_id = $req->categories_id;
+        $item->price = $req->price;
+        $item->save();
+        if ($img = $req->File('img')) {
+
+            $imgDB = Img::where('items_id', '=', $req->id)->first();
+            if (Storage::delete('/public/' . $imgDB->img_path)) {
+                $response = $img->store('images', 'public');
+                $imgDB->img_path = $response;
+                $imgDB->save();
+            }
+        }
+        return redirect()->route('showItems');
     }
 
+    public function deleteItem(Request $req)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $item = Items::find($req->id);
+        $item->delete();
+        return redirect()->route('showItems');
+    }
 
     public function showEmployees()
     {
@@ -74,8 +102,43 @@ class ManagerController extends Controller
         if (!Gate::allows('authorizeDashboard', 'admin')) {
             return back();
         }
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('categories')->whereNull('deleted_at')->get();
+        $counts = array();
+        foreach ($categories as $category) {
+            $count = DB::table('items')->whereNull('deleted_at')->where('categories_id', '=', $category->id)->count();
+            array_push($counts, $count);
+        }
+        return view('frontend.adminPanel.manager.categories', compact('categories', 'counts'));
+    }
 
-        return view('frontend.adminPanel.manager.categories', compact('categories'));
+    public function addCategory(Request $req)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $req->validate([
+            'name' => 'required',
+        ]);
+        Categories::Create([
+            "cat_name" => $req->name
+        ]);
+        return back();
+    }
+
+    public function editCategory($id)
+    {
+        $category = Categories::find($id);
+        return view('frontend.adminPanel.manager.edit-categories', compact('category'));
+    }
+
+    public function saveEditCategory(Request $req)
+    {
+        $req->validate([
+            'name' => 'required',
+        ]);
+        $category = Categories::find($req->id);
+        $category->cat_name = $req->name;
+        $category->save();
+        return redirect()->route('showCategories');
     }
 }
