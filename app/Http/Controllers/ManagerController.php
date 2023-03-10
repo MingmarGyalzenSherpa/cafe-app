@@ -20,7 +20,7 @@ class ManagerController extends Controller
             return back();
         }
 
-        return view('frontend.adminPanel.manager.index');
+        return view('frontend.adminPanel.manager.dashboard');
     }
 
     public function showItems(Request $req)

@@ -52,7 +52,7 @@ Route::get('/bill/decrease-qty/{id}', [CashierController::class, 'decreaseQty'])
 
 
 
-Route::get('/{catID?}', [HomeController::class, 'index'])->name('index');
+Route::get('/index/', [HomeController::class, 'index'])->name('index');
 
 //Manager Dashboard
 Route::get('/manager-dashboard', [ManagerController::class, 'create'])->middleware('auth')->name('managerDashboard');

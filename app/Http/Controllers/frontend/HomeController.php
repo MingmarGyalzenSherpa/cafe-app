@@ -15,9 +15,13 @@ class HomeController extends Controller
         $categories = Categories::all()->whereNull('deleted_at');
         if (!$catID) {
             $activeID = $categories[0]->id;
+        } else {
+            $activeID = $catID;
         }
+
         // dd($categories);
-        $items = DB::table('items')->whereNull('deleted_at')->get();
+        $items = DB::table('items')->join('imgs', 'items.id', '=', 'imgs.items_id')->whereNull('items.deleted_at')->get();
+        // dd($items);
         return view('frontend.index', compact('categories', 'items', 'activeID'));
     }
 }
