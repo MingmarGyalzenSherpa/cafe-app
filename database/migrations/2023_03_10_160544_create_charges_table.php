@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('charges', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('charge_name');
+            $table->unsignedSmallInteger('amount');
+            $table->char('type');
         });
     }
 

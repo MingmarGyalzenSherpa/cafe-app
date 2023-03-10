@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Charge;
 use App\Models\Items;
 use App\Models\Order;
 use App\Models\Table;
@@ -36,7 +37,20 @@ class CashierController extends Controller
             array_push($items, DB::table('items')->find($order->item_id)->name);
             $subTotal += $order->total;
         }
-        return view('frontend.adminPanel.cashier.bill', compact('orders', 'items', 'count', 'subTotal'));
+        $charges = Charge::all();
+
+        $total = $subTotal;
+        foreach ($charges as $charge) {
+            if ($charge->type == 'A') {
+                $total += $charge->amount;
+            } else if ($charge->type == 'D') {
+                $total -= $charge->amount;
+            } else if ($charge->type == 'P') {
+                $total += ($subTotal * $charge->amount) / 100;
+            }
+        }
+
+        return view('frontend.adminPanel.cashier.bill', compact('orders', 'items', 'count', 'subTotal', 'charges', 'total'));
     }
 
 
