@@ -141,4 +141,11 @@ class ManagerController extends Controller
         $category->save();
         return redirect()->route('showCategories');
     }
+
+    public function deleteCategory(Request $req)
+    {
+        $category = Categories::find($req->id);
+        $category->delete();
+        return redirect()->route('showCategories');
+    }
 }

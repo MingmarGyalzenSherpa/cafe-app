@@ -66,7 +66,11 @@ Route::post('/add-category', [ManagerController::class, 'addCategory'])->middlew
 //edit-category
 Route::get('/edit-category/{id}', [ManagerController::class, 'editCategory'])->middleware('auth')->name('editCategory');
 
+//save-edited-category
 Route::post('/save-edit-category', [ManagerController::class, 'saveEditCategory'])->middleware('auth')->name('saveEditCategory');
+
+//delete-category
+Route::get('/delete-category', [ManagerController::class, 'deleteCategory'])->middleware('auth')->name('deleteCategory');
 
 //employee list
 Route::get('/employees', [ManagerController::class, 'showEmployees'])->middleware('auth')->name('showEmployees');
