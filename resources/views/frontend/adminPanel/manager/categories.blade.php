@@ -113,15 +113,50 @@ a:hover{
         </div>
        
     </div>
-
+    <div class="alert card p-0" style="display:none;position:fixed;background-color:white;width:35%;top:50%;left:50%;transform:translate(-50%,-50%);height:150px;z-index:99;">
+        <div class="close-btn mb-0" style="display:flex;justify-content:flex-end;"> <button class="btn btn-cross" style="color:red"><i class="fas fa-close"></i></button></div>
+    <h3 class=" text-center  mb-0">Are you sure you want to delete?</h3>
+    <form action="{{route('deleteCategory')}}" method="GET">
+        <input type="hidden" value="" name="id" class="deleteID">
+        <button  " class="confirm-delete btn btn-danger mt-3 pt-2 pb-2" style="width:90%;position:relative;left:30px;">Confirm</button>
+    </form>
+   </div>
+   <div class="overlay" style="display:none;position: fixed;top:0;left:0;width:100%;height:100%;background-color:green;opacity:0.5;">
+        
+   </div>
     <script>
+            const inputDeleteID = document.querySelector('.deleteID');
+            const alert = document.querySelector('.alert');
+            const overLay = document.querySelector('.overlay');
+            const deleteBtn = document.querySelectorAll('.btn-delete');
+            const btnClose = document.querySelector('.btn-cross');
+
             let addCategoryBtn = document.querySelector('.addCatBtn');
+
             let addCatForm = document.querySelector('.addCatForm');
             addCategoryBtn.addEventListener('click',(e)=>{
                 e.preventdefault;
                 addCatForm.style.display = "block";
                 
             });
+
+            //for delete btn
+            deleteBtn.forEach(btn => {
+                btn.addEventListener('click',function(e){
+                    e.preventdefault;
+                    overLay.style.display= "block";
+                    alert.style.display = "block";
+                    inputDeleteID.value = btn.dataset.id;
+                    
+                })
+            });
+
+            //close delete btn
+            btnClose.addEventListener('click',(e)=>{
+                e.preventdefault;
+                overLay.style.display = 'none';
+                alert.style.display = 'none';
+            })
 
     </script>
 @endsection
