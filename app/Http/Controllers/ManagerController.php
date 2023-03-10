@@ -130,4 +130,15 @@ class ManagerController extends Controller
         $category = Categories::find($id);
         return view('frontend.adminPanel.manager.edit-categories', compact('category'));
     }
+
+    public function saveEditCategory(Request $req)
+    {
+        $req->validate([
+            'name' => 'required',
+        ]);
+        $category = Categories::find($req->id);
+        $category->cat_name = $req->name;
+        $category->save();
+        return redirect()->route('showCategories');
+    }
 }

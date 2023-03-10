@@ -65,7 +65,23 @@ a:hover{
            </ul>
         </div>
         <div class="content">
-            
+             
+            <form class="addCatForm p-3 mb-4 " action="{{route('saveEditCategory')}}" method="POST"  style="width:50%;">
+                @csrf
+                <div class="form-group row p-1">
+                    <input type="hidden" value="{{$category->id}}" name="id">
+                    <label for="name" class="col-sm-2 pt-1"> Name </label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" class="form-control" value="{{$category->cat_name}}" >
+                    </div>
+                </div>
+               
+                <form-group class="row p-1">
+                    <button type="submit" class="btn btn-primary">Confirm </button>
+        
+                </form-group>
+                
+            </form>    
         </div>
        
     </div>
