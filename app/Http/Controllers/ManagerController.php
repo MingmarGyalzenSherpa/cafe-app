@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Img;
 use App\Models\Items;
 use Illuminate\Http\Request;
@@ -57,6 +58,9 @@ class ManagerController extends Controller
 
     public function saveEditItem(Request $req)
     {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
         $item = Items::find($req->id);
         $item->name = $req->name;
         $item->categories_id = $req->categories_id;
@@ -76,6 +80,9 @@ class ManagerController extends Controller
 
     public function deleteItem(Request $req)
     {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
         $item = Items::find($req->id);
         $item->delete();
         return redirect()->route('showItems');
@@ -102,5 +109,19 @@ class ManagerController extends Controller
             array_push($counts, $count);
         }
         return view('frontend.adminPanel.manager.categories', compact('categories', 'counts'));
+    }
+
+    public function addCategory(Request $req)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $req->validate([
+            'name' => 'required',
+        ]);
+        Categories::Create([
+            "cat_name" => $req->name
+        ]);
+        return back();
     }
 }

@@ -60,6 +60,10 @@ Route::get('/manager-dashboard', [ManagerController::class, 'create'])->middlewa
 //categories list
 Route::get('/categories', [ManagerController::class, 'showCategories'])->middleware('auth')->name('showCategories');
 
+//add-category
+Route::post('/add-category', [ManagerController::class, 'addCategory'])->middleware('auth')->name('addCategory');
+
+
 //employee list
 Route::get('/employees', [ManagerController::class, 'showEmployees'])->middleware('auth')->name('showEmployees');
 

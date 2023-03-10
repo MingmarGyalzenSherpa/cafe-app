@@ -12,6 +12,7 @@ class Categories extends Model
     use HasFactory;
     use SoftDeletes;
     public $timestamps = false;
+    public $fillable = ['cat_name'];
 
     public function items()
     {
