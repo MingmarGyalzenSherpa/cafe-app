@@ -47,8 +47,8 @@ class CashierController extends Controller
         }
         $order = Order::find($id);
         $order->quantity++;
-        $unitPrice = Items::find($order->item_id)->first()->item_id;
-        dd($unitPrice);
+        $unitPrice = DB::table('items')->find($order->item_id)->price;
+        $order->total += $unitPrice;
         $order->save();
         return redirect()->route('billDashboard', $order->table->id);
     }
