@@ -102,7 +102,7 @@ a:hover{
                             <th scope="row"> {{$count++}}</th>
                             <td>{{$category->cat_name }}</td>
                             <td>{{$counts[$count-2]}}</td>
-                            <td><a href="{{route('editItem',$category->id)}}" class="btn btn-primary">Edit</a>
+                            <td><a href="{{route('editCategory',$category->id)}}" class="btn btn-primary">Edit</a>
                                 <a href="#" data-id = "{{$category->id}}" class="btn btn-danger btn-delete">Delete</a>
                             </td>
                         </tr>

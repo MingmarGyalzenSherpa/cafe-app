@@ -124,4 +124,10 @@ class ManagerController extends Controller
         ]);
         return back();
     }
+
+    public function editCategory($id)
+    {
+        $category = Categories::find($id);
+        return view('frontend.adminPanel.manager.edit-categories', compact('category'));
+    }
 }

@@ -63,6 +63,8 @@ Route::get('/categories', [ManagerController::class, 'showCategories'])->middlew
 //add-category
 Route::post('/add-category', [ManagerController::class, 'addCategory'])->middleware('auth')->name('addCategory');
 
+//edit-category
+Route::get('/edit-category/{id}', [ManagerController::class, 'editCategory'])->middleware('auth')->name('editCategory');
 
 //employee list
 Route::get('/employees', [ManagerController::class, 'showEmployees'])->middleware('auth')->name('showEmployees');
