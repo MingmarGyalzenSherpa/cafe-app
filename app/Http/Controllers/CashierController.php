@@ -64,6 +64,9 @@ class CashierController extends Controller
         if ($order->quantity == 0) {
             $order->delete();
         } else {
+
+            $unitPrice = DB::table('items')->find($order->id)->price;
+            $order->total -= $unitPrice;
             $order->save();
         }
         return redirect()->route('billDashboard', $order->table->id);

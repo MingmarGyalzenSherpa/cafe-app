@@ -53,7 +53,7 @@
                 </table>
         </div>
     
-      <div class="container border border-success" style="width:30%;">
+      <div class="container ms-2 border border-success" style="width:30%;">
             <div class="container border rounded border-danger  mt-3 p-0">
                 <h5 class="border-bottom" style="padding:20px;text-align:center;">Bill Details</h5>
                 <div class="bill-details p-0">
@@ -75,7 +75,7 @@
                   </div>
                   <div class="pt-3 alert m-0  border  pb-3 bold d-flex justify-content-between">
                     <span>Total:</span>
-                    <span>90$</span>
+                    <span>Rs.{{$subTotal}}</span>
                   </div>
                 </div>
               
