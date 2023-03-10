@@ -168,7 +168,16 @@
 
         <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
 
+          @foreach($categories as $category)
+
           <li class="nav-item">
+            <a class="nav-link @if($activeID == $category->id)  active @endif  show" data-bs-toggle="tab" data-bs-target="#menu-{{$category->cat_name}}">
+              <h4>{{$category->cat_name}}</h4>
+            </a>
+          </li>
+
+          @endforeach
+          {{-- <li class="nav-item">
             <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
               <h4>Starters</h4>
             </a>
@@ -189,7 +198,7 @@
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
               <h4>Dinner</h4>
             </a>
-          </li><!-- End tab nav item -->
+          </li><!-- End tab nav item --> --}}
 
         </ul>
 
