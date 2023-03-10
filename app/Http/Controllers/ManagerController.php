@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Img;
 use App\Models\Items;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class ManagerController extends Controller
 {
@@ -56,7 +58,20 @@ class ManagerController extends Controller
     public function saveEditItem(Request $req)
     {
         $item = Items::find($req->id);
-        dd($item);
+        $item->name = $req->name;
+        $item->categories_id = $req->categories_id;
+        $item->price = $req->price;
+        $item->save();
+        if ($img = $req->File('img')) {
+
+            $imgDB = Img::where('items_id', '=', $req->id)->first();
+            if (Storage::delete('/public/' . $imgDB->img_path)) {
+                $response = $img->store('images', 'public');
+                $imgDB->img_path = $response;
+                $imgDB->save();
+            }
+        }
+        return redirect()->route('showItems');
     }
 
 
