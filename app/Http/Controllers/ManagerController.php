@@ -28,7 +28,7 @@ class ManagerController extends Controller
         if (!Gate::allows('authorizeDashboard', 'admin')) {
             return back();
         }
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('categories')->whereNull('deleted_at')->get();
         $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')
             ->select('items.id as itemID', 'items.*', 'categories.*')->whereNull('items.deleted_at')->get();
         if ($req->catID && $req->catID != "all") {
