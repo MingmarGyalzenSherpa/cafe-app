@@ -120,7 +120,7 @@ a:hover{
                         <option value="all">ALL</option>
                         @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->cat_name}}</option>
-
+                        
                         @endforeach
                     </select>
                     <button type="submit" class="btn btn-primary  ms-1 p-3 ps-4 pe-4 pb-1 pt-1 "><i class="fas fa-search"></i></button>

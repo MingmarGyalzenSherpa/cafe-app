@@ -71,6 +71,8 @@ a:hover{
                 <tr>
                   <th scope="col">S.N</th>
                   <th scope="col">Name</th>
+                  <th scope="col">Dishes</th>
+                  <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -79,6 +81,10 @@ a:hover{
                         <tr class="items">
                             <th scope="row"> {{$count++}}</th>
                             <td>{{$category->cat_name }}</td>
+                            <td>{{$counts[$count-2]}}</td>
+                            <td><a href="{{route('editItem',$category->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="#" data-id = "{{$category->id}}" class="btn btn-danger btn-delete">Delete</a>
+                            </td>
                         </tr>
 
                     @endforeach

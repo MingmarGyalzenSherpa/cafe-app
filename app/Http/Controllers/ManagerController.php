@@ -95,8 +95,12 @@ class ManagerController extends Controller
         if (!Gate::allows('authorizeDashboard', 'admin')) {
             return back();
         }
-        $categories = DB::table('categories')->get();
-
-        return view('frontend.adminPanel.manager.categories', compact('categories'));
+        $categories = DB::table('categories')->whereNull('deleted_at')->get();
+        $counts = array();
+        foreach ($categories as $category) {
+            $count = DB::table('items')->whereNull('deleted_at')->where('categories_id', '=', $category->id)->count();
+            array_push($counts, $count);
+        }
+        return view('frontend.adminPanel.manager.categories', compact('categories', 'counts'));
     }
 }
