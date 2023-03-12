@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('price');
             $table->unsignedSmallInteger('total');
             $table->boolean('completed');
+            $table->unsignedBigInteger('sale_id')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->foreign('item_id')->references('id')->on('items');
             $table->foreign('table_id')->references('id')->on('tables');

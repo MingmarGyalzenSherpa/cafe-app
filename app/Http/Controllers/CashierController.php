@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Charge;
 use App\Models\Items;
 use App\Models\Order;
+use App\Models\Sale;
 use App\Models\Table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -93,6 +94,13 @@ class CashierController extends Controller
 
     public function confirmPayment(Request $req)
     {
-        dd($req->print);
+        $orders = Order::where(['table_id' => $req->tableID, 'completed' => false])->get();
+        // $orders = DB::table('orders')->where(['table_id' => $req->tableID, 'completed' => false])->get();
+        foreach ($orders as $order) {
+            $order->completed = true;
+            $order->save();
+        }
+        Sale::Create(['amount' => $req->charged]);
+        return redirect()->route('cashierDashboard');
     }
 }
