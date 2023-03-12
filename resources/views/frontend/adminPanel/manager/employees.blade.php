@@ -61,31 +61,18 @@ a:hover{
                 <li class="nav-item"><a href="{{route('showCategories')}}" class="nav-link"> <i class="fa-solid fa-sitemap"></i><span class="title"> Categories</span></a></li>
                 <li class="nav-item"><a href="{{route('showItems')}}" class="nav-link"><i class="fas fa-burger"></i><span class="title"> Dish</span></a></li>
                 <li class="nav-item"><a href="{{route('showEmployees')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-gauge"></i><span class="title"> Employees</span></a></li>
-              
+                <li class="nav-item"><a href="#" class="nav-link"> <i class="fa-sharp fa-solid fa-chair"></i><span class="title"> Reservations</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link"> <i class="fa-sharp fa-solid fa-message"></i><span class="title">Messages</span></a></li>  
            </ul>
         </div>
         <div class="content">
             <div class="actions d-flex justify-content-between mb-3">
-                <form action="">
-                    <label for="">Search by Category:</label>
-                    <select name="" id="" class="ms-2 p-1 ps-2 pe-2">
-                        <option value="all">ALL</option>
-                        
-                    </select>
-                    <button type="submit" class="btn btn-primary  ms-1 p-3 ps-4 pe-4 pb-1 pt-1 "><i class="fas fa-search"></i></button>
-                </form>
+               
                 <form>
                     <input type="text" placeholder="Search By Name" class="p-1 ps-2 border rounded">
                     <button type="submit" class="btn btn-primary pb-1">Search</button>
                 </form>
-                <div class="sort">
-                    <label for="sort">Sort by:</label>
-                    <select name="sort" id="sort">
-                        <option value="default">default</option>
-                        <option value="incre">Price (low to high)</option>
-                        <option value="decre">Price (high to low)</option>
-                    </select>
-                </div>
+                
                 
             </div>
             
