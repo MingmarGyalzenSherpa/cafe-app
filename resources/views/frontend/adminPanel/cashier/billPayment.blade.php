@@ -5,24 +5,24 @@
     <div class="container d-flex justify-content-center align-items-center" style="margin-top:90px;">
         <div class="card w-30 p-3" style="">
           <h2 class="text-center mb-5">PAYMENT</h2>
-            <form method="POST"  >
+            <form action="{{route('confirmPayment')}}"  method="POST"  >
                 @csrf
                     <div class="form-group row">
                       <label for="staticTotal" class="col-sm-5 col-form-label">Charged Amount:</label>
                       <div class="col-sm-5">
-                        <input type="text" readonly class="form-control-plaintext charged" id="staticTotal" value="{{$total}}">
+                        <input type="text" readonly class="form-control-plaintext charged" id="staticTotal" name="charged" value="{{$total}}">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="tenderedAmount" class="col-sm-5 col-form-label">Tendered Amount:</label>
                       <div class="col-sm-7">
-                        <input type="number" class="form-control tendered" id="inputAmount" placeholder="Amount">
+                        <input type="number" class="form-control tendered" id="inputAmount" placeholder="Amount" name="tendered">
                       </div>
                     </div>
                     <div class="form-group row pt-2">
                         <label for="tenderedAmount" class="col-sm-5 col-form-label">Change Amount:</label>
                         <div class="col-sm-7">
-                          <input type="number" class="form-control change" id="inputAmount" placeholder="Amount" disabled>
+                          <input type="number" class="form-control change" id="inputAmount" name="change" placeholder="Amount" disabled>
                         </div>
                       </div>
                     <div class="form-check pt-3">

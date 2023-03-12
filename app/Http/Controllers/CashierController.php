@@ -90,4 +90,9 @@ class CashierController extends Controller
     {
         return view('frontend.adminPanel.cashier.billPayment', compact('id', 'total'));
     }
+
+    public function confirmPayment(Request $req)
+    {
+        dd($req->print);
+    }
 }
