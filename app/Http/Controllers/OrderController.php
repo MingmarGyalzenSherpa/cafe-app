@@ -62,37 +62,37 @@ class OrderController extends Controller
 
 
         //if the item is already ordered on the same table add it and calculate total
-        if ($order = Order::where(['table_id' => $table_id, 'item_id' => $item_id])->first()) {
+        if ($order = Order::where(['table_id' => $table_id, 'item_id' => $item_id, 'completed' => false])->first()) {
 
             $order->quantity += $item_quantity;
             $order->total = $order->quantity * $order->price;
             $order->save();
         } else { // else create a new order
-            Order::create(['item_id' => $item_id, 'table_id' => $table_id, 'quantity' => $item_quantity, 'price' => $price, 'total' => $total]);
+            Order::create(['item_id' => $item_id, 'table_id' => $table_id, 'quantity' => $item_quantity, 'price' => $price, 'total' => $total, 'completed' => false]);
         }
 
         return back();
     }
 
-    // public function increaseQty($id)
-    // {
-    //     if (!Gate::allows('authorizeDashboard', 'cashier')) {
-    //         return back();
-    //     }
-    //     $order = Order::find($id);
-    //     $order->quantity++;
-    //     $order->save();
-    //     return redirect()->route('billDashboard', $order->table->id);
-    // }
+    public function increaseQty($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'cashier')) {
+            return back();
+        }
+        $order = Order::find($id);
+        $order->quantity++;
+        $order->save();
+        return redirect()->route('billDashboard', $order->table->id);
+    }
 
-    // public function decreaseQty($id)
-    // {
-    //     if (!Gate::allows('authorizeDashboard', 'cashier')) {
-    //         return back();
-    //     }
-    //     $order = Order::find($id);
-    //     $order->quantity--;
-    //     $order->save();
-    //     return redirect()->route('billDashboard', $order->table->id);
-    // }
+    public function decreaseQty($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'cashier')) {
+            return back();
+        }
+        $order = Order::find($id);
+        $order->quantity--;
+        $order->save();
+        return redirect()->route('billDashboard', $order->table->id);
+    }
 }
