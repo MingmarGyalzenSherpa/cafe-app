@@ -11,7 +11,7 @@ class Order extends Model
 {
     use HasFactory;
     const UPDATED_AT = null;
-    protected $fillable = ['item_id', 'table_id', 'quantity', 'price', 'total'];
+    protected $fillable = ['item_id', 'table_id', 'quantity', 'price', 'total', 'completed'];
 
     public function table(): BelongsTo
     {

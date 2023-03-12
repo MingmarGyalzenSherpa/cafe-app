@@ -53,36 +53,32 @@
                 </table>
         </div>
     
-      <div class="container border border-success" style="width:30%;">
+      <div class="container ms-2 border border-success" style="width:30%;">
             <div class="container border rounded border-danger  mt-3 p-0">
                 <h5 class="border-bottom" style="padding:20px;text-align:center;">Bill Details</h5>
-                <div class="bill-details p-0">
+                <div class="bill-details p-0" style="height:200px;overflow:auto;">
                   <div class="d-flex justify-content-between p-2 border-bottom">
                     <span>Sub Total:</span>
                     <span>Rs.{{$subTotal}}</span>
                   </div>
+                  @foreach($charges as $charge)
                   <div class="d-flex justify-content-between p-2  border-bottom">
-                    <span>Tax:</span>
-                    <span>0$</span>
-                  </div>
-                  <div class="d-flex justify-content-between p-2  border-bottom">
-                    <span>Discout:</span>
-                    <span>0$</span>
-                  </div>
-                  <div class="d-flex justify-content-between p-2  border-bottom">
-                    <span>Service charge:</span>
-                    <span>90$</span>
-                  </div>
-                  <div class="pt-3 alert m-0  border  pb-3 bold d-flex justify-content-between">
-                    <span>Total:</span>
-                    <span>90$</span>
+                    <span>{{$charge->charge_name}}:</span>
+                    <span>@if($charge->type == 'P'){{$charge->amount}} % @else Rs.{{$charge->amount}} @endif</span>
                   </div>
 
+                  @endforeach
+                  
+                  <div class="pt-3 alert m-0  border  pb-3 bold d-flex justify-content-between">
+                    <span>Total:</span>
+                    <span>Rs.{{$total}}</span>
+                  </div>
                 </div>
               
               
               </div>
 
+                <a href="{{route('billPayment',[$id,$total])}}" class="mt-5 p-3 w-100 btn btn-success">Proceed To Pay</a>
 
             </div>
       </div>

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->tinyInteger('quantity');
             $table->unsignedSmallInteger('price');
             $table->unsignedSmallInteger('total');
+            $table->boolean('completed');
             $table->timestamp('created_at')->useCurrent();
             $table->foreign('item_id')->references('id')->on('items');
             $table->foreign('table_id')->references('id')->on('tables');

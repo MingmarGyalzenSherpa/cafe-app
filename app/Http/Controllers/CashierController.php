@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Charge;
 use App\Models\Items;
 use App\Models\Order;
 use App\Models\Table;
@@ -36,7 +37,20 @@ class CashierController extends Controller
             array_push($items, DB::table('items')->find($order->item_id)->name);
             $subTotal += $order->total;
         }
-        return view('frontend.adminPanel.cashier.bill', compact('orders', 'items', 'count', 'subTotal'));
+        $charges = Charge::all();
+
+        $total = $subTotal;
+        foreach ($charges as $charge) {
+            if ($charge->type == 'A') {
+                $total += $charge->amount;
+            } else if ($charge->type == 'D') {
+                $total -= $charge->amount;
+            } else if ($charge->type == 'P') {
+                $total += ($subTotal * $charge->amount) / 100;
+            }
+        }
+
+        return view('frontend.adminPanel.cashier.bill', compact('id', 'orders', 'items', 'count', 'subTotal', 'charges', 'total'));
     }
 
 
@@ -47,6 +61,8 @@ class CashierController extends Controller
         }
         $order = Order::find($id);
         $order->quantity++;
+        $unitPrice = DB::table('items')->find($order->item_id)->price;
+        $order->total += $unitPrice;
         $order->save();
         return redirect()->route('billDashboard', $order->table->id);
     }
@@ -58,7 +74,25 @@ class CashierController extends Controller
         }
         $order = Order::find($id);
         $order->quantity--;
-        $order->save();
+        // dd($order->quantity);
+        if ($order->quantity == 0) {
+            $order->delete();
+        } else {
+
+            $unitPrice = DB::table('items')->find($order->id)->price;
+            $order->total -= $unitPrice;
+            $order->save();
+        }
         return redirect()->route('billDashboard', $order->table->id);
+    }
+
+    public function billPayment($id, $total)
+    {
+        return view('frontend.adminPanel.cashier.billPayment', compact('id', 'total'));
+    }
+
+    public function confirmPayment(Request $req)
+    {
+        dd($req->print);
     }
 }
