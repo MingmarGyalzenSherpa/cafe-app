@@ -22,8 +22,8 @@ use App\Http\Controllers\ReservationsController;
 */
 
 
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
-//get login form
 Route::get('/login', [UserController::class, 'login'])->name('login');
 
 //login Submit
@@ -46,13 +46,15 @@ Route::get('/cashier-dashboard', [CashierController::class, 'create'])->middlewa
 //Cashier billing
 Route::get('/bill/{id}', [CashierController::class, 'billDashboard'])->middleware('auth')->name('billDashboard');
 
+//confirmPayment
+Route::get('/bill-payment', [CashierController::class, 'confirmPayment'])->middleware('auth')->name('confirmPayment');
+
 Route::get('/bill/increase-qty/{id}', [CashierController::class, 'increaseQty'])->middleware('auth')->name('increaseQty');
 Route::get('/bill/decrease-qty/{id}', [CashierController::class, 'decreaseQty'])->middleware('auth')->name('decreaseQty');
 
 
 
 
-Route::get('/index/', [HomeController::class, 'index'])->name('index');
 
 //Manager Dashboard
 Route::get('/manager-dashboard', [ManagerController::class, 'create'])->middleware('auth')->name('managerDashboard');
