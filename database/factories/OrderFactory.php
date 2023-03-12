@@ -23,6 +23,7 @@ class OrderFactory extends Factory
             "quantity" => 2,
             "price" => 200,
             'total' => 400,
+            "completed" => false,
         ];
     }
 }
