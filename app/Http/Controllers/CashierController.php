@@ -29,7 +29,7 @@ class CashierController extends Controller
         if (!Gate::allows('authorizeDashboard', 'cashier')) {
             return back();
         }
-        $orders = Table::find($id)->orders;
+        $orders = DB::table('orders')->where(['table_id' => $id, 'completed' => false])->get();
         $count = $orders->count();
         $subTotal = 0;
         $items = array();
@@ -94,13 +94,16 @@ class CashierController extends Controller
 
     public function confirmPayment(Request $req)
     {
+        $saleID = Sale::Create(['amount' => $req->charged])->id;
+        // dd($saleID);
         $orders = Order::where(['table_id' => $req->tableID, 'completed' => false])->get();
         // $orders = DB::table('orders')->where(['table_id' => $req->tableID, 'completed' => false])->get();
         foreach ($orders as $order) {
             $order->completed = true;
+            $order->sale_id = $saleID;
             $order->save();
         }
-        Sale::Create(['amount' => $req->charged]);
+
         return redirect()->route('cashierDashboard');
     }
 }
