@@ -47,13 +47,11 @@ Route::get('/cashier-dashboard', [CashierController::class, 'create'])->middlewa
 Route::get('/bill/{id}', [CashierController::class, 'billDashboard'])->middleware('auth')->name('billDashboard');
 
 //confirmPayment
-Route::get('/bill-payment', [CashierController::class, 'confirmPayment'])->middleware('auth')->name('confirmPayment');
+Route::get('/bill-payment/{id}/{total}', [CashierController::class, 'billPayment'])->middleware('auth')->name('billPayment');
 
+//incre/decre in quantity in bill 
 Route::get('/bill/increase-qty/{id}', [CashierController::class, 'increaseQty'])->middleware('auth')->name('increaseQty');
 Route::get('/bill/decrease-qty/{id}', [CashierController::class, 'decreaseQty'])->middleware('auth')->name('decreaseQty');
-
-
-
 
 
 //Manager Dashboard

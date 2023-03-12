@@ -78,7 +78,7 @@
               
               </div>
 
-                <button class="mt-5 p-3 w-100 btn btn-success">Proceed To Pay</button>
+                <a href="{{route('billPayment',[$id,$total])}}" class="mt-5 p-3 w-100 btn btn-success">Proceed To Pay</a>
 
             </div>
       </div>

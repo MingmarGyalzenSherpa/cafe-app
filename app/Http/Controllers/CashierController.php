@@ -50,7 +50,7 @@ class CashierController extends Controller
             }
         }
 
-        return view('frontend.adminPanel.cashier.bill', compact('orders', 'items', 'count', 'subTotal', 'charges', 'total'));
+        return view('frontend.adminPanel.cashier.bill', compact('id', 'orders', 'items', 'count', 'subTotal', 'charges', 'total'));
     }
 
 
@@ -84,5 +84,10 @@ class CashierController extends Controller
             $order->save();
         }
         return redirect()->route('billDashboard', $order->table->id);
+    }
+
+    public function billPayment($id, $total)
+    {
+        return view('frontend.adminPanel.cashier.billPayment', compact('id', 'total'));
     }
 }
