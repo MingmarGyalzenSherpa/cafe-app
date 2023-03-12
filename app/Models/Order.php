@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Order extends Model
 {
+
     use HasFactory;
     const UPDATED_AT = null;
-    protected $fillable = ['item_id', 'table_id', 'quantity', 'price', 'total', 'completed'];
+    protected $fillable = ['item_id', 'table_id', 'quantity', 'price', 'total', 'completed', 'sale_id'];
 
     public function table(): BelongsTo
     {

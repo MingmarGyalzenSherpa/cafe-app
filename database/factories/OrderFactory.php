@@ -24,6 +24,7 @@ class OrderFactory extends Factory
             "price" => 200,
             'total' => 400,
             "completed" => false,
+            'sale_id' => null,
         ];
     }
 }

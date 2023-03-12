@@ -7,6 +7,7 @@
           <h2 class="text-center mb-5">PAYMENT</h2>
             <form action="{{route('confirmPayment')}}"  method="POST"  >
                 @csrf
+                <input type="hidden" value="{{$id}}" name="tableID">
                     <div class="form-group row">
                       <label for="staticTotal" class="col-sm-5 col-form-label">Charged Amount:</label>
                       <div class="col-sm-5">
