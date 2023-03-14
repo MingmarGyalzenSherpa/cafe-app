@@ -97,5 +97,8 @@ Route::get('/delete-item/', [ManagerController::class, 'deleteItem'])->middlewar
 //book a table
 Route::post('/book-a-table', [ReservationsController::class, 'reserveTable'])->name('bookTable');
 
+//show reservations
+Route::get('/show-reservations', [ManagerController::class, 'showReservations'])->middleware('auth')->name('showReservations');
+
 //send an enquiry
 Route::post('/send-message', [EnquiryController::class, 'sendEnquiry'])->name('sendMessage');

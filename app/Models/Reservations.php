@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Reservations extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'email', 'phone_no', 'date', 'time', 'guests', 'message'];
+    protected $fillable = ['name', 'email', 'phone_no', 'date', 'time', 'guests', 'message', 'status'];
     const UPDATED_AT = null;
 }

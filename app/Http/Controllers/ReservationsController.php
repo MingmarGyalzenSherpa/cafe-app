@@ -33,7 +33,7 @@ class ReservationsController extends Controller
 
         Reservations::create([
             'name' => $name, 'email' => $email, 'phone_no' => $phone, 'date' => $date, 'time' => $time,
-            'guests' => $people, 'message' => $message
+            'guests' => $people, 'message' => $message, 'status' => 'pending'
         ]);
 
         return "OK";
