@@ -70,7 +70,7 @@ a:hover{
 
             <div class="head text-center mb-2   ">
                 <a href="#" class="btn btn-primary">Pending</a>
-                <a href="#" class="btn ">Approved</a>
+                <a href="" class="btn ">Approved</a>
             </div>
             
 
@@ -80,6 +80,7 @@ a:hover{
                 <div class="card-body">
 
                     <div class="card-title"> <h3>{{$reservation->name}}</h3></div>
+                    <hr>
                     <div class="card-subtitle text-muted">{{$reservation->email}}</div>
                     <div class="card-subtitle text-muted">{{$reservation->phone_no}}</div>
                     <div class="card-subtitle text-muted">Date: {{$reservation->date}}</div>
@@ -89,9 +90,11 @@ a:hover{
                     <div class="card-text mb-3"> Message:
                         {{$reservation->message}}
                     </div>
-                    <a href="#" class="btn btn-success" style=""> <i class="fas fa-check">  </i> Approve</a>
+            <a href="{{route('approveReservation',$reservation->id)}}" class="btn btn-success"> <i class="fas fa-check">  </i> Approve</a>
+
                 </div>
             </div>
+
             @endforeach
             
         </div>

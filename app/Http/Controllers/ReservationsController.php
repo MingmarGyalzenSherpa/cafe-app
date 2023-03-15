@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservations;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ReservationsController extends Controller
 {
@@ -37,5 +38,16 @@ class ReservationsController extends Controller
         ]);
 
         return "OK";
+    }
+
+    public function approveReservation($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $reservation = Reservations::find($id);
+        $reservation->status = "approved";
+        $reservation->save();
+        return back();
     }
 }

@@ -151,9 +151,18 @@ class ManagerController extends Controller
     }
 
     //show-reservations
-    public function showReservations()
+    public function showReservations($status = null) //1 means approved , 0 means pending
     {
-        $reservations = Reservations::all();
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $reservations = '';
+        if ($status) {
+            $reservations = Reservations::all()->where('status', '=', 'approved');
+        } else {
+            $reservations = Reservations::all()->where('status', '=', 'pending');
+        }
+
         return view('frontend.adminPanel.manager.reservations', compact('reservations'));
     }
 }
