@@ -22,6 +22,7 @@ return new class extends Migration
             $table->time('time');
             $table->integer('guests');
             $table->string('message')->nullable();
+            $table->string('status');
             $table->timestamp('created_at')->useCurrent();
         });
     }

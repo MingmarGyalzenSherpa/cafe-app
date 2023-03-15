@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\Img;
 use App\Models\Items;
+use App\Models\Reservations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
@@ -147,5 +148,21 @@ class ManagerController extends Controller
         $category = Categories::find($req->id);
         $category->delete();
         return redirect()->route('showCategories');
+    }
+
+    //show-reservations
+    public function showReservations($status = null) //1 means approved , 0 means pending
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $reservations = '';
+        if ($status) {
+            $reservations = Reservations::all()->where('status', '=', 'approved');
+        } else {
+            $reservations = Reservations::all()->where('status', '=', 'pending');
+        }
+
+        return view('frontend.adminPanel.manager.reservations', compact('reservations', 'status'));
     }
 }

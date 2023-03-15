@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservations;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ReservationsController extends Controller
 {
@@ -33,9 +34,20 @@ class ReservationsController extends Controller
 
         Reservations::create([
             'name' => $name, 'email' => $email, 'phone_no' => $phone, 'date' => $date, 'time' => $time,
-            'guests' => $people, 'message' => $message
+            'guests' => $people, 'message' => $message, 'status' => 'pending'
         ]);
 
         return "OK";
+    }
+
+    public function approveReservation($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $reservation = Reservations::find($id);
+        $reservation->status = "approved";
+        $reservation->save();
+        return back();
     }
 }

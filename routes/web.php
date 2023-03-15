@@ -9,6 +9,7 @@ use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReservationsController;
+use App\Models\Reservations;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +97,11 @@ Route::get('/delete-item/', [ManagerController::class, 'deleteItem'])->middlewar
 
 //book a table
 Route::post('/book-a-table', [ReservationsController::class, 'reserveTable'])->name('bookTable');
+
+//show reservations
+Route::get('/show-reservations/{status?}', [ManagerController::class, 'showReservations'])->middleware('auth')->name('showReservations');
+
+Route::get('/approve-reservation/{id}', [ReservationsController::class, 'approveReservation'])->middleware('auth')->name('approveReservation');
 
 //send an enquiry
 Route::post('/send-message', [EnquiryController::class, 'sendEnquiry'])->name('sendMessage');

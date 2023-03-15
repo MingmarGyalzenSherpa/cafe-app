@@ -61,44 +61,50 @@ a:hover{
                 <li class="nav-item"><a href="{{route('showCategories')}}" class="nav-link"> <i class="fa-solid fa-sitemap"></i><span class="title"> Categories</span></a></li>
                 <li class="nav-item"><a href="{{route('showItems')}}" class="nav-link"><i class="fas fa-burger"></i><span class="title"> Dish</span></a></li>
                 <li class="nav-item"><a href="{{route('showEmployees')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-gauge"></i><span class="title"> Employees</span></a></li>
-                <li class="nav-item"><a href="{{route("showReservations")}}" class="nav-link"> <i class="fa-sharp fa-solid fa-chair"></i><span class="title"> Reservations</span></a></li>
+                <li class="nav-item"><a href="{{route('showReservations')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-chair"></i><span class="title"> Reservations</span></a></li>
                 <li class="nav-item"><a href="#" class="nav-link"> <i class="fa-sharp fa-solid fa-message"></i><span class="title">Messages</span></a></li>
 
-                
-           </ul>
+            </ul>
         </div>
         <div class="content">
+
+            <div class="head text-center mb-2   ">
+                <a href="{{route('showReservations')}}" class="btn  @if(!$status) btn-primary @endif">Pending</a>
+                <a href="{{route('showReservations',1)}}" class="btn @if($status) btn-primary @endif">Approved</a>
+            </div>
+            
+
+
+            @foreach($reservations as $reservation)
+            <div class="card w-100 m-3" style="height:200px;overflow:auto;">
+                <div class="card-body">
+
+                    <div class="card-title"> <h3>{{$reservation->name}}</h3></div>
+                    <hr>
+                    <div class="card-subtitle text-muted">{{$reservation->email}}</div>
+                    <div class="card-subtitle text-muted">{{$reservation->phone_no}}</div>
+                    <div class="card-subtitle text-muted">Date: {{$reservation->date}}</div>
+                    <div class="card-subtitle text-muted">Time: {{$reservation->time}}</div>
+                    <div class="card-subtitle text-muted">People: {{$reservation->guests}}</div>
+
+                    <div class="card-text mb-3"> Message:
+                        {{$reservation->message}}
+                    </div>
+                    @if($reservation->status == 'pending')
+            <a href="{{route('approveReservation',$reservation->id)}}" class="btn btn-success"> <i class="fas fa-check">  </i> Approve</a>
+                    @else
+                    <a href="{{route('approveReservation',$reservation->id)}}" class="btn btn-danger "> <i class="fas fa-times">  </i> Delete</a>
+
+
+                    @endif
+                </div>
+            </div>
+
+            @endforeach
             
         </div>
        
     </div>
 
-    {{-- <div class="container" style="margin-top:90px;">
-        <h1>Items</h1>
-        <form action="{{route('addItem')}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <label for="name">Item Name:</label>
-                <input type="text" name="name" >
-                <br>
-                <br>
-            <label for="category">Category</label>
-            <select name="categories_id" id="">
-                <option value="1">food</option>
-                <option value="2">foods</option>
-                <option value="3">fooed</option>
-            </select>
-            <br>
-            <br>
-            <label for="image">Image:</label>
-            <input type="file" name="img">
-            <br>
-            <br>
-            <label for="price">price:</label>
-            <input type="text" name="price">
-            <br>
-            <button type="submit">Add Item</button>
-        </form>    
-        
-        
-    </div> --}}
+
 @endsection
