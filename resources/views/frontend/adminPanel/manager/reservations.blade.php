@@ -93,7 +93,7 @@ a:hover{
                     @if($reservation->status == 'pending')
             <a href="{{route('approveReservation',$reservation->id)}}" class="btn btn-success"> <i class="fas fa-check">  </i> Approve</a>
                     @else
-                    <a href="{{route('approveReservation',$reservation->id)}}" class="btn btn-danger "> <i class="fas fa-times">  </i> Delete</a>
+                    <a href="{{route('deleteReservation',$reservation->id)}}" class="btn btn-danger "> <i class="fas fa-times">  </i> Delete</a>
 
 
                     @endif
