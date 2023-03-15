@@ -69,8 +69,8 @@ a:hover{
         <div class="content">
 
             <div class="head text-center mb-2   ">
-                <a href="#" class="btn btn-primary">Pending</a>
-                <a href="" class="btn ">Approved</a>
+                <a href="{{route('showReservations')}}" class="btn btn-primary">Pending</a>
+                <a href="{{route('showReservations',1)}}" class="btn ">Approved</a>
             </div>
             
 
@@ -90,8 +90,13 @@ a:hover{
                     <div class="card-text mb-3"> Message:
                         {{$reservation->message}}
                     </div>
+                    @if($reservation->status == 'pending')
             <a href="{{route('approveReservation',$reservation->id)}}" class="btn btn-success"> <i class="fas fa-check">  </i> Approve</a>
+                    @else
+                    <a href="{{route('approveReservation',$reservation->id)}}" class="btn btn-danger "> <i class="fas fa-times">  </i> Delete</a>
 
+
+                    @endif
                 </div>
             </div>
 
