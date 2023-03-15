@@ -50,4 +50,14 @@ class ReservationsController extends Controller
         $reservation->save();
         return back();
     }
+
+    public function deleteReservation($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $reservation = Reservations::find($id);
+        $reservation->delete();
+        return back();
+    }
 }
