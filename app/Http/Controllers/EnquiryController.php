@@ -32,4 +32,11 @@ class EnquiryController extends Controller
 
         return "OK";
     }
+
+    public function deleteMessage($id)
+    {
+        $message = Enquiry::find($id);
+        $message->delete();
+        return back();
+    }
 }

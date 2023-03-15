@@ -9,6 +9,7 @@ use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReservationsController;
+use App\Models\Enquiry;
 use App\Models\Reservations;
 
 /*
@@ -113,3 +114,6 @@ Route::post('/send-message', [EnquiryController::class, 'sendEnquiry'])->name('s
 
 //show enquiry
 Route::get('/show-message', [ManagerController::class, 'showMessages'])->middleware('auth')->name('showMessages');
+
+//delete message
+Route::get('/delete-message/{id}', [EnquiryController::class, 'deleteMessage'])->middleware('auth')->name('deleteMessage');

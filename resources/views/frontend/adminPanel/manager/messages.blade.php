@@ -71,14 +71,19 @@ a:hover{
             @foreach($messages as $message)
 
             <div class="card p-3">
-                <div class="card-subtitle d-flex justify-content-end"><span>{{$message->created_at}}</span></div>
-                <div class="card-title "><h3>{{$message->subject}}</h3></div>
-                <div class="card-subtitle">{{$message->name}} </div>
-                <div class="card-subtitle">{{$message->email}} </div>
-                <div class="card-text ">
-                    Message:
-                    {{$message->message}}
+                <div class="card-body">
+                    <div class="card-subtitle d-flex justify-content-end"><span>{{$message->created_at}}</span></div>
+                    <div class="card-title "><h3>{{$message->subject}}</h3></div>
+                    <div class="card-subtitle">{{$message->name}} </div>
+                    <div class="card-subtitle">{{$message->email}} </div>
+                    <div class="card-text ">
+                        Message:
+                        {{$message->message}}
+                    </div>
+                    <a href="{{route('deleteMessage',$message->id)}}" class="btn btn-danger "> <i class="fas fa-times">  </i> Delete</a>
+
                 </div>
+                
             </div>
 
 
