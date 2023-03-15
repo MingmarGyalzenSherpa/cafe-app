@@ -69,8 +69,8 @@ a:hover{
         <div class="content">
 
             <div class="head text-center mb-2   ">
-                <a href="{{route('showReservations')}}" class="btn btn-primary">Pending</a>
-                <a href="{{route('showReservations',1)}}" class="btn ">Approved</a>
+                <a href="{{route('showReservations')}}" class="btn  @if(!$status) btn-primary @endif">Pending</a>
+                <a href="{{route('showReservations',1)}}" class="btn @if($status) btn-primary @endif">Approved</a>
             </div>
             
 

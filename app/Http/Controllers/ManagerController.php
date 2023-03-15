@@ -163,6 +163,6 @@ class ManagerController extends Controller
             $reservations = Reservations::all()->where('status', '=', 'pending');
         }
 
-        return view('frontend.adminPanel.manager.reservations', compact('reservations'));
+        return view('frontend.adminPanel.manager.reservations', compact('reservations', 'status'));
     }
 }
