@@ -68,7 +68,21 @@ a:hover{
            </ul>
         </div>
         <div class="content">
-            
+            @foreach($messages as $message)
+
+            <div class="card p-3">
+                <div class="card-subtitle d-flex justify-content-end"><span>{{$message->created_at}}</span></div>
+                <div class="card-title "><h3>{{$message->subject}}</h3></div>
+                <div class="card-subtitle">{{$message->name}} </div>
+                <div class="card-subtitle">{{$message->email}} </div>
+                <div class="card-text ">
+                    Message:
+                    {{$message->message}}
+                </div>
+            </div>
+
+
+            @endforeach
         </div>
        
     </div>
