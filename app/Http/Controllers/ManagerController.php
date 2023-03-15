@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Enquiry;
 use App\Models\Img;
 use App\Models\Items;
 use App\Models\Reservations;
@@ -164,5 +165,14 @@ class ManagerController extends Controller
         }
 
         return view('frontend.adminPanel.manager.reservations', compact('reservations', 'status'));
+    }
+
+    public function showMessages()
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $messages = Enquiry::all();
+        return view('frontend.adminPanel.manager.messages', compact('messages'));
     }
 }

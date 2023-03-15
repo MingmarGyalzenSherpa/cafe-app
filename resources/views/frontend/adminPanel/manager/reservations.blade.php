@@ -62,7 +62,7 @@ a:hover{
                 <li class="nav-item"><a href="{{route('showItems')}}" class="nav-link"><i class="fas fa-burger"></i><span class="title"> Dish</span></a></li>
                 <li class="nav-item"><a href="{{route('showEmployees')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-gauge"></i><span class="title"> Employees</span></a></li>
                 <li class="nav-item"><a href="{{route('showReservations')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-chair"></i><span class="title"> Reservations</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link"> <i class="fa-sharp fa-solid fa-message"></i><span class="title">Messages</span></a></li>
+                <li class="nav-item"><a href="{{route('showMessages')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-message"></i><span class="title">Messages</span></a></li>
 
             </ul>
         </div>
@@ -92,11 +92,11 @@ a:hover{
                     </div>
                     @if($reservation->status == 'pending')
             <a href="{{route('approveReservation',$reservation->id)}}" class="btn btn-success"> <i class="fas fa-check">  </i> Approve</a>
-                    @else
+            @endif
+                    
                     <a href="{{route('deleteReservation',$reservation->id)}}" class="btn btn-danger "> <i class="fas fa-times">  </i> Delete</a>
 
 
-                    @endif
                 </div>
             </div>
 

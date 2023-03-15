@@ -110,3 +110,6 @@ Route::get('/delete-reservations/{id}', [ReservationsController::class, 'deleteR
 
 //send an enquiry
 Route::post('/send-message', [EnquiryController::class, 'sendEnquiry'])->name('sendMessage');
+
+//show enquiry
+Route::get('/show-message', [ManagerController::class, 'showMessages'])->middleware('auth')->name('showMessages');
