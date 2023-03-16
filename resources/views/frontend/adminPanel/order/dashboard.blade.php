@@ -122,8 +122,10 @@
               </div>
           </div>
                  
-          <button type="button" style="background;" class=" btn-orders"><i class="fas fa-burger"></i></button>
-
+          <button type="button" class=" btn-orders"><i class="fas fa-burger"></i></button>
+          <script>
+              
+          </script>
 
 
 @endsection
