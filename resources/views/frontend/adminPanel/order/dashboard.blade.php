@@ -57,11 +57,12 @@
 } */
 
 .modal-order {
+  display: none;
   position: fixed;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: 200ms ease-in-out;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  transition: 200ms ease-in-out; 
   border: 1px solid black;
   border-radius: 10px;
   z-index: 10;
@@ -100,6 +101,9 @@
   padding: 10px 15px;
 }
 
+.active{
+  display: block;
+}
 /* #overlay {
   position: fixed;
   opacity: 0;
@@ -148,7 +152,7 @@
               
 
               <h2 style="text-align: center;">ITEMS</h2>
-                <div class="tab-pane fade active p-4 pe-1 show d-flex flex-wrap justify-content-space-between">
+                <div class="tab-pane fade active p-4 pe-1 m-4 show d-flex flex-wrap justify-content-space-between">
                   
 
 
@@ -157,7 +161,7 @@
                   {{-- using for loop to access the item and images as they share same index --}}
                   
                   @for ($i = 0; $i < $count; $i++) 
-                     <div class="card ms-1 me-1" style="width: 18rem;">
+                    <div class="card ms-1 me-1" style="width: 18rem; ">
                         <img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title text-center text-uppercase mb-4">{{$items[$i]->name}}</h5>
@@ -171,6 +175,7 @@
                           </form>
                         </div>
                       </div>
+                    </div>
                    
                       <!-- <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
                     <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="menu-img img-fluid" alt=""></a>
@@ -184,49 +189,38 @@
                 </div>
               </div>
               
-<button data-modal-target="#modal">Button</button>
-<div class="modal-order" id="modal-order">
+          @if($hasOrders)
+              <button data-modal-target="#modal-order"><i class="fas fa-burger"></i></button>
+          @endif
+  <div class="modal-order" id="modal-order">
     <div class="">
     <div class="title">Example Modal</div>
-    <button data-close-button class="close-button">&times;</button>
+      <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="">
+      This is testing of the items checkout!!
+  </div>  
   </div>
-  <div class="">
-    This is testing of the items checkout!!
-  </div>
-</div>
-<!-- <div class="active" id="overlay"></div> -->
 
-          </div>
+ </div>
                  
-          <!-- <button type="button" style="background;" class=" btn-orders"><i class="fas fa-burger"></i></button> -->
-
-          
 
 <script>
-  const openModalButtons = documnet.querySelectorAll('[data-modal-target]')
-  const closeModalButtons = documnet.querySelectorAll('[data-close-button]')
+  const openModalButtons = document.querySelector('[data-modal-target]')
+  const closeModalButtons = document.querySelector('[data-close-button]')
+  console.log(closeModalButtons);
+  openModalButtons.addEventListener('click',() => {
+      const modal = document.querySelector(openModalButtons.dataset.modalTarget);
+      openModal(modal);
+    })
 
-  openModalButtons.forEach(button => {
-    button.addEventListener('click',() => {
-      const modal = documnet.querySelector(button.dataset.modalTarget)
+
+    
+    closeModalButtons.addEventListener('click',() => {
+      const modal = document.querySelector(openModalButtons.dataset.modalTarget)
       closeModal(modal)
-    })
   })
 
-  // overlay.addEventListener('click', () => {
-  //   const modals = documnet.querySelectorAll('.modal.active')
-  //   modals.forEach(modal => {
-  //     closeModal(modal)
-
-  //   })
-  // })
-
-    closeModalButtons.forEach(button => {
-    button.addEventListener('click',() => {
-      const modal = button.closest('.modal-order')
-      openModal(modal)
-    })
-  })
 
 
  function openModal(modal) {

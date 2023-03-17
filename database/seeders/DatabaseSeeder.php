@@ -23,12 +23,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //
-        Categories::factory()->count(5)->create();
-        Items::factory()->count(15)->create();
+        // Categories::factory()->count(5)->create();
+        // Items::factory()->count(15)->create();
         Employee::factory()->count(10)->create();
         User::factory()->count(5)->create();
         EmployeeContacts::factory()->count(5)->create();
-        Table::factory()->count(5)->create();
-        Order::factory()->count(10)->create();
+        // Table::factory()->count(5)->create();
+        // Order::factory()->count(10)->create();
     }
 }

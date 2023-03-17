@@ -7,6 +7,7 @@ use App\Models\Img;
 use App\Models\Items;
 use App\Models\Order;
 use App\Models\Table;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -32,21 +33,24 @@ class OrderController extends Controller
         $categories = Categories::all();
         //initially loading the view wont have categoryID so 
         //assigning it with the first category id if its null
+
         if (!$categoryPK) {
             $categoryPK = $categories[0]->id;
         }
 
         $items = Categories::find($categoryPK)->items;
         $count = Categories::find($categoryPK)->items->count();
+        $hasOrders = DB::table('orders')->where(['completed' => 0, 'table_id' => $tableID])->first();
 
+        $orders = DB::table('orders')->where(['completed' => 0, 'table_id' => $tableID])->get();
         $images = array();
         foreach ($items as $item) {
             array_push($images, Items::find($item->id)->img);
         }
 
-
+        // dd($orders);
         // dd(Items::find(1)->img);
-        return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count', 'tableID'));
+        return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count', 'tableID', 'orders', 'hasOrders'));
     }
 
     public function addOrder(Request $req)
