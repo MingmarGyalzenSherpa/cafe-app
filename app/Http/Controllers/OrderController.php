@@ -41,16 +41,13 @@ class OrderController extends Controller
         $items = Categories::find($categoryPK)->items;
         $count = Categories::find($categoryPK)->items->count();
         $hasOrders = DB::table('orders')->where(['completed' => 0, 'table_id' => $tableID])->first();
-
-        $orders = DB::table('orders')->where(['completed' => 0, 'table_id' => $tableID])->get();
         $images = array();
         foreach ($items as $item) {
             array_push($images, Items::find($item->id)->img);
         }
 
-        // dd($orders);
-        // dd(Items::find(1)->img);
-        return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count', 'tableID', 'orders', 'hasOrders'));
+
+        return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count', 'tableID', 'hasOrders'));
     }
 
     public function addOrder(Request $req)
@@ -76,6 +73,15 @@ class OrderController extends Controller
         }
 
         return back();
+    }
+
+    public function confirmOrder($tableID)
+    {
+        if (!Gate::allows('authorizeDashboard', 'waiter')) {
+            return back();
+        }
+        $orders = DB::table('orders')->join('imgs', 'orders.item_id', '=', 'imgs.items_id')->join('items', 'items.id', '=', 'orders.item_id')->where(['completed' => 0, 'table_id' => $tableID])->get();
+        return view('frontend.adminPanel.order.confirmOrder', compact('orders'));
     }
 
     public function increaseQty($id)

@@ -40,9 +40,10 @@
   text-decoration: underline;
 }
 
-/* .btn-orders{
-  display: none;
+.btn-orders{
+  display: block;
   padding:10px 20px;
+  color:black;
   background-color:lightseagreen;
   border:none;
   border-radius: 5px;
@@ -51,74 +52,11 @@
   bottom:20px;
   right:30px;
 }
-
 .btn-orders:hover{
-  background-color:lightgreen;
-} */
-
-.modal-order {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%; 
-  transform: translate(-50%, -50%);
-  transition: 200ms ease-in-out; 
-  border: 1px solid black;
-  border-radius: 10px;
-  z-index: 10;
-  background-color: white;
-  width: 500px;
-  max-width: 80%;
+  background: lightgreen;
+  color: white;
 }
 
-/* .modal-header {
-   transform: translate(-50%, -50%) scale(1);
-} */
-
-/* .modal-header {
-  padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid black;
-} */
-
-/* .modal-header .title {
-  font-size: 1.25rem;
-  font-weight: bold;
-
-} */
-.modal-header .close-buttom {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: none;
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.modal-body {
-  padding: 10px 15px;
-}
-
-.active{
-  display: block;
-}
-/* #overlay {
-  position: fixed;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, .5);
-  pointer-events: none;
-
-}
-
-#overlay.active {
-  opacity: 1;
-  pointer-events: all; */
 
   </style>
 
@@ -126,7 +64,7 @@
 
 <div class="containers " style="margin-top:90px;border:1px solid red;">
               <section class="menu pt-2 pb-3" id="menu">
-                 <h2 style="text-align: center;">CATEGORIES {{$tableID}}</h2>
+                 <h2 style="text-align: center;">CATEGORIES </h2>
                  <hr>
                 <ul class="nav nav-tabs d-flex justify-content-center" >
                   @foreach ($categories as $category)
@@ -190,51 +128,11 @@
               </div>
               
           @if($hasOrders)
-              <button data-modal-target="#modal-order"><i class="fas fa-burger"></i></button>
+              <a href="{{route('confirmOrder',$tableID)}}" data-modal-target="#modal-order" class="btn-orders">CONFIRM ORDER</a>
           @endif
-  <div class="modal-order" id="modal-order">
-    <div class="">
-    <div class="title">Example Modal</div>
-      <button data-close-button class="close-button">&times;</button>
-    </div>
-    <div class="">
-      This is testing of the items checkout!!
-  </div>  
-  </div>
+  
 
  </div>
                  
-
-<script>
-  const openModalButtons = document.querySelector('[data-modal-target]')
-  const closeModalButtons = document.querySelector('[data-close-button]')
-  console.log(closeModalButtons);
-  openModalButtons.addEventListener('click',() => {
-      const modal = document.querySelector(openModalButtons.dataset.modalTarget);
-      openModal(modal);
-    })
-
-
-    
-    closeModalButtons.addEventListener('click',() => {
-      const modal = document.querySelector(openModalButtons.dataset.modalTarget)
-      closeModal(modal)
-  })
-
-
-
- function openModal(modal) {
-  if (modal == null) return
-  modal.classList.add('active')
- }
-
-function closeModal(modal) {
-  if (modal == null) return
-  modal.classList.remove('active')
- 
-
-  
- }
-</script>
 
 @endsection
