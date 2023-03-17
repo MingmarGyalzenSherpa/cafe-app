@@ -84,25 +84,5 @@ class OrderController extends Controller
         return view('frontend.adminPanel.order.confirmOrder', compact('orders'));
     }
 
-    public function increaseQty($id)
-    {
-        if (!Gate::allows('authorizeDashboard', 'cashier')) {
-            return back();
-        }
-        $order = Order::find($id);
-        $order->quantity++;
-        $order->save();
-        return redirect()->route('billDashboard', $order->table->id);
-    }
-
-    public function decreaseQty($id)
-    {
-        if (!Gate::allows('authorizeDashboard', 'cashier')) {
-            return back();
-        }
-        $order = Order::find($id);
-        $order->quantity--;
-        $order->save();
-        return redirect()->route('billDashboard', $order->table->id);
-    }
+   
 }
