@@ -75,6 +75,14 @@ class OrderController extends Controller
         return back();
     }
 
+    public function confirmOrder($tableID)
+    {
+        if (!Gate::allows('authorizeDashboard', 'waiter')) {
+            return back();
+        }
+        return view('frontend.adminPanel.order.confirmOrder');
+    }
+
     public function increaseQty($id)
     {
         if (!Gate::allows('authorizeDashboard', 'cashier')) {

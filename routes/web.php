@@ -40,6 +40,9 @@ Route::get('/order-dashboard/table/{tableID}/cat/{catID?}', [OrderController::cl
 //Add Order
 Route::post('/add-order', [OrderController::class, 'addOrder'])->middleware('auth')->name('addOrder');
 
+//confirm order
+Route::get('/confirm-order/table/{tableID}', [OrderController::class, 'confirmOrder'])->middleware('auth')->name('confirmOrder');
+
 
 
 //Cashier Dashboard

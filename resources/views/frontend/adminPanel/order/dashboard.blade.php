@@ -128,7 +128,7 @@
               </div>
               
           @if($hasOrders)
-              <a data-modal-target="#modal-order" class="btn-orders">CONFIRM ORDER</a>
+              <a href="{{route('confirmOrder',$tableID)}}" data-modal-target="#modal-order" class="btn-orders">CONFIRM ORDER</a>
           @endif
   
 
