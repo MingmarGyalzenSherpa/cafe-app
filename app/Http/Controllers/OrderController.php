@@ -40,15 +40,17 @@ class OrderController extends Controller
 
         $items = Categories::find($categoryPK)->items;
         $count = Categories::find($categoryPK)->items->count();
-        $orders = Order::all()->where('completed', '=', 0);
+        $hasOrders = DB::table('orders')->where(['completed' => 0, 'table_id' => $tableID])->first();
+
+        $orders = DB::table('orders')->where(['completed' => 0, 'table_id' => $tableID])->get();
         $images = array();
         foreach ($items as $item) {
             array_push($images, Items::find($item->id)->img);
         }
 
-
+        // dd($orders);
         // dd(Items::find(1)->img);
-        return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count', 'tableID', 'orders'));
+        return view('frontend.adminPanel.order.dashboard', compact('categories', 'categoryPK', 'items', 'images', 'count', 'tableID', 'orders', 'hasOrders'));
     }
 
     public function addOrder(Request $req)

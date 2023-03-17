@@ -152,7 +152,7 @@
               
 
               <h2 style="text-align: center;">ITEMS</h2>
-                <div class="tab-pane fade active p-4 pe-1 show d-flex flex-wrap justify-content-space-between">
+                <div class="tab-pane fade active p-4 pe-1 m-4 show d-flex flex-wrap justify-content-space-between">
                   
 
 
@@ -161,7 +161,7 @@
                   {{-- using for loop to access the item and images as they share same index --}}
                   
                   @for ($i = 0; $i < $count; $i++) 
-                    <div class="card ms-1 me-1" style="width: 18rem;">
+                    <div class="card ms-1 me-1" style="width: 18rem; ">
                         <img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h5 class="card-title text-center text-uppercase mb-4">{{$items[$i]->name}}</h5>
@@ -189,8 +189,9 @@
                 </div>
               </div>
               
-
-  <button data-modal-target="#modal-order"><i class="fas fa-burger"></i></button>
+          @if($hasOrders)
+              <button data-modal-target="#modal-order"><i class="fas fa-burger"></i></button>
+          @endif
   <div class="modal-order" id="modal-order">
     <div class="">
     <div class="title">Example Modal</div>
