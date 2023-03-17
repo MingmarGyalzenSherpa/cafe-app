@@ -80,7 +80,8 @@ class OrderController extends Controller
         if (!Gate::allows('authorizeDashboard', 'waiter')) {
             return back();
         }
-        return view('frontend.adminPanel.order.confirmOrder');
+        $orders = DB::table('orders')->join('imgs', 'orders.item_id', '=', 'imgs.items_id')->join('items', 'items.id', '=', 'orders.item_id')->where(['completed' => 0, 'table_id' => $tableID])->get();
+        return view('frontend.adminPanel.order.confirmOrder', compact('orders'));
     }
 
     public function increaseQty($id)

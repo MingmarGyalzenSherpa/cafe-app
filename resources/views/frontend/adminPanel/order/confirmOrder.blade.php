@@ -3,11 +3,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <div class="containers " style="margin-top:90px;">
-    
     <div class="table ">
         <div class="row justify-content-center">
 
-            <div class="col-sm-6 border ">
+            <div class="col-sm-5 border ">
                 <h4>Order </h4>
 
             </div>
@@ -18,24 +17,25 @@
                 <h4>Actions</h4>
             </div>
         </div>
+        @foreach($orders as $order)
         <div class="row justify-content-center">
 
-            <div class="col-sm-3 border p-3  dish-img">
-                fd
+            <div class="col-sm-2 border p-3  dish-img ">
+                <img src="{{asset('/storage/'.$order->img_path)}}" style="width:100%;" alt="">
             </div>
-            <div class=" col-sm-3 border p-3 dish-name">
-    fd
+            <div class=" col-sm-3 border p-3 dish-name d-flex align-items-center justify-content-center">
+                <h5>{{$order->name}}</h5>
             </div>
-            <div class="col-sm-2 border p-3  order-quantity">
-fd
+            <div class="col-sm-2 border p-3  order-quantity d-flex align-items-center justify-content-center">
+                <h5>{{$order->quantity}}</h5>
             </div>
-            <div class="col-sm-3 border p-3 order-action">
+            <div class="col-sm-3 border p-3 order-action d-flex align-items-center justify-content-center gap-5">
                 <a href="" class="ps-5 pe-5 p-3" style="background-color:lightgreen;"><i class="fa-solid fa-angle-up" style="color:white;"></i></a>
                 <a href="" class=" ps-5 pe-5 p-3" style="background-color:red;"><i class="fa-solid fa-angle-down"style="color:white;"></i></a>
 
             </div>
         </div>
-       
+       @endforeach
 
 
     </div>
