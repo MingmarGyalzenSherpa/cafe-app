@@ -68,8 +68,8 @@ a:hover{
         <div class="content">
             <div class="actions d-flex justify-content-between mb-3">
                
-                <form>
-                    <input type="text" placeholder="Search By Name" class="p-1 ps-2 border rounded">
+                <form action="{{route('searchEmployee')}}" method="GET">
+                    <input type="text" name="name" placeholder="Search By Name" class="p-1 ps-2 border rounded">
                     <button type="submit" class="btn btn-primary pb-1">Search</button>
                 </form>
                 

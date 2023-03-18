@@ -13,6 +13,7 @@ use App\Http\Controllers\ReservationsController;
 use App\Models\Enquiry;
 use App\Models\PendingOrder;
 use App\Models\Reservations;
+use Illuminate\Database\Capsule\Manager;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,6 +93,11 @@ Route::get('/delete-category', [ManagerController::class, 'deleteCategory'])->mi
 
 //employee list
 Route::get('/employees', [ManagerController::class, 'showEmployees'])->middleware('auth')->name('showEmployees');
+
+//search employee
+Route::get('/search-employee', [ManagerController::class, 'searchEmployee'])->middleware('auth')->name('searchEmployee');
+
+
 
 //items dashboard
 Route::get('/items/', [ManagerController::class, 'showItems'])->middleware('auth')->name('showItems');

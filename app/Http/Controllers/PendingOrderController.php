@@ -12,7 +12,7 @@ class PendingOrderController extends Controller
     //
     public function increaseQty($id)
     {
-        if (!Gate::allows('authorizeDashboard', 'cashier')) {
+        if (!Gate::allows('authorizeDashboard', 'waiter')) {
             return back();
         }
         $order = PendingOrder::find($id);
@@ -25,7 +25,7 @@ class PendingOrderController extends Controller
 
     public function decreaseQty($id)
     {
-        if (!Gate::allows('authorizeDashboard', 'cashier')) {
+        if (!Gate::allows('authorizeDashboard', 'waiter')) {
             return back();
         }
         $order = PendingOrder::find($id);
@@ -42,6 +42,9 @@ class PendingOrderController extends Controller
 
     public function submitPendingOrders($id)
     {
+        if (!Gate::allows('authorizeDashboard', 'waiter')) {
+            return back();
+        }
         $pendingOrders = PendingOrder::where('table_id', '=', $id)->get();
 
         foreach ($pendingOrders as $pendingOrder) {

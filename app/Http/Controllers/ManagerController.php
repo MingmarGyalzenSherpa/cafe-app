@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Employee;
 use App\Models\Enquiry;
 use App\Models\Img;
 use App\Models\Items;
@@ -34,16 +35,15 @@ class ManagerController extends Controller
         $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')
             ->select('items.id as itemID', 'items.*', 'categories.*')->whereNull('items.deleted_at')->get();
         if ($req->catID && $req->catID != "all") {
-            // $items = DB::table('items')->where('categories_id', '=', $req->catID)->get();
+
             $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.categories_id', '=', $req->catID)->whereNull('items.deleted_at')
                 ->select('items.id as itemID', 'items.*', 'categories.*')->get();
             return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
         } else if ($req->dishName) {
             $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.name', 'like', '%' . $req->dishName . '%')->whereNull('items.deleted_at')
                 ->select('items.id as itemID', 'items.*', 'categories.*')->get();
-        } {
-            return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
         }
+        return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
     }
 
     public function editItem($id)
@@ -98,6 +98,15 @@ class ManagerController extends Controller
         $employees = DB::table('employees')->join('employee_contacts', 'employees.id', '=', 'employee_contacts.employee_id')->get();
         return view('frontend.adminPanel.manager.employees', compact('employees'));
     }
+
+    public function searchEmployee(Request $req)
+    {
+
+        $employees = Employee::where('first_name', 'like', '%' . $req->name . '%')->orWhere('middle_name', 'like', '%' . $req->name . '%')->orWhere('last_name', 'like', '%' . $req->name . '%')->get();
+        return view('frontend.adminPanel.manager.employees', compact('employees'));
+    }
+
+
 
     public function showCategories()
     {
