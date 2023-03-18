@@ -82,6 +82,6 @@ class OrderController extends Controller
             return back();
         }
         $orders = DB::table('pending_orders')->join('imgs', 'pending_orders.item_id', '=', 'imgs.items_id')->join('items', 'items.id', '=', 'pending_orders.item_id')->where(['table_id' => $tableID])->get();
-        return view('frontend.adminPanel.order.confirmOrder', compact('orders'));
+        return view('frontend.adminPanel.order.confirmOrder', compact('orders', 'tableID'));
     }
 }

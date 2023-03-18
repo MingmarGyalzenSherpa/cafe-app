@@ -8,8 +8,10 @@ use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PendingOrderController;
 use App\Http\Controllers\ReservationsController;
 use App\Models\Enquiry;
+use App\Models\PendingOrder;
 use App\Models\Reservations;
 
 /*
@@ -43,6 +45,11 @@ Route::post('/add-order', [OrderController::class, 'addOrder'])->middleware('aut
 //confirm order
 Route::get('/confirm-order/table/{tableID}', [OrderController::class, 'confirmOrder'])->middleware('auth')->name('confirmOrder');
 
+//increase quantity of pending order
+Route::get('/increase-qty/{id}', [PendingOrderController::class, 'increaseQty'])->middleware('auth')->name('increasePendingOrderQty');
+
+//decrease quantity of pending order
+Route::get('/decrease-qty/{id}', [PendingOrderController::class, 'decreaseQty'])->middleware('auth')->name('decreasePendingOrderQty');
 
 
 //Cashier Dashboard
