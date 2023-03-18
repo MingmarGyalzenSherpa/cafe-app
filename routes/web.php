@@ -51,6 +51,8 @@ Route::get('/increase-qty/{id}', [PendingOrderController::class, 'increaseQty'])
 //decrease quantity of pending order
 Route::get('/decrease-qty/{id}', [PendingOrderController::class, 'decreaseQty'])->middleware('auth')->name('decreasePendingOrderQty');
 
+//submit pending Orders
+Route::get('/submit-pending-orders/{id}', [PendingOrderController::class, 'submitPendingOrders'])->middleware('auth')->name('submitPendingOrders');
 
 //Cashier Dashboard
 Route::get('/cashier-dashboard', [CashierController::class, 'create'])->middleware("auth")->name('cashierDashboard');

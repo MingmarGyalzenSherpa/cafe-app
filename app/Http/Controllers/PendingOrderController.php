@@ -37,4 +37,9 @@ class PendingOrderController extends Controller
         }
         return redirect()->route('confirmOrder', $order->table->id);
     }
+
+    public function submitPendingOrders($id)
+    {
+        
+    }
 }
