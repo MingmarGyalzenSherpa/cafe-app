@@ -69,8 +69,18 @@ a:hover{
             <div class="actions d-flex justify-content-between mb-3">
                
                 <form action="{{route('searchEmployee')}}" method="GET">
-                    <input type="text" name="name" placeholder="Search By Name" class="p-1 ps-2 border rounded">
-                    <button type="submit" class="btn btn-primary pb-1">Search</button>
+                    
+                        <input type="text" name="name" class="form-control" placeholder="Search" class="p-1 ps-2">
+
+                        <div class="form-group m-1 d-flex align-items-center justify-content-between">
+                            <label for="" class="">Search By:</label>
+                            <select name="searchBy" id="" class="p-1">
+                                <option value="name" selected>Name</option>
+                            </select>
+                        </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary w-100">Search</button>
+                    </div>
                 </form>
                 
                 
