@@ -3,8 +3,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <div class="containers " style="margin-top:90px;">
-    <div class="btn-container">
-        <a href="#"></a>
+    <div class="btn-container d-flex mb-2  justify-content-between" style="width:85%; margin: 0 auto;">
+        <a href="#" class="btn btn-danger p-3 ps-4 pe-4 "><i class="fas fa-angle-left pe-2"></i>Go back </a>
+        <a href="#" class="btn btn-success p-3 ps-4 pe-4 ">Proceed <i class="ps-2 fas fa-angle-right"></i></a>
     </div>
     <div class="table ">
         <div class="row justify-content-center">
