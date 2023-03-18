@@ -81,7 +81,8 @@ class OrderController extends Controller
         if (!Gate::allows('authorizeDashboard', 'waiter')) {
             return back();
         }
-        $orders = DB::table('pending_orders')->join('imgs', 'pending_orders.item_id', '=', 'imgs.items_id')->join('items', 'items.id', '=', 'pending_orders.item_id')->where(['table_id' => $tableID])->get();
+        $orders = DB::table('pending_orders')->join('imgs', 'pending_orders.item_id', '=', 'imgs.items_id')->join('items', 'items.id', '=', 'pending_orders.item_id')->select('pending_orders.id as id', 'items.name', 'pending_orders.quantity', 'img_path')->where(['table_id' => $tableID])->get();
+
         return view('frontend.adminPanel.order.confirmOrder', compact('orders', 'tableID'));
     }
 }

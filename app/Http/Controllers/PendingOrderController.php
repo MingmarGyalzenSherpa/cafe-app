@@ -16,6 +16,7 @@ class PendingOrderController extends Controller
             return back();
         }
         $order = PendingOrder::find($id);
+
         $order->quantity++;
         $order->total += $order->price;
         $order->save();
@@ -63,7 +64,6 @@ class PendingOrderController extends Controller
 
             $pendingOrder->delete();
         }
-
         return redirect()->route('orderTableDashboard');
     }
 }
