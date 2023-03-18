@@ -5,7 +5,7 @@
 <div class="containers " style="margin-top:90px;">
     <div class="btn-container d-flex mb-2  justify-content-between" style="width:85%; margin: 0 auto;">
         <a href="{{route('orderDashboard',$tableID)}}" class="btn btn-danger p-3 ps-4 pe-4 "><i class="fas fa-angle-left pe-2"></i>Go back </a>
-        <a href="{{route('orderTableDashboard')}}" class="btn btn-success p-3 ps-4 pe-4 ">Proceed <i class="ps-2 fas fa-angle-right"></i></a>
+        <a href="{{route('submitPendingOrders',$tableID)}}" class="btn btn-success p-3 ps-4 pe-4 ">Proceed <i class="ps-2 fas fa-angle-right"></i></a>
     </div>
     <div class="table ">
         <div class="row justify-content-center">
