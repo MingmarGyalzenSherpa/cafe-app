@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\Img;
 use App\Models\Items;
 use App\Models\Order;
+use App\Models\PendingOrder;
 use App\Models\Table;
 use Exception;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class OrderController extends Controller
 
         $items = Categories::find($categoryPK)->items;
         $count = Categories::find($categoryPK)->items->count();
-        $hasOrders = DB::table('orders')->where(['completed' => 0, 'table_id' => $tableID])->first();
+        $hasOrders = DB::table('pending_orders')->where(['table_id' => $tableID])->first();
         $images = array();
         foreach ($items as $item) {
             array_push($images, Items::find($item->id)->img);
@@ -63,13 +64,13 @@ class OrderController extends Controller
 
 
         //if the item is already ordered on the same table add it and calculate total
-        if ($order = Order::where(['table_id' => $table_id, 'item_id' => $item_id, 'completed' => false])->first()) {
+        if ($order = PendingOrder::where(['table_id' => $table_id, 'item_id' => $item_id])->first()) {
 
             $order->quantity += $item_quantity;
             $order->total = $order->quantity * $order->price;
             $order->save();
         } else { // else create a new order
-            Order::create(['item_id' => $item_id, 'table_id' => $table_id, 'quantity' => $item_quantity, 'price' => $price, 'total' => $total, 'completed' => false]);
+            PendingOrder::create(['item_id' => $item_id, 'table_id' => $table_id, 'quantity' => $item_quantity, 'price' => $price, 'total' => $total]);
         }
 
         return back();
@@ -80,29 +81,8 @@ class OrderController extends Controller
         if (!Gate::allows('authorizeDashboard', 'waiter')) {
             return back();
         }
-        $orders = DB::table('orders')->join('imgs', 'orders.item_id', '=', 'imgs.items_id')->join('items', 'items.id', '=', 'orders.item_id')->where(['completed' => 0, 'table_id' => $tableID])->get();
-        return view('frontend.adminPanel.order.confirmOrder', compact('orders'));
-    }
+        $orders = DB::table('pending_orders')->join('imgs', 'pending_orders.item_id', '=', 'imgs.items_id')->join('items', 'items.id', '=', 'pending_orders.item_id')->select('pending_orders.id as id', 'items.name', 'pending_orders.quantity', 'img_path')->where(['table_id' => $tableID])->get();
 
-    public function increaseQty($id)
-    {
-        if (!Gate::allows('authorizeDashboard', 'cashier')) {
-            return back();
-        }
-        $order = Order::find($id);
-        $order->quantity++;
-        $order->save();
-        return redirect()->route('billDashboard', $order->table->id);
-    }
-
-    public function decreaseQty($id)
-    {
-        if (!Gate::allows('authorizeDashboard', 'cashier')) {
-            return back();
-        }
-        $order = Order::find($id);
-        $order->quantity--;
-        $order->save();
-        return redirect()->route('billDashboard', $order->table->id);
+        return view('frontend.adminPanel.order.confirmOrder', compact('orders', 'tableID'));
     }
 }

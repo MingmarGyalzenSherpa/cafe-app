@@ -72,7 +72,11 @@ a:hover{
 
             <div class="card p-3">
                 <div class="card-body">
-                    <div class="card-subtitle d-flex justify-content-end"><span>{{$message->created_at}}</span></div>
+                    <div class="d-flex justify-content-end">
+                    <a href="{{route('deleteMessage',$message->id)}}" class="btn btn-danger ps-3 pe-3"> <i class="fas fa-times">  </i> </a>
+
+                    </div>
+                   <span>{{$message->created_at}}</span>
                     <div class="card-title "><h3>{{$message->subject}}</h3></div>
                     <div class="card-subtitle">{{$message->name}} </div>
                     <div class="card-subtitle">{{$message->email}} </div>
@@ -80,7 +84,6 @@ a:hover{
                         Message:
                         {{$message->message}}
                     </div>
-                    <a href="{{route('deleteMessage',$message->id)}}" class="btn btn-danger "> <i class="fas fa-times">  </i> Delete</a>
 
                 </div>
                 

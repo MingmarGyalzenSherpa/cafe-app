@@ -8,9 +8,12 @@ use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PendingOrderController;
 use App\Http\Controllers\ReservationsController;
 use App\Models\Enquiry;
+use App\Models\PendingOrder;
 use App\Models\Reservations;
+use Illuminate\Database\Capsule\Manager;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +46,14 @@ Route::post('/add-order', [OrderController::class, 'addOrder'])->middleware('aut
 //confirm order
 Route::get('/confirm-order/table/{tableID}', [OrderController::class, 'confirmOrder'])->middleware('auth')->name('confirmOrder');
 
+//increase quantity of pending order
+Route::get('/increase-qty/{id}', [PendingOrderController::class, 'increaseQty'])->middleware('auth')->name('increasePendingOrderQty');
 
+//decrease quantity of pending order
+Route::get('/decrease-qty/{id}', [PendingOrderController::class, 'decreaseQty'])->middleware('auth')->name('decreasePendingOrderQty');
+
+//submit pending Orders
+Route::get('/submit-pending-orders/{id}', [PendingOrderController::class, 'submitPendingOrders'])->middleware('auth')->name('submitPendingOrders');
 
 //Cashier Dashboard
 Route::get('/cashier-dashboard', [CashierController::class, 'create'])->middleware("auth")->name('cashierDashboard');
@@ -83,6 +93,15 @@ Route::get('/delete-category', [ManagerController::class, 'deleteCategory'])->mi
 
 //employee list
 Route::get('/employees', [ManagerController::class, 'showEmployees'])->middleware('auth')->name('showEmployees');
+
+//search employee
+Route::get('/search-employee', [ManagerController::class, 'searchEmployee'])->middleware('auth')->name('searchEmployee');
+
+//edit-employee
+Route::get('/edit-employee/{id}', [ManagerController::class, 'editEmployee'])->middleware('auth')->name('editEmployee');
+
+//save edit employee
+Route::post('/save-edit-employee', [ManagerController::class, 'saveEditEmployee'])->middleware('auth')->name('saveEditEmployee');
 
 //items dashboard
 Route::get('/items/', [ManagerController::class, 'showItems'])->middleware('auth')->name('showItems');

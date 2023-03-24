@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Employee;
+use App\Models\EmployeeContacts;
 use App\Models\Enquiry;
 use App\Models\Img;
 use App\Models\Items;
@@ -34,16 +36,15 @@ class ManagerController extends Controller
         $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')
             ->select('items.id as itemID', 'items.*', 'categories.*')->whereNull('items.deleted_at')->get();
         if ($req->catID && $req->catID != "all") {
-            // $items = DB::table('items')->where('categories_id', '=', $req->catID)->get();
+
             $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.categories_id', '=', $req->catID)->whereNull('items.deleted_at')
                 ->select('items.id as itemID', 'items.*', 'categories.*')->get();
             return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
         } else if ($req->dishName) {
             $items = DB::table('items')->join('categories', 'items.categories_id', '=', 'categories.id')->where('items.name', 'like', '%' . $req->dishName . '%')->whereNull('items.deleted_at')
                 ->select('items.id as itemID', 'items.*', 'categories.*')->get();
-        } {
-            return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
         }
+        return view('frontend.adminPanel.manager.items', compact('items', 'categories'));
     }
 
     public function editItem($id)
@@ -95,8 +96,97 @@ class ManagerController extends Controller
         if (!Gate::allows('authorizeDashboard', 'admin')) {
             return back();
         }
-        $employees = DB::table('employees')->join('employee_contacts', 'employees.id', '=', 'employee_contacts.employee_id')->get();
+        $employees = DB::table('employees')->join('employee_contacts', 'employees.id', '=', 'employee_contacts.employee_id')->select(
+            'employees.id as id',
+            'employees.first_name',
+            'employees.middle_name',
+            'employees.last_name',
+            'employees.shift',
+            'employees.salary',
+            'employees.role',
+            'employee_contacts.contact',
+            'employee_contacts.city',
+            'employee_contacts.email',
+        )->get();
         return view('frontend.adminPanel.manager.employees', compact('employees'));
+    }
+
+    public function searchEmployee(Request $req)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+
+        $employees = Employee::join('employee_contacts', 'employees.id', '=', 'employee_contacts.employee_id');
+
+        switch ($req->searchBy) {
+
+            case 'name':
+                $employees = $employees->where('first_name', 'like', '%' . $req->input . '%')->orWhere('middle_name', 'like', '%' . $req->input . '%')->orWhere('last_name', 'like', '%' . $req->input . '%')->get();
+                break;
+
+            case 'address':
+                $employees = $employees->where('city', 'like', '%' . $req->input . '%')->get();
+                break;
+
+            case 'contacts':
+                $employees = $employees->where('contact', 'like', '%' . $req->input . '%')->get();
+                break;
+            case 'email':
+                $employees = $employees->where('email', 'like', '%' . $req->input . '%')->get();
+        }
+
+        return view('frontend.adminPanel.manager.employees', compact('employees'));
+    }
+
+    public function editEmployee($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $employee = DB::table('employees')->join('employee_contacts', 'employees.id', '=', 'employee_contacts.employee_id')->select(
+            'employees.id as id',
+            'employees.first_name',
+            'employees.middle_name',
+            'employees.last_name',
+            'employees.shift',
+            'employees.salary',
+            'employees.role',
+            'employee_contacts.contact',
+            'employee_contacts.city',
+            'employee_contacts.email',
+        )->where('employees.id', '=', $id)->first();
+
+        return view('frontend.adminPanel.manager.edit-employee', compact('employee'));
+    }
+
+    public function saveEditEmployee(Request $req)
+    {
+        $req->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'role' => 'required',
+            'shift' =>  'required',
+            'salary' => 'required',
+            'contact' => 'required',
+            'city' => 'required',
+            'email' => 'required',
+        ]);
+        $employee = Employee::find($req->id);
+        $employee->first_name = $req->first_name;
+        $employee->middle_name = $req->middle_name;
+        $employee->last_name = $req->last_name;
+        $employee->role = $req->role;
+        $employee->shift = $req->shift;
+        $employee->salary = $req->salary;
+        $employee_contact_PK = EmployeeContacts::where('employee_id', '=', $req->id)->first();
+        $employee_contact = EmployeeContacts::find($employee_contact_PK->id);
+        $employee_contact->contact = $req->contact;
+        $employee_contact->city = $req->city;
+        $employee_contact->email = $req->email;
+        $employee->save();
+        $employee_contact->save();
+        return redirect()->route('showEmployees');
     }
 
     public function showCategories()

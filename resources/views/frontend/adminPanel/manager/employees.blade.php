@@ -66,16 +66,33 @@ a:hover{
            </ul>
         </div>
         <div class="content">
-            <div class="actions d-flex justify-content-between mb-3">
+            <div class="actions d-flex justify-content-between mb-3 align-items-cetner">
                
-                <form>
-                    <input type="text" placeholder="Search By Name" class="p-1 ps-2 border rounded">
-                    <button type="submit" class="btn btn-primary pb-1">Search</button>
+                <form action="{{route('searchEmployee')}}" method="GET">
+                    
+                    <div class="form-group">
+                        <input type="text" name="input" class="form-control" placeholder="Search" class="p-1 ps-2">
+
+                    </div>
+
+                        <div class="form-group m-1 d-flex align-items-center justify-content-between">
+                            <label for="" class="">Search By:</label>
+                            <select name="searchBy" id="" class="p-1">
+                                <option value="name" selected>Name</option>
+                                <option value="address">Address</option>
+                                <option value="contact">Contact</option>
+                                <option value="email">Email</option>
+
+                            </select>
+                        </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary w-100">Search</button>
+                    </div>
                 </form>
                 
+            <button class="btn btn-primary mb-4 addDishBtn p-3 "><i class="fa fa-plus"> </i> Add Employee</button>
                 
             </div>
-            
             <table class="table">
                 <thead  class="bg-dark" style="color:white;">
                 <tr>
@@ -83,9 +100,11 @@ a:hover{
                   <th scope="col">Name</th>
                   <th scope="col">Role</th>
                   <th scope="col">Shift</th>
+                  <th scope="col">Salary</th>
                   <th scope="col">Contact</th>
-                  <th scope="col">Address</th>
+                  <th scope="col">City</th>
                   <th scope="col">Email</th>
+                  <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -94,11 +113,16 @@ a:hover{
                         <tr class="items">
                             <th scope="row"> {{$count++}}</th>
                             <td>{{$employee->first_name ." ".$employee->middle_name." ".$employee->last_name }}</td>
-                            <td class="price">{{$employee->role}}</td>
-                            <td class="price">{{$employee->shift}}</td>
-                            <td class="price">{{$employee->contact}}</td>
-                            <td class="price">{{$employee->city}}</td>
-                            <td class="price">{{$employee->email}}</td>
+                            <td >{{$employee->role}}</td>
+                            <td >{{$employee->shift}}</td>
+                            <td >{{$employee->salary}}</td>
+                            <td >{{$employee->contact}}</td>
+                            <td >{{$employee->city}}</td>
+                            <td >{{$employee->email}}</td>
+                            <td>
+                                <a href="{{route('editEmployee',$employee->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="#" class="btn btn-danger btn-delete">Delete</a>
+                            </td>
                         </tr>
 
                     @endforeach
