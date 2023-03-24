@@ -66,48 +66,64 @@ a:hover{
            </ul>
         </div>
         <div class="content">
-            <form method="POST">
+            <h4 class="text-center mb-3">EDIT EMPLOYEE</h4>
+            <form action="{{route('saveEditEmployee')}}" method="POST">
+                @csrf
+                <input type="hidden" name="id" value="{{$employee->id}}">  
                 <div class="row">
-
-                
+                    
                     <div class="mb-3 col-sm-6">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                        <label for="first_name" class="form-label">First Name</label>
+                        <input type="text" name="first_name" value="{{$employee->first_name}}" class="form-control" id="first_name" aria-describedby="emailHelp">
+                  
+                    </div>
+                    <div class="mb-3 col-sm-6">
+                        <label for="middle_name" class="form-label">Middle Name</label>
+                        <input type="text" name="middle_name" value="{{$employee->middle_name}}" class="form-control" id="middle_name" aria-describedby="emailHelp">
+                  
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-sm-6">
+                        <label for="last_name" class="form-label">Last Name</label>
+                        <input type="text" name="last_name" value="{{$employee->last_name}}" class="form-control" id="last_name" aria-describedby="emailHelp">
                   
                     </div>
                     <div class="mb-3 col-sm-6">
                         <label for="role" class="form-label">Role</label>
-                        <input type="text" class="form-control" id="role">
+                        <input type="text" name="role" value="{{$employee->role}}" class="form-control" id="role">
                     </div>
                 </div>
                 <div class="row">
+                    
                     <div class="mb-3 col-sm-6">
                         <label for="shift" class="form-label">Shift</label>
-                        <input type="text" class="form-control" id="shift">
+                        <input type="text" name="shift" value="{{$employee->shift}}" class="form-control" id="shift">
                     </div>
                     <div class="mb-3 col-sm-6">
                         <label for="shift" class="form-label">Salary</label>
-                        <input type="number" class="form-control" id="shift">
+                        <input type="number" name="salary" value="{{$employee->salary}}" class="form-control" id="shift">
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-sm-6">
                         <label for="contact" class="form-label">Contact</label>
-                        <input type="text" class="form-control" id="contact">
+                        <input type="text" name="contact" value="{{$employee->contact}}" class="form-control" id="contact">
                     </div>
                     <div class="mb-3 col-sm-6">
-                        <label for="Address" class="form-label">Address</label>
-                        <input type="number" class="form-control" id="Address">
+                        <label for="Address" class="form-label">City</label>
+                        <input type="text" name="city" value="{{$employee->city}}" class="form-control" id="Address">
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 ">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" name="email" value="{{$employee->email}}" class="form-control" id="email">
                     </div>
                    
                 </div>
-                 <buttn class="btn btn-primary">CONFIRM EDIT</buttn>
+                 <button type="submit" class="btn btn-primary">CONFIRM EDIT</button>
               </form>
         </div>
 

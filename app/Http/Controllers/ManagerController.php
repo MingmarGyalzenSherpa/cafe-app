@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Employee;
+use App\Models\EmployeeContacts;
 use App\Models\Enquiry;
 use App\Models\Img;
 use App\Models\Items;
@@ -159,6 +160,34 @@ class ManagerController extends Controller
         return view('frontend.adminPanel.manager.edit-employee', compact('employee'));
     }
 
+    public function saveEditEmployee(Request $req)
+    {
+        $req->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'role' => 'required',
+            'shift' =>  'required',
+            'salary' => 'required',
+            'contact' => 'required',
+            'city' => 'required',
+            'email' => 'required',
+        ]);
+        $employee = Employee::find($req->id);
+        $employee->first_name = $req->first_name;
+        $employee->middle_name = $req->middle_name;
+        $employee->last_name = $req->last_name;
+        $employee->role = $req->role;
+        $employee->shift = $req->shift;
+        $employee->salary = $req->salary;
+        $employee_contact_PK = EmployeeContacts::where('employee_id', '=', $req->id)->first();
+        $employee_contact = EmployeeContacts::find($employee_contact_PK->id);
+        $employee_contact->contact = $req->contact;
+        $employee_contact->city = $req->city;
+        $employee_contact->email = $req->email;
+        $employee->save();
+        $employee_contact->save();
+        return redirect()->route('showEmployees');
+    }
 
     public function showCategories()
     {

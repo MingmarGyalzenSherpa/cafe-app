@@ -66,7 +66,7 @@ a:hover{
            </ul>
         </div>
         <div class="content">
-            <div class="actions d-flex justify-content-between mb-3">
+            <div class="actions d-flex justify-content-between mb-3 align-items-cetner">
                
                 <form action="{{route('searchEmployee')}}" method="GET">
                     
@@ -90,9 +90,9 @@ a:hover{
                     </div>
                 </form>
                 
+            <button class="btn btn-primary mb-4 addDishBtn p-3 "><i class="fa fa-plus"> </i> Add Employee</button>
                 
             </div>
-            
             <table class="table">
                 <thead  class="bg-dark" style="color:white;">
                 <tr>
@@ -102,7 +102,7 @@ a:hover{
                   <th scope="col">Shift</th>
                   <th scope="col">Salary</th>
                   <th scope="col">Contact</th>
-                  <th scope="col">Address</th>
+                  <th scope="col">City</th>
                   <th scope="col">Email</th>
                   <th scope="col">Actions</th>
                 </tr>

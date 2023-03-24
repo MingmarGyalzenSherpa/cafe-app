@@ -100,6 +100,8 @@ Route::get('/search-employee', [ManagerController::class, 'searchEmployee'])->mi
 //edit-employee
 Route::get('/edit-employee/{id}', [ManagerController::class, 'editEmployee'])->middleware('auth')->name('editEmployee');
 
+//save edit employee
+Route::post('/save-edit-employee', [ManagerController::class, 'saveEditEmployee'])->middleware('auth')->name('saveEditEmployee');
 
 //items dashboard
 Route::get('/items/', [ManagerController::class, 'showItems'])->middleware('auth')->name('showItems');
