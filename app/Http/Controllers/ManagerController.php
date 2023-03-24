@@ -102,10 +102,32 @@ class ManagerController extends Controller
     public function searchEmployee(Request $req)
     {
 
-        $employees = Employee::where('first_name', 'like', '%' . $req->name . '%')->orWhere('middle_name', 'like', '%' . $req->name . '%')->orWhere('last_name', 'like', '%' . $req->name . '%')->get();
+        $employees = Employee::join('employee_contacts', 'employees.id', '=', 'employee_contacts.employee_id');
+
+        switch ($req->searchBy) {
+
+            case 'name':
+                $employees = $employees->where('first_name', 'like', '%' . $req->input . '%')->orWhere('middle_name', 'like', '%' . $req->input . '%')->orWhere('last_name', 'like', '%' . $req->input . '%')->get();
+                break;
+
+            case 'address':
+                $employees = $employees->where('city', 'like', '%' . $req->input . '%')->get();
+                break;
+
+            case 'contacts':
+                $employees = $employees->where('contact', 'like', '%' . $req->input . '%')->get();
+                break;
+            case 'email':
+                $employees = $employees->where('email', 'like', '%' . $req->input . '%')->get();
+        }
+
         return view('frontend.adminPanel.manager.employees', compact('employees'));
     }
 
+    public function editEmployee($id)
+    {
+        dd($id);
+    }
 
 
     public function showCategories()

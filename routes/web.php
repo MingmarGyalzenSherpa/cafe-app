@@ -97,6 +97,8 @@ Route::get('/employees', [ManagerController::class, 'showEmployees'])->middlewar
 //search employee
 Route::get('/search-employee', [ManagerController::class, 'searchEmployee'])->middleware('auth')->name('searchEmployee');
 
+//edit-employee
+Route::get('/edit-employee/{id}', [ManagerController::class, 'editEmployee'])->middleware('auth')->name('editEmployee');
 
 
 //items dashboard
