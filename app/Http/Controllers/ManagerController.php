@@ -112,6 +112,9 @@ class ManagerController extends Controller
 
     public function searchEmployee(Request $req)
     {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
 
         $employees = Employee::join('employee_contacts', 'employees.id', '=', 'employee_contacts.employee_id');
 
@@ -137,7 +140,23 @@ class ManagerController extends Controller
 
     public function editEmployee($id)
     {
-        dd($id);
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $employee = DB::table('employees')->join('employee_contacts', 'employees.id', '=', 'employee_contacts.employee_id')->select(
+            'employees.id as id',
+            'employees.first_name',
+            'employees.middle_name',
+            'employees.last_name',
+            'employees.shift',
+            'employees.salary',
+            'employees.role',
+            'employee_contacts.contact',
+            'employee_contacts.city',
+            'employee_contacts.email',
+        )->where('employees.id', '=', $id)->first();
+
+        return view('frontend.adminPanel.manager.edit-employee', compact('employee'));
     }
 
 
