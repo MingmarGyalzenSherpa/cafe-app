@@ -139,6 +139,19 @@ class ManagerController extends Controller
         return view('frontend.adminPanel.manager.employees', compact('employees'));
     }
 
+    public function deleteEmployee($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $emp = Employee::find($id);
+        $emp_contacts = EmployeeContacts::where('employee_id', '=', $emp->id)->first();
+        if ($emp_contacts->delete()) {
+            $emp->delete();
+        }
+        return redirect()->route('showEmployees');
+    }
+
     public function editEmployee($id)
     {
         if (!Gate::allows('authorizeDashboard', 'admin')) {
@@ -186,6 +199,46 @@ class ManagerController extends Controller
         $employee_contact->email = $req->email;
         $employee->save();
         $employee_contact->save();
+        return redirect()->route('showEmployees');
+    }
+
+    public function addEmployee()
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        return view('frontend.adminPanel.manager.add-employee');
+    }
+
+    public function submitEmployee(Request $req)
+    {
+        $req->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'role' => 'required',
+            'shift' =>  'required',
+            'salary' => 'required',
+            'contact' => 'required',
+            'city' => 'required',
+            'email' => 'required',
+        ]);
+
+        $emp = Employee::Create([
+            "first_name" => $req->first_name,
+            'middle_name' => $req->middle_name,
+            'last_name' => $req->last_name,
+            'role' => $req->role,
+            'shift' => $req->shift,
+            'salary' => $req->salary,
+        ]);
+
+        EmployeeContacts::Create([
+            'employee_id' => $emp->id,
+            'contact' => $req->contact,
+            'city' => $req->city,
+            'email' => $req->email,
+        ]);
+
         return redirect()->route('showEmployees');
     }
 

@@ -97,11 +97,19 @@ Route::get('/employees', [ManagerController::class, 'showEmployees'])->middlewar
 //search employee
 Route::get('/search-employee', [ManagerController::class, 'searchEmployee'])->middleware('auth')->name('searchEmployee');
 
+//delete employee
+Route::get('/delete-employee/{id}', [ManagerController::class, 'deleteEmployee'])->middleware('auth')->name('deleteEmployee');
+
 //edit-employee
 Route::get('/edit-employee/{id}', [ManagerController::class, 'editEmployee'])->middleware('auth')->name('editEmployee');
 
 //save edit employee
 Route::post('/save-edit-employee', [ManagerController::class, 'saveEditEmployee'])->middleware('auth')->name('saveEditEmployee');
+
+//add employee
+Route::get('/add-employee', [ManagerController::class, 'addEmployee'])->middleware('auth')->name('addEmployee');
+
+Route::post('/add-employee', [ManagerController::class, 'submitEmployee'])->middleware('auth')->name('submitEmployee');
 
 //items dashboard
 Route::get('/items/', [ManagerController::class, 'showItems'])->middleware('auth')->name('showItems');
