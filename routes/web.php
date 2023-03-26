@@ -103,6 +103,9 @@ Route::get('/edit-employee/{id}', [ManagerController::class, 'editEmployee'])->m
 //save edit employee
 Route::post('/save-edit-employee', [ManagerController::class, 'saveEditEmployee'])->middleware('auth')->name('saveEditEmployee');
 
+//add employee
+Route::get('/add-employee', [ManagerController::class, 'addEmployee'])->middleware('auth')->name('addEmployee');
+
 //items dashboard
 Route::get('/items/', [ManagerController::class, 'showItems'])->middleware('auth')->name('showItems');
 

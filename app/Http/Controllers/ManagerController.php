@@ -189,6 +189,11 @@ class ManagerController extends Controller
         return redirect()->route('showEmployees');
     }
 
+    public function addEmployee()
+    {
+        return view('frontend.adminPanel.manager.add-employee');
+    }
+
     public function showCategories()
     {
         if (!Gate::allows('authorizeDashboard', 'admin')) {
