@@ -57,12 +57,12 @@ a:hover{
 
         <div class="sidebar " style="width:20%;">
            <ul class="nav flex-column ">
-                <li class="nav-item"><a href="#" class="nav-link active"> <i class="fas  fa-gauge"></i> <span class="title"> Dashboard</span> </a></li>
+                <li class="nav-item"><a href="#" class="nav-link "> <i class="fas  fa-gauge"></i> <span class="title"> Dashboard</span> </a></li>
                 <li class="nav-item"><a href="{{route('showCategories')}}" class="nav-link"> <i class="fa-solid fa-sitemap"></i><span class="title"> Categories</span></a></li>
                 <li class="nav-item"><a href="{{route('showItems')}}" class="nav-link"><i class="fas fa-burger"></i><span class="title"> Dish</span></a></li>
-                <li class="nav-item"><a href="{{route('showEmployees')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-gauge"></i><span class="title"> Employees</span></a></li>
+                <li class="nav-item"><a href="{{route('showEmployees')}}" class="nav-link active"> <i class="fa-sharp fa-solid fa-gauge"></i><span class="title"> Employees</span></a></li>
                 <li class="nav-item"><a href="{{route('showReservations')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-chair"></i><span class="title"> Reservations</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link"> <i class="fa-sharp fa-solid fa-message"></i><span class="title">Messages</span></a></li>  
+                <li class="nav-item"><a href="{{route('showMessages')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-message"></i><span class="title">Messages</span></a></li>  
            </ul>
         </div>
         <div class="content">
@@ -110,7 +110,7 @@ a:hover{
                 <tbody>
                     <?php $count = 1 ; ?>
                     @foreach ($employees as $employee)
-                        <tr class="items">
+                        <tr class="items" style="border-bottom:1px solid black;">
                             <th scope="row"> {{$count++}}</th>
                             <td>{{$employee->first_name ." ".$employee->middle_name." ".$employee->last_name }}</td>
                             <td >{{$employee->role}}</td>
@@ -120,8 +120,8 @@ a:hover{
                             <td >{{$employee->city}}</td>
                             <td >{{$employee->email}}</td>
                             <td>
-                                <a href="{{route('editEmployee',$employee->id)}}" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger btn-delete">Delete</a>
+                                <a href="{{route('editEmployee',$employee->id)}}" class="btn btn-primary m-2 ps-3 pe-3">Edit</a>
+                                <a href="{{route('deleteEmployee',$employee->id)}}" class="btn btn-danger btn-delete">Delete</a>
                             </td>
                         </tr>
 

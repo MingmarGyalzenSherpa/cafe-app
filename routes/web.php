@@ -97,6 +97,9 @@ Route::get('/employees', [ManagerController::class, 'showEmployees'])->middlewar
 //search employee
 Route::get('/search-employee', [ManagerController::class, 'searchEmployee'])->middleware('auth')->name('searchEmployee');
 
+//delete employee
+Route::get('/delete-employee/{id}', [ManagerController::class, 'deleteEmployee'])->middleware('auth')->name('deleteEmployee');
+
 //edit-employee
 Route::get('/edit-employee/{id}', [ManagerController::class, 'editEmployee'])->middleware('auth')->name('editEmployee');
 

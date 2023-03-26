@@ -139,6 +139,19 @@ class ManagerController extends Controller
         return view('frontend.adminPanel.manager.employees', compact('employees'));
     }
 
+    public function deleteEmployee($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $emp = Employee::find($id);
+        $emp_contacts = EmployeeContacts::where('employee_id', '=', $emp->id)->first();
+        if ($emp_contacts->delete()) {
+            $emp->delete();
+        }
+        return redirect()->route('showEmployees');
+    }
+
     public function editEmployee($id)
     {
         if (!Gate::allows('authorizeDashboard', 'admin')) {
