@@ -9,4 +9,5 @@ class EmployeeContacts extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    public $fillable = ['employee_id', 'contact', 'city', 'email'];
 }

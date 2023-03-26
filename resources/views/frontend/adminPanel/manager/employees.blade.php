@@ -90,7 +90,7 @@ a:hover{
                     </div>
                 </form>
                 
-            <a href="{{route('addEmployee')}}" class="btn btn-primary mb-4 addDishBtn p-3 "><i class="fa fa-plus"> </i> Add Employee</a>
+            <a href="{{route('addEmployee')}}" class="btn btn-primary mb-4 addDishBtn p-3 pt-4 "><i class="fa fa-plus"> </i> Add Employee</a>
                 
             </div>
             <table class="table">

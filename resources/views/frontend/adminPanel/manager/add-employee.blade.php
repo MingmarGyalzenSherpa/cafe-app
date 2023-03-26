@@ -66,15 +66,15 @@ a:hover{
            </ul>
         </div>
         <div class="content">
-            <h4 class="text-center mb-3">EDIT EMPLOYEE</h4>
-            <form action="{{route('saveEditEmployee')}}" method="POST">
+            <h4 class="text-center mb-3">ADD EMPLOYEE</h4>
+            <form action="{{route('addEmployee')}}" method="POST">
                 @csrf
-                <input type="hidden" name="id" >  
+                
                 <div class="row">
                     
                     <div class="mb-3 col-sm-6">
                         <label for="first_name" class="form-label">First Name</label>
-                        <input type="text" name="first_name" class="form-control" id="first_name" aria-describedby="emailHelp">
+                        <input type="text" @error('first_name') placeholder="{{$message}}" @enderror name="first_name" class="form-control" id="first_name" aria-describedby="emailHelp">
                   
                     </div>
                     <div class="mb-3 col-sm-6">
@@ -87,43 +87,43 @@ a:hover{
                 <div class="row">
                     <div class="mb-3 col-sm-6">
                         <label for="last_name" class="form-label">Last Name</label>
-                        <input type="text" name="last_name" class="form-control" id="last_name" aria-describedby="emailHelp">
+                        <input type="text"  @error('last_name') placeholder="{{$message}}" @enderror name="last_name" class="form-control" id="last_name" aria-describedby="emailHelp">
                   
                     </div>
                     <div class="mb-3 col-sm-6">
                         <label for="role" class="form-label">Role</label>
-                        <input type="text" name="role"  class="form-control" id="role">
+                        <input type="text"  @error('role') placeholder="{{$message}}" @enderror  name="role"  class="form-control" id="role">
                     </div>
                 </div>
                 <div class="row">
                     
                     <div class="mb-3 col-sm-6">
                         <label for="shift" class="form-label">Shift</label>
-                        <input type="text" name="shift" class="form-control" id="shift">
+                        <input type="text"  @error('shift') placeholder="{{$message}}" @enderror name="shift" class="form-control" id="shift">
                     </div>
                     <div class="mb-3 col-sm-6">
-                        <label for="shift" class="form-label">Salary</label>
-                        <input type="number" name="salary"  class="form-control" id="shift">
+                        <label for="salary" class="form-label">Salary</label>
+                        <input type="number"  @error('salary') placeholder="{{$message}}" @enderror name="salary"  class="form-control" id="salary">
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-sm-6">
                         <label for="contact" class="form-label">Contact</label>
-                        <input type="text" name="contact" value="" class="form-control" id="contact">
+                        <input type="text"  @error('contact') placeholder="{{$message}}" @enderror name="contact" value="" class="form-control" id="contact">
                     </div>
                     <div class="mb-3 col-sm-6">
                         <label for="Address" class="form-label">City</label>
-                        <input type="text" name="city" value="" class="form-control" id="Address">
+                        <input type="text"  @error('city') placeholder="{{$message}}" @enderror name="city" value="" class="form-control" id="Address">
                     </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 ">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" value="" class="form-control" id="email">
+                        <input type="email"  @error('email') placeholder="{{$message}}" @enderror name="email" value="" class="form-control" id="email">
                     </div>
                    
                 </div>
-                 <button type="submit" class="btn btn-primary">CONFIRM EDIT</button>
+                 <button type="submit" class="btn btn-primary p-3 ps-4 w-100">ADD</button>
               </form>
         </div>
 
