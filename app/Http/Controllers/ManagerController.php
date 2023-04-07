@@ -272,6 +272,9 @@ class ManagerController extends Controller
 
     public function editCategory($id)
     {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
         $category = Categories::find($id);
         return view('frontend.adminPanel.manager.edit-categories', compact('category'));
     }
@@ -289,6 +292,9 @@ class ManagerController extends Controller
 
     public function deleteCategory(Request $req)
     {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
         $category = Categories::find($req->id);
         $category->delete();
         return redirect()->route('showCategories');
@@ -317,5 +323,9 @@ class ManagerController extends Controller
         }
         $messages = Enquiry::all();
         return view('frontend.adminPanel.manager.messages', compact('messages'));
+    }
+
+    public function showAccounts($type)
+    {
     }
 }
