@@ -9,6 +9,7 @@ use App\Models\Enquiry;
 use App\Models\Img;
 use App\Models\Items;
 use App\Models\Reservations;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
@@ -327,5 +328,9 @@ class ManagerController extends Controller
 
     public function showAccounts($type)
     {
+
+        $accounts = User::where('type', '=', $type)->get();
+
+        return view('frontend.adminPanel.manager.accounts', compact('accounts', 'type'));
     }
 }
