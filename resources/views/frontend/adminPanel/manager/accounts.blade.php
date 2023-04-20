@@ -82,7 +82,7 @@ a:hover{
                         Email:<h5> {{$account->email}}</h5>
                     </div>
                     <div class="actions mt-3">
-                        <a href="" class="btn btn-primary"> Edit</a>
+                        <a href="{{route('edit-account',$account->id)}}" class="btn btn-primary"> Edit</a>
                         <a href="" class="btn btn-danger"> Delete</a>
 
                     </div>

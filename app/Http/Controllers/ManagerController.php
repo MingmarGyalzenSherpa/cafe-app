@@ -13,6 +13,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class ManagerController extends Controller
@@ -328,9 +329,27 @@ class ManagerController extends Controller
 
     public function showAccounts($type)
     {
-
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
         $accounts = User::where('type', '=', $type)->get();
 
         return view('frontend.adminPanel.manager.accounts', compact('accounts', 'type'));
+    }
+
+    public function editAccount($id)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $account = User::find($id);
+
+
+        return view('frontend.adminPanel.manager.edit-account', compact('account'));
+    }
+
+    public function saveEditAccount(Request $req)
+    {
+        dd($req);
     }
 }
