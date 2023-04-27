@@ -147,3 +147,11 @@ Route::get('/show-message', [ManagerController::class, 'showMessages'])->middlew
 
 //delete message
 Route::get('/delete-message/{id}', [EnquiryController::class, 'deleteMessage'])->middleware('auth')->name('deleteMessage');
+
+//show accounts
+Route::get('/show-accounts/{type}', [ManagerController::class, 'showAccounts'])->middleware('auth')->name('showAccounts');
+
+//add account
+Route::get('/add-account', [ManagerController::class, 'addAccount'])->middleware('auth')->name('add-account');
+
+Route::post('/add-account', [ManagerController::class, 'saveNewAccount'])->middleware('auth')->name('save-new-account');

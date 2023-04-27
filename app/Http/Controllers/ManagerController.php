@@ -9,9 +9,11 @@ use App\Models\Enquiry;
 use App\Models\Img;
 use App\Models\Items;
 use App\Models\Reservations;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class ManagerController extends Controller
@@ -272,6 +274,9 @@ class ManagerController extends Controller
 
     public function editCategory($id)
     {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
         $category = Categories::find($id);
         return view('frontend.adminPanel.manager.edit-categories', compact('category'));
     }
@@ -289,6 +294,9 @@ class ManagerController extends Controller
 
     public function deleteCategory(Request $req)
     {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
         $category = Categories::find($req->id);
         $category->delete();
         return redirect()->route('showCategories');
@@ -317,5 +325,33 @@ class ManagerController extends Controller
         }
         $messages = Enquiry::all();
         return view('frontend.adminPanel.manager.messages', compact('messages'));
+    }
+
+    public function showAccounts($type)
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        $accounts = User::where('type', '=', $type)->get();
+
+        return view('frontend.adminPanel.manager.accounts', compact('accounts', 'type'));
+    }
+
+    public function addAccount()
+    {
+        if (!Gate::allows('authorizeDashboard', 'admin')) {
+            return back();
+        }
+        return view('frontend.adminPanel.manager.add-account');
+    }
+
+    public function saveNewAccount(Request $req)
+    {
+        $req->validate([
+            'email' => 'required',
+            'type' => 'required',
+            'password' => 'required',
+        ]);
+        dd($req->type);
     }
 }

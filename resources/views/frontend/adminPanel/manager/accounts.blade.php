@@ -58,35 +58,42 @@ a:hover{
         <div class="sidebar " style="width:20%;">
             <ul class="nav flex-column ">
                 <li class="nav-item"><a href="#" class="nav-link "> <i class="fas  fa-gauge"></i> <span class="title"> Dashboard</span> </a></li>
-                <li class="nav-item"><a href="{{route('showCategories')}}" class="nav-link active"> <i class="fa-solid fa-sitemap"></i><span class="title"> Categories</span></a></li>
+                <li class="nav-item"><a href="{{route('showCategories')}}" class="nav-link"> <i class="fa-solid fa-sitemap"></i><span class="title"> Categories</span></a></li>
                 <li class="nav-item"><a href="{{route('showItems')}}" class="nav-link"><i class="fas fa-burger"></i><span class="title"> Dish</span></a></li>
                 <li class="nav-item"><a href="{{route('showEmployees')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-gauge"></i><span class="title"> Employees</span></a></li>
-                <li class="nav-item"><a href="{{route('showReservations')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-chair"></i><span class="title"> Reservations</span></a></li>
+                <li class="nav-item"><a href="{{route("showReservations")}}" class="nav-link"> <i class="fa-sharp fa-solid fa-chair"></i><span class="title"> Reservations</span></a></li>
                 <li class="nav-item"><a href="{{route('showMessages')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-message"></i><span class="title">Messages</span></a></li>
-                <li class="nav-item"><a href="{{route('showAccounts','waiter')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-user"></i><span class="title">Manage Accounts</span></a></li>    
+                <li class="nav-item"><a href="{{route('showAccounts','waiter')}}" class="nav-link active"> <i class="fa-sharp fa-solid fa-user"></i><span class="title">Manage Accounts</span></a></li>
+
+                
            </ul>
         </div>
         <div class="content">
-             
-            <form class="addCatForm p-3 mb-4 " action="{{route('saveEditCategory')}}" method="POST"  style="width:50%;">
-                @csrf
-                <div class="form-group row p-1">
-                    <input type="hidden" value="{{$category->id}}" name="id">
-                    <label for="name" class="col-sm-2 pt-1"> Name </label>
-                    <div class="col-sm-10">
-                        <input type="text" name="name" class="form-control" value="{{$category->cat_name}}" >
+            <a href="{{route('add-account')}}" class="btn btn-primary"> Add Account</a>
+            <div class="head text-center mb-2   ">
+                <a href="{{route('showAccounts','waiter')}}" class="btn  @if($type == "waiter") btn-primary @endif">Waiter</a>
+                <a href="{{route('showAccounts','cashier')}}" class="btn @if($type == "cashier") btn-primary @endif ">Cashier</a>
+            </div>                  
+            
+            @foreach($accounts as $account)
+            <div class="card w-100 m-3" style="height:100px;overflow:auto;">
+                <div class="card-body d-flex justify-content-between">
+
+                    <div class="info">
+                        Email:<h5> {{$account->email}}</h5>
+                    </div>
+                    <div class="actions mt-3">
+                   
+                        <a href="" class="btn btn-danger"> Delete</a>
+
                     </div>
                 </div>
-               
-                <form-group class="row p-1">
-                    <button type="submit" class="btn btn-primary">Confirm </button>
-        
-                </form-group>
-                
-            </form>    
+            </div>
+
+            @endforeach
         </div>
        
     </div>
 
-    
+
 @endsection
