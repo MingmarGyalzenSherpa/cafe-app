@@ -90,17 +90,15 @@
               
 
               <h2 style="text-align: center;">ITEMS</h2>
-                <div class="tab-pane fade active p-4 pe-1 m-4 show d-flex flex-wrap justify-content-space-between">
-                  
-
-
-                        
+                <div class="tab-pane fade active p-4 pe-1 m-4 show d-flex flex-row flex-wrap justify-content-space-between">
 
                   {{-- using for loop to access the item and images as they share same index --}}
-                  
                   @for ($i = 0; $i < $count; $i++) 
                     <div class="card ms-1 me-1" style="width: 18rem; ">
-                        <img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="card-img-top" alt="...">
+                      <div class="img-container" style="width:100%;height:200px;object-fit:cover;">
+                        <img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="card-img-top" alt="..." style="width:100%;height:100%;object-fit: cover;">
+
+                      </div>
                         <div class="card-body">
                           <h5 class="card-title text-center text-uppercase mb-4">{{$items[$i]->name}}</h5>
                           
@@ -113,7 +111,7 @@
                           </form>
                         </div>
                       </div>
-                    </div>
+                    
                    
                       <!-- <div class="menu-item m-3 p-4 border border-primary rounded" style="width:250px;">
                     <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox"><img src="@if($images[$i]) {{asset('storage/'.$images[$i]->img_path)}}@endif" class="menu-img img-fluid" alt=""></a>
@@ -125,7 +123,8 @@
                   </div>-->
                   @endfor
                 </div>
-              </div>
+
+              
               
           @if($hasOrders)
               <a href="{{route('confirmOrder',$tableID)}}" data-modal-target="#modal-order" class="btn-orders">CONFIRM ORDER</a>

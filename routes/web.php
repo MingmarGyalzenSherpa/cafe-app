@@ -77,7 +77,7 @@ Route::get('/bill/decrease-qty/{id}', [CashierController::class, 'decreaseQty'])
 
 
 //Manager Dashboard
-Route::get('/manager-dashboard', [ManagerController::class, 'create'])->middleware('auth')->name('managerDashboard');
+Route::get('/manager-dashboard/{type?}', [ManagerController::class, 'create'])->middleware('auth')->name('managerDashboard');
 
 //categories list
 Route::get('/categories', [ManagerController::class, 'showCategories'])->middleware('auth')->name('showCategories');
@@ -158,3 +158,5 @@ Route::get('/show-accounts/{type}', [ManagerController::class, 'showAccounts'])-
 Route::get('/add-account', [ManagerController::class, 'addAccount'])->middleware('auth')->name('add-account');
 
 Route::post('/add-account', [ManagerController::class, 'saveNewAccount'])->middleware('auth')->name('save-new-account');
+
+Route::get('/delete-account/{id}', [ManagerController::class, 'deleteAccount'])->middleware('auth')->name('deleteAccount');
