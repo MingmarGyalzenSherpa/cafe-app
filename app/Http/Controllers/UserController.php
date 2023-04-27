@@ -20,6 +20,12 @@ class UserController extends Controller
         return view('authentication.login');
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return view('authentication.login');
+    }
+
     public function authorizeDashboard($user, $dashboard) //function to authorize user for accessing dashboards
     {
         // switch ($dashboard) {
@@ -38,7 +44,8 @@ class UserController extends Controller
         // }
         return true;
     }
-    public function menu($catID = null){
+    public function menu($catID = null)
+    {
         $categories = Categories::all()->whereNull('deleted_at');
         if (!$catID) {
             $activeID = $categories[0]->id;
@@ -46,9 +53,9 @@ class UserController extends Controller
             $activeID = $catID;
         }
 
+
         // dd($categories);
-        $items = DB::table('items')->join('imgs', 'items.id', '=', 'imgs.items_id')->whereNull('items.deleted_at')->get();
-        // dd($items);
+        $items = DB::table('items')->join('imgs', 'items.id', '=', 'imgs.items_id')->whereNull('items.deleted_at')->where('categories_id', '=', $activeID)->get();
         return view('frontend.layouts.categories', compact('categories', 'items', 'activeID'));
     }
 

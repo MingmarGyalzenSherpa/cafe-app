@@ -26,12 +26,7 @@
                           <input type="number" class="form-control change" id="inputAmount" name="change" placeholder="Amount" disabled>
                         </div>
                       </div>
-                    <div class="form-check pt-3">
-                        <input class="form-check-input" type="checkbox" value="print" id="printBill" name="print">
-                        <label class="form-check-label" for="printBill">
-                          Print Bill
-                        </label>
-                    </div>
+                    
                         <div class="form-group row mt-3 p-2">
                             <button class="btn btn-primary p-3 ">Confirm </button>
 

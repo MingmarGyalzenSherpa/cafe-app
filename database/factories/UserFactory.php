@@ -23,6 +23,7 @@ class UserFactory extends Factory
             'email' => fake()->email(),
             'type' => 'admin',
             'password' => Hash::make('1234'),
+            'remember_token' => null,
         ];
     }
 }

@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
+    
+
+    'aliases' => [
+
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -185,7 +191,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Application Service Providers...
          */

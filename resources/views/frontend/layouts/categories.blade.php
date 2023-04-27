@@ -9,17 +9,37 @@
           <p>Check Our <span>Yummy Menu</span></p>
         </div>
 
-        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+        <ul class="nav nav-tabs d-flex justify-content-center" >
 
           @foreach($categories as $category)
 
           <li class="nav-item">
-            <a class="nav-link @if($activeID == $category->id)  active @endif  show" data-bs-toggle="tab" data-bs-target="#menu-{{$category->cat_name}}">
+            <a href="{{route('menu',$category->id)}}" class="nav-link @if($activeID == $category->id)  active @endif  ">
               <h4>{{$category->cat_name}}</h4>
             </a>
           </li>
 
           @endforeach
+        </ul>
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          @foreach($items as $item)
+
+          <div class="menu-item">
+          
+            <a href="{{asset('import/assets/img/menu/menu-item-1.png')}}" class="glightbox">
+              <div class="img-wrapper" style="width:400px;height:400px;">
+                <img src="{{asset('storage/'.$item->img_path)}}" class="menu-img img-fluid" alt="" style="width:100%;height:100%;object-fit:cover;"></a>
+
+              </div>
+            <h4>{{$item->name}}</h4>
+          
+            <p class="price">
+              Rs.{{$item->price}}
+            </p>
+          </div>
+
+          @endforeach
+        </div>
           {{-- <li class="nav-item">
             <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
               <h4>Starters</h4>
