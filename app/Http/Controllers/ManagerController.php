@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Carbon;
 use App\Models\Categories;
 use App\Models\Employee;
 use App\Models\EmployeeContacts;
@@ -19,14 +20,48 @@ use Illuminate\Support\Facades\Storage;
 class ManagerController extends Controller
 {
     //
-    public function create()
+    public function create($type = "monthly")
     {
 
         if (!Gate::allows('authorizeDashboard', 'admin')) {
             return back();
         }
 
-        return view('frontend.adminPanel.manager.dashboard');
+        if ($type == "monthly") {
+            $dateYear = date('Y');
+            $dateMonth = date('m');
+            $orders = DB::table('orders')->whereYear('created_at', '=', $dateYear)->whereMonth('created_at', '=', $dateMonth)->get();
+        } else {
+            $date = date('Y');
+            $orders = DB::table('orders')->whereYear('created_at', '=', $date)->get();
+        }
+        $items = Items::all();
+        $salePerItem = [];
+        foreach ($items as $item) {
+            $salePerItem[$item->id] = 0;
+        }
+
+        $income = 0;
+        $sales = 0;
+        foreach ($orders as $order) {
+
+            $salePerItem[$order->item_id] += $order->quantity;
+
+            $income += $order->total;
+            $sales += $order->quantity;
+        }
+        $mostItemSold = ["item" => 0, "sold" => 0];
+        foreach ($salePerItem as $item => $quantity) {
+            if ($quantity > $mostItemSold["sold"]) {
+                $mostItemSold["item"] = $item;
+                $mostItemSold["sold"] = $quantity;
+            }
+        }
+        $mostItemSold["item"] = DB::table('items')->where('id', '=', $mostItemSold["item"])->first()->name;
+
+
+        // dd($type);
+        return view('frontend.adminPanel.manager.dashboard', compact('income', 'sales', 'mostItemSold', 'type'));
     }
 
     public function showItems(Request $req)

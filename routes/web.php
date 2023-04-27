@@ -74,7 +74,7 @@ Route::get('/bill/decrease-qty/{id}', [CashierController::class, 'decreaseQty'])
 
 
 //Manager Dashboard
-Route::get('/manager-dashboard', [ManagerController::class, 'create'])->middleware('auth')->name('managerDashboard');
+Route::get('/manager-dashboard/{type?}', [ManagerController::class, 'create'])->middleware('auth')->name('managerDashboard');
 
 //categories list
 Route::get('/categories', [ManagerController::class, 'showCategories'])->middleware('auth')->name('showCategories');

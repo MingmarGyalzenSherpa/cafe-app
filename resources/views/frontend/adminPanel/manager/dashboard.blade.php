@@ -57,7 +57,7 @@ a:hover{
 
         <div class="sidebar " style="width:20%;">
             <ul class="nav flex-column ">
-                <li class="nav-item"><a href="#" class="nav-link active"> <i class="fas  fa-gauge"></i> <span class="title"> Dashboard</span> </a></li>
+                <li class="nav-item"><a href="{{route('managerDashboard')}}" class="nav-link active "> <i class="fas  fa-gauge"></i> <span class="title"> Dashboard</span> </a></li>
                 <li class="nav-item"><a href="{{route('showCategories')}}" class="nav-link"> <i class="fa-solid fa-sitemap"></i><span class="title"> Categories</span></a></li>
                 <li class="nav-item"><a href="{{route('showItems')}}" class="nav-link"><i class="fas fa-burger"></i><span class="title"> Dish</span></a></li>
                 <li class="nav-item"><a href="{{route('showEmployees')}}" class="nav-link"> <i class="fa-sharp fa-solid fa-gauge"></i><span class="title"> Employees</span></a></li>
@@ -69,37 +69,40 @@ a:hover{
            </ul>
         </div>
         <div class="content">
-            
+             <div class="head text-center mb-3">
+                <a href="{{route('managerDashboard')}}" class="btn  @if($type == "monthly") btn-primary @endif">Monthly</a>
+                <a href="{{route('managerDashboard',"yearly")}}" class="btn  @if($type == "yearly") btn-primary @endif">Yearly</a>
+            </div>
+            <div class="stats-month/year" >
+                
+                <div class="stats d-flex gap-5" style="height:200px;">
+                    <div class="stat card col-3 p-3" style="background-color:#C9A7EB;">
+                        <div class=" d-flex flex-column align-items-center">
+                            <div class="card-title" style="font-size:20px;font-weight:600;">SALES</div>
+                            <div class="amount" style="color:white;text-align:center;font-size:60px;">
+                                {{$sales}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat card col-3 p-3 d-flex flex-column align-items-center"  style = "background-color:#7ccc6a;"">
+                        <div class="card-title" style="font-size:20px;font-weight:600;">INCOME</div>
+                        <div class="amount" style="color:white;text-align:center;font-size:60px;">
+                            Rs.{{$income}}
+                        </div>
+                    </div>
+                    <div class="stat card col-3 p-3 d-flex flex-column align-items-center"  style = "background-color:#7ccc6a;min-width:500px;">
+                        <div class="card-title" style="font-size:20px;font-weight:600;">Most Item Sold</div>
+                        <div class="amount" style="color:white;text-align:center;font-size:60px;">
+                            {{$mostItemSold["item"]}}
+                        </div> 
+                    </div>
+                </div>
+                   
+            </div>
         </div>
        
     </div>
 
-    {{-- <div class="container" style="margin-top:90px;">
-        <h1>Items</h1>
-        <form action="{{route('addItem')}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <label for="name">Item Name:</label>
-                <input type="text" name="name" >
-                <br>
-                <br>
-            <label for="category">Category</label>
-            <select name="categories_id" id="">
-                <option value="1">food</option>
-                <option value="2">foods</option>
-                <option value="3">fooed</option>
-            </select>
-            <br>
-            <br>
-            <label for="image">Image:</label>
-            <input type="file" name="img">
-            <br>
-            <br>
-            <label for="price">price:</label>
-            <input type="text" name="price">
-            <br>
-            <button type="submit">Add Item</button>
-        </form>    
-        
-        
-    </div> --}}
+    
 @endsection
