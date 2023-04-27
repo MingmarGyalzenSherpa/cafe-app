@@ -26,6 +26,9 @@ use Illuminate\Database\Capsule\Manager;
 |
 */
 
+Route::get('/menu', [UserController::class, 'menu'])->name('menu');
+
+
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 

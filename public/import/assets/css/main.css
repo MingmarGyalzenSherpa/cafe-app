@@ -1211,6 +1211,7 @@ section {
 --------------------------------------------------------------*/
 .book-a-table .reservation-img {
   min-height: 500px;
+  background-image:url("public/import/assets/reservation.jpg") ;
   background-size: cover;
   background-position: center;
 }

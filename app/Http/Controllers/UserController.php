@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Categories;
+
 
 
 
@@ -35,6 +37,19 @@ class UserController extends Controller
         //         break;
         // }
         return true;
+    }
+    public function menu($catID = null){
+        $categories = Categories::all()->whereNull('deleted_at');
+        if (!$catID) {
+            $activeID = $categories[0]->id;
+        } else {
+            $activeID = $catID;
+        }
+
+        // dd($categories);
+        $items = DB::table('items')->join('imgs', 'items.id', '=', 'imgs.items_id')->whereNull('items.deleted_at')->get();
+        // dd($items);
+        return view('frontend.layouts.categories', compact('categories', 'items', 'activeID'));
     }
 
     public function submitLogin(Request $req)
