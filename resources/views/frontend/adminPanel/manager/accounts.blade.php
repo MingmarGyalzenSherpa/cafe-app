@@ -69,6 +69,7 @@ a:hover{
            </ul>
         </div>
         <div class="content">
+            <a href="{{route('add-account')}}" class="btn btn-primary"> Add Account</a>
             <div class="head text-center mb-2   ">
                 <a href="{{route('showAccounts','waiter')}}" class="btn  @if($type == "waiter") btn-primary @endif">Waiter</a>
                 <a href="{{route('showAccounts','cashier')}}" class="btn @if($type == "cashier") btn-primary @endif ">Cashier</a>
@@ -82,7 +83,7 @@ a:hover{
                         Email:<h5> {{$account->email}}</h5>
                     </div>
                     <div class="actions mt-3">
-                        <a href="{{route('edit-account',$account->id)}}" class="btn btn-primary"> Edit</a>
+                   
                         <a href="" class="btn btn-danger"> Delete</a>
 
                     </div>

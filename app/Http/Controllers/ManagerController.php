@@ -337,19 +337,21 @@ class ManagerController extends Controller
         return view('frontend.adminPanel.manager.accounts', compact('accounts', 'type'));
     }
 
-    public function editAccount($id)
+    public function addAccount()
     {
         if (!Gate::allows('authorizeDashboard', 'admin')) {
             return back();
         }
-        $account = User::find($id);
-
-
-        return view('frontend.adminPanel.manager.edit-account', compact('account'));
+        return view('frontend.adminPanel.manager.add-account');
     }
 
-    public function saveEditAccount(Request $req)
+    public function saveNewAccount(Request $req)
     {
-        dd($req);
+        $req->validate([
+            'email' => 'required',
+            'type' => 'required',
+            'password' => 'required',
+        ]);
+        dd($req->type);
     }
 }

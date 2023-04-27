@@ -151,8 +151,7 @@ Route::get('/delete-message/{id}', [EnquiryController::class, 'deleteMessage'])-
 //show accounts
 Route::get('/show-accounts/{type}', [ManagerController::class, 'showAccounts'])->middleware('auth')->name('showAccounts');
 
-//edit account
-Route::get('/edit-account/{id}', [ManagerController::class, 'editAccount'])->middleware('auth')->name('edit-account');
+//add account
+Route::get('/add-account', [ManagerController::class, 'addAccount'])->middleware('auth')->name('add-account');
 
-//save edit account
-Route::post('/save-edit-account', [ManagerController::class, 'saveEditAccount'])->middleware('auth')->name('saveEditAccount');
+Route::post('/add-account', [ManagerController::class, 'saveNewAccount'])->middleware('auth')->name('save-new-account');

@@ -69,20 +69,31 @@ a:hover{
            </ul>
         </div>
         <div class="content">
-            <h4 class="text-center mb-3">EDIT ACCOUNT</h4>
-            <form action="{{route('saveEditAccount')}}" method="POST" class="w-50" style="margin:0 auto;">
+            <h4 class="text-center mb-3">ADD ACCOUNT</h4>
+            <form action="{{route('save-new-account')}}" method="POST" class="w-50" style="margin:0 auto;">
                 @csrf
                 
                 <div class="row">
                     
                     <div class="mb-3 ">
                         <label for="first_name" class="form-label">Email</label>
-                        <input type="text" @error('first_name') placeholder="{{$message}}" @enderror name="first_name" class="form-control" id="first_name" aria-describedby="emailHelp">
+                        <input name="email" type="text" @error('first_name') placeholder="{{$message}}" @enderror name="first_name" class="form-control" id="first_name" aria-describedby="emailHelp">
                   
                     </div>
                    
                    
                 
+                </div>
+                <div class="row">
+                    <div class="mb-3">
+                        <label for="Type">Type:</label>
+                        <select class="form-select" name="type">
+                            <option value="cashier" selected>    Cashier </option>
+                            <option value="waiter"> Waiter</option>
+
+                        </select>
+                    </div>
+                    
                 </div>
                 <div class="row">
                     <div class="mb-3 ">
@@ -110,7 +121,10 @@ a:hover{
         const password = document.querySelector('.pw');
         const confirmPassword = document.querySelector('.con-pw');
 
-        editBtn.disabled = true;
+   
+
+            editBtn.disabled = true;
+
         confirmPassword.addEventListener('keyup',(e)=>{
             console.log(confirmPassword.value);
             console.log(password.value);
