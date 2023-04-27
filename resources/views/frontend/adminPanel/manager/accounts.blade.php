@@ -84,7 +84,7 @@ a:hover{
                     </div>
                     <div class="actions mt-3">
                    
-                        <a href="" class="btn btn-danger"> Delete</a>
+                        <a href="{{route('deleteAccount',$account->id)}}" class="btn btn-danger"> Delete</a>
 
                     </div>
                 </div>

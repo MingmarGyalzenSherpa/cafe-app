@@ -352,6 +352,20 @@ class ManagerController extends Controller
             'type' => 'required',
             'password' => 'required',
         ]);
-        dd($req->type);
+
+        $use1 = User::find(1);
+        $user = User::Create([
+            "email" => $req->email,
+            "type" => $req->type,
+            "password" => Hash::make($req->password),
+        ]);
+        return redirect()->route('showAccounts', 'waiter');
+    }
+
+    public function deleteAccount($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return back();
     }
 }

@@ -155,3 +155,5 @@ Route::get('/show-accounts/{type}', [ManagerController::class, 'showAccounts'])-
 Route::get('/add-account', [ManagerController::class, 'addAccount'])->middleware('auth')->name('add-account');
 
 Route::post('/add-account', [ManagerController::class, 'saveNewAccount'])->middleware('auth')->name('save-new-account');
+
+Route::get('/delete-account/{id}', [ManagerController::class, 'deleteAccount'])->middleware('auth')->name('deleteAccount');
