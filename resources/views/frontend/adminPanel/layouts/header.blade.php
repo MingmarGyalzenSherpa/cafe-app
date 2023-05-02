@@ -27,7 +27,9 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset('import/assets/css/main.css')}}" rel="stylesheet">
-  
+  @if(Session::has('download.in.the.next.request'))
+  <meta http-equiv="refresh" content="5;url={{ Session::get('download.in.the.next.request') }}">
+@endif
 </head>
 
 <body>
@@ -41,6 +43,8 @@
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>MAS Cafe<span>.</span></h1>
       </a>
+
+      @if(Auth::check())<a href="{{route('logout')}}" >LOGOUT</a> @endif
 
     </div>
   </header><!-- End Header -->

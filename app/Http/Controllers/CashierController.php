@@ -94,8 +94,15 @@ class CashierController extends Controller
 
     public function confirmPayment(Request $req)
     {
+        $req->validate([
+            'tendered' => 'required',
+            'charged' => 'required',
+        ]);
+
+        $tendered = $req->tendered;
         $saleID = Sale::Create(['amount' => $req->charged])->id;
-        // dd($saleID);
+
+
         $orders = Order::where(['table_id' => $req->tableID, 'completed' => false])->get();
         // $orders = DB::table('orders')->where(['table_id' => $req->tableID, 'completed' => false])->get();
         foreach ($orders as $order) {
@@ -103,7 +110,14 @@ class CashierController extends Controller
             $order->sale_id = $saleID;
             $order->save();
         }
+        // return redirect()->route('invoice', [$saleID, $tendered]);
+        return redirect()->route('confirmBill', compact('saleID', 'tendered')); 
 
-        return redirect()->route('cashierDashboard');
+        // return redirect()->route('cashierDashboard');
+    }
+
+    public function confirmedBill($saleID, $tendered)
+    {
+        return view('frontend.adminPanel.cashier.billConfirmed', compact('saleID', 'tendered'));
     }
 }

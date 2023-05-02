@@ -10,6 +10,7 @@ use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PendingOrderController;
 use App\Http\Controllers\ReservationsController;
+use App\Http\Controllers\InvoiceController;
 use App\Models\Enquiry;
 use App\Models\PendingOrder;
 use App\Models\Reservations;
@@ -26,9 +27,9 @@ use Illuminate\Database\Capsule\Manager;
 |
 */
 
-Route::get('/menu', [UserController::class, 'menu'])->name('menu');
+Route::get('/menu/{catID?}', [UserController::class, 'menu'])->name('menu');
 
-
+Route::get('/logout', [UserController::class, 'logout'])->middleware('auth')->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
@@ -70,6 +71,8 @@ Route::get('/bill-payment/{id}/{total}', [CashierController::class, 'billPayment
 //confirm payment
 Route::post('/confirm-payment', [CashierController::class, 'confirmPayment'])->middleware('auth')->name('confirmPayment');
 
+//invoice after payment 
+Route::get('/confirmed-bill/{saleID}/{tendered}', [CashierController::class, 'confirmedBill'])->middleware('auth')->name('confirmBill');
 
 //incre/decre in quantity in bill 
 Route::get('/bill/increase-qty/{id}', [CashierController::class, 'increaseQty'])->middleware('auth')->name('increaseQty');
@@ -160,3 +163,6 @@ Route::get('/add-account', [ManagerController::class, 'addAccount'])->middleware
 Route::post('/add-account', [ManagerController::class, 'saveNewAccount'])->middleware('auth')->name('save-new-account');
 
 Route::get('/delete-account/{id}', [ManagerController::class, 'deleteAccount'])->middleware('auth')->name('deleteAccount');
+
+//invoice
+Route::get('invoice/{saleID}/{tendered}', [InvoiceController::class, 'Invoice'])->middleware('auth')->name('invoice');
