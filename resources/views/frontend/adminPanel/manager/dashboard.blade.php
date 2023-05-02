@@ -93,7 +93,7 @@ a:hover{
                     </div>
                     <div class="stat card col-3 p-3 d-flex flex-column align-items-center"  style = "background-color:#7ccc6a;min-width:500px;">
                         <div class="card-title" style="font-size:20px;font-weight:600;">Most Item Sold</div>
-                        <div class="amount" style="color:white;text-align:center;font-size:60px;">
+                        <div class="amount" style="color:white;text-align:center;font-size:30px;">
                             {{$mostItemSold["item"]}}
                         </div> 
                     </div>

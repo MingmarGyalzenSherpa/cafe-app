@@ -22,6 +22,9 @@ class OrderController extends Controller
 
     public function createOrderTable()
     {
+        if (!Gate::allows('authorizeDashboard', 'waiter')) {
+            return back();
+        }
         $tables = Table::all();
         return view('frontend.adminPanel.order.orderTableDashboard', compact('tables'));
     }
